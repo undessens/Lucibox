@@ -1,0 +1,85 @@
+#N canvas 583 259 635 520 10;
+#X obj 101 101 cnv 15 138 98 empty empty empty 20 12 0 14 -33289 -128992
+0;
+#X obj 103 103 cnv 15 133 93 empty empty MICRO 45 12 0 14 -262144 -33289
+0;
+#N canvas 447 412 1038 529 open 0;
+#X text 462 314 label-color;
+#X text 477 339 label-color;
+#X obj 377 311 t b f;
+#X msg 400 277 2;
+#X obj 551 220 loadbang;
+#X obj 104 101 hradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 104 166 bang;
+#X msg 363 277 43;
+#X obj 101 101 cnv 15 38 15 empty \$0_opencnv open 6 8 0 10 -66577
+-262144 0;
+#X msg 536 421 \; \$4_opencnv color \$1 \$2 \$3;
+#X obj 363 197 bang;
+#X obj 535 388 pack 43 0 0 \$0;
+#X obj 380 239 delay 200;
+#X obj 102 208 s \$1_\$2_loop_open;
+#X connect 2 1 11 0;
+#X connect 3 0 2 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 6 0 10 0;
+#X connect 6 0 13 0;
+#X connect 7 0 2 0;
+#X connect 10 0 7 0;
+#X connect 10 0 12 0;
+#X connect 11 0 9 0;
+#X connect 12 0 3 0;
+#X coords 0 -1 1 1 40 17 2 100 100;
+#X restore 207 255 pd open;
+#N canvas 527 215 1038 529 del 0;
+#X text 462 314 label-color;
+#X text 477 339 label-color;
+#X obj 377 311 t b f;
+#X msg 400 277 2;
+#X obj 551 220 loadbang;
+#X obj 116 101 hradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
+-1 -258113 0;
+#X obj 104 166 bang;
+#X msg 363 277 43;
+#X obj 101 101 cnv 15 48 15 empty \$0_delcnv delete 8 8 0 8 -66577
+-258699 0;
+#X obj 363 197 bang;
+#X obj 380 239 delay 200;
+#X msg 536 421 \; \$4_delcnv color \$1 \$2 \$3;
+#X obj 535 388 pack 43 0 43 \$0;
+#X msg 104 209 0;
+#X obj 13 241 extra/sv \$1_\$2_is_loop_recorded;
+#X connect 2 1 12 0;
+#X connect 3 0 2 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 6 0 9 0;
+#X connect 6 0 13 0;
+#X connect 7 0 2 0;
+#X connect 9 0 7 0;
+#X connect 9 0 10 0;
+#X connect 10 0 3 0;
+#X connect 12 0 11 0;
+#X connect 13 0 14 1;
+#X coords 0 -1 1 1 50 17 2 100 100;
+#X restore 270 258 pd del;
+#X floatatom 132 180 5 0 0 0 - - -, f 5;
+#X obj 6 216 s mic_volume_fromUI;
+#X obj 218 112 vu 15 80 empty empty -1 -8 0 10 -66577 -1 0 0;
+#X obj 107 113 vu 15 80 empty empty -1 -8 0 10 -66577 -1 0 0;
+#X obj 166 29 r mic_prevumetre;
+#X obj 94 344 s mic_volume_fromUI;
+#X obj 126 220 s mic_threshold_fromUI;
+#X obj 195 112 vsl 20 80 0 127 0 0 empty empty empty 0 -9 0 10 -58255
+-262144 -1 900 1;
+#X obj 305 215 extra/sv mic_volume;
+#X obj 125 113 extra/saturate;
+#X obj 325 47 r mic_volume_vumetre;
+#X connect 4 0 10 0;
+#X connect 8 0 7 0;
+#X connect 8 0 13 0;
+#X connect 11 0 12 1;
+#X connect 14 0 6 0;
+#X coords 0 -1 1 1 140 100 2 100 100;

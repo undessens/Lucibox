@@ -1,0 +1,29 @@
+#N canvas 562 225 549 460 10;
+#X floatatom 400 292 5 0 0 0 - - -, f 5;
+#X msg 83 160 12;
+#X msg 422 206 23;
+#X obj 457 206 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 41 258 sv monTruc;
+#X obj 105 220 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 400 246 sv monTruc;
+#X floatatom 40 324 5 0 0 0 - - -, f 5;
+#X msg 41 103 65;
+#X text 92 101 1 Store a share into memory;
+#X text 127 163 2 Store and get the value output to ALL the sv having
+the same name;
+#X text 130 219 3 Output the value;
+#X text 48 35 SV as "share viariables" \, is abstraction from a modified
+Value abstraction ( or v ). It allows you more possibilities than only
+Value;
+#X msg 390 206 73;
+#X text 41 383 Works only with float;
+#X connect 1 0 4 1;
+#X connect 2 0 6 1;
+#X connect 3 0 6 2;
+#X connect 4 0 7 0;
+#X connect 5 0 4 2;
+#X connect 6 0 0 0;
+#X connect 8 0 4 0;
+#X connect 13 0 6 0;

@@ -1,0 +1,128 @@
+#N canvas 552 212 863 508 10;
+#X declare -path ../;
+#X msg -105 126 ports;
+#N canvas 889 33 525 366 makeDeviceList 1;
+#X obj 236 113 symbol;
+#X obj 147 39 inlet;
+#X text 192 37 comport device list;
+#X obj 242 224 t s b;
+#X obj 55 295 pack f s;
+#X msg 54 336 \; serial_name_\$1 label \$2;
+#X obj 202 88 list split 1;
+#N canvas 372 37 450 300 atoi 0;
+#X obj 167 86 inlet;
+#X obj 144 254 outlet;
+#X msg 126 197 0;
+#X obj 127 147 sel 0 1 2 3 4 5 6 7;
+#X msg 156 197 1;
+#X msg 186 197 2;
+#X msg 216 197 3;
+#X msg 246 197 4;
+#X msg 276 197 5;
+#X msg 306 197 6;
+#X msg 336 197 7;
+#X connect 0 0 3 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X connect 3 1 4 0;
+#X connect 3 2 5 0;
+#X connect 3 3 6 0;
+#X connect 3 4 7 0;
+#X connect 3 5 8 0;
+#X connect 3 6 9 0;
+#X connect 3 7 10 0;
+#X connect 4 0 1 0;
+#X connect 5 0 1 0;
+#X connect 6 0 1 0;
+#X connect 7 0 1 0;
+#X connect 8 0 1 0;
+#X connect 9 0 1 0;
+#X connect 10 0 1 0;
+#X restore 130 220 pd atoi;
+#X connect 0 0 3 0;
+#X connect 1 0 6 0;
+#X connect 3 0 4 1;
+#X connect 4 0 5 0;
+#X connect 6 0 7 0;
+#X connect 6 1 0 0;
+#X connect 7 0 4 0;
+#X restore 11 248 pd makeDeviceList;
+#X obj 7 65 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#N canvas 383 321 450 300 erase 0;
+#X msg 53 73 \; serial_name_0 label ---;
+#X msg 53 113 \; serial_name_1 label ---;
+#X msg 53 153 \; serial_name_2 label ---;
+#X msg 53 193 \; serial_name_3 label ---;
+#X msg 223 72 \; serial_name_4 label ---;
+#X msg 223 113 \; serial_name_5 label ---;
+#X msg 223 153 \; serial_name_6 label ---;
+#X msg 223 193 \; serial_name_7 label ---;
+#X obj 204 28 bang;
+#X obj 206 2 inlet;
+#X connect 8 0 0 0;
+#X connect 8 0 1 0;
+#X connect 8 0 2 0;
+#X connect 8 0 3 0;
+#X connect 8 0 4 0;
+#X connect 8 0 5 0;
+#X connect 8 0 6 0;
+#X connect 8 0 7 0;
+#X connect 9 0 8 0;
+#X restore 60 70 pd erase;
+#X obj 7 9 t b b;
+#X obj 8 -27 loadbang;
+#X obj -144 49 r open_port;
+#X msg -126 86 open \$1;
+#X obj 101 -15 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -23 205 route ports open;
+#X obj -194 306 s arduinoOUT;
+#X msg -200 83 \$1 \$2 13;
+#X obj -220 49 r arduinoIN;
+#X obj 100 100 cnv 15 530 350 empty empty PORT:SERIAL 100 12 0 22 -75163
+-262144 0;
+#X obj 300 137 vradio 35 1 0 8 open_port empty empty 0 -8 0 10 -228856
+-258113 -1 1;
+#X obj 337 139 cnv 15 270 23 empty serial_name_0 /dev/tty.Bluetooth-Incoming-Port
+0 12 0 14 -228856 -66577 0;
+#X obj 337 179 cnv 15 270 23 empty serial_name_1 --- 0 12 0 14 -233017
+-66577 0;
+#X obj 337 215 cnv 15 270 23 empty serial_name_2 --- 0 12 0 14 -233017
+-66577 0;
+#X obj 337 249 cnv 15 270 23 empty serial_name_3 --- 0 12 0 14 -233017
+-66577 0;
+#X obj 337 284 cnv 15 270 23 empty serial_name_4 --- 0 12 0 14 -233017
+-66577 0;
+#X obj 337 319 cnv 15 270 23 empty serial_name_5 --- 0 12 0 14 -233017
+-66577 0;
+#X obj 337 355 cnv 15 270 23 empty serial_name_6 --- 0 12 0 14 -233017
+-66577 0;
+#X obj 337 389 cnv 15 270 23 empty serial_name_7 --- 0 12 0 14 -233017
+-66577 0;
+#X obj 123 197 cnv 15 150 200 empty empty Message 20 12 0 14 -233017
+-66577 0;
+#X obj 142 267 bng 100 250 50 0 empty arduinoOUT empty 17 7 0 10 -228856
+-258113 -1;
+#X obj 301 -14 r open_port;
+#X obj 517 23 declare -path ../;
+#X obj -104 177 externals/comport -1 57600;
+#X obj 301 10 ../extra/save_int arduino_port;
+#X obj -37 250 print;
+#X connect 0 0 27 0;
+#X connect 2 0 0 0;
+#X connect 4 0 2 0;
+#X connect 4 1 3 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 7 0 27 0;
+#X connect 8 0 4 0;
+#X connect 9 0 1 0;
+#X connect 9 0 29 0;
+#X connect 11 0 27 0;
+#X connect 12 0 11 0;
+#X connect 25 0 28 0;
+#X connect 27 0 10 0;
+#X connect 27 1 9 0;
+#X connect 28 0 14 0;
+#X coords 0 -1 1 1 530 350 2 100 100;

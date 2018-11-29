@@ -1,0 +1,144 @@
+#N canvas 428 122 920 617 10;
+#X obj 55 235 cnv 15 98 78 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 68 -363 inlet;
+#X obj 273 -358 inlet;
+#X obj 333 -358 inlet;
+#X obj -88 112 r \$1_\$2_readloop_slider_ui;
+#X obj -84 190 s \$1_\$2_click_fromUI;
+#X obj -25 -66 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 147 60 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 194 60 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 132 -157 r \$1_\$2_readloop_play_ui;
+#X obj 149 -7 sel 1;
+#X obj -25 -158 r \$1_\$2_readloop_wait_ui;
+#X obj 203 291 s \$1_\$2_readloop_volume_fromUI;
+#N canvas 642 255 1038 529 play 0;
+#X text 434 10 label-color;
+#X text 449 35 label-color;
+#X obj 507 84 pack 22 0 0 \$0;
+#X obj 349 7 t b f;
+#X msg 372 -27 2;
+#X obj 331 91 pack 22 0 0 \$0;
+#X msg 328 122 \; \$4_playsquare color \$1 \$2 \$3;
+#X msg 508 117 \; \$4_playcnv color \$1 \$2 \$3;
+#X msg 335 -27 46;
+#X obj 523 -84 loadbang;
+#X obj 100 103 hradio 50 1 0 2 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 101 101 cnv 15 98 58 empty \$0_playcnv PLAY 35 25 0 19 -1 -24198
+0;
+#X obj 107 116 cnv 15 20 20 empty \$0_playsquare empty 6 9 0 14 -24198
+-262144 0;
+#X obj 105 214 bang;
+#X obj 101 260 outlet;
+#X obj 136 -98 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 136 -71 sel 1;
+#X msg 112 -168 bang;
+#X obj 128 -242 inlet;
+#X obj 136 -127 metro 100;
+#X obj 336 -240 inlet;
+#X obj 396 -240 inlet;
+#X obj 335 -199 t b b;
+#X msg 328 -156 stop;
+#X obj 395 -198 t b b;
+#X connect 2 0 7 0;
+#X connect 3 0 2 0;
+#X connect 3 1 2 2;
+#X connect 3 1 5 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 8 0 3 0;
+#X connect 9 0 4 0;
+#X connect 10 0 13 0;
+#X connect 13 0 14 0;
+#X connect 15 0 16 0;
+#X connect 16 0 8 0;
+#X connect 16 1 4 0;
+#X connect 17 0 19 0;
+#X connect 18 0 17 0;
+#X connect 19 0 15 0;
+#X connect 20 0 22 0;
+#X connect 21 0 24 0;
+#X connect 22 0 8 0;
+#X connect 22 1 23 0;
+#X connect 23 0 19 0;
+#X connect 24 0 4 0;
+#X connect 24 1 23 0;
+#X coords 0 -1 1 1 100 60 2 100 100;
+#X restore 101 100 pd play;
+#X obj 104 161 hsl 95 23 0 1 0 0 empty empty empty -2 -8 0 10 -99865
+-4034 -1 5341 1;
+#N canvas 716 201 679 427 volume 0;
+#X floatatom 244 309 5 0 0 0 - - -, f 5;
+#X obj 85 103 vsl 10 71 0 100 0 0 empty empty empty 0 -9 0 10 -170864
+-1 -1 900 0;
+#X msg 247 502 \; \$3_slider vis_size \$2 \$1;
+#X obj 83 101 cnv 8 14 80 empty empty empty 20 12 0 14 -99865 -66577
+0;
+#X obj 84 103 cnv 5 12 76 empty empty empty 20 12 0 14 -1375 -66577
+0;
+#X obj 84 103 cnv 3 12 67 empty \$0_slider empty 20 12 0 14 -170864
+-66577 0;
+#X obj 246 339 / 100;
+#X obj 246 362 * -1;
+#X obj 246 390 + 1;
+#X obj 357 419 * 255;
+#X obj 356 465 outlet;
+#X obj 182 70 inlet;
+#X obj 180 133 / 200;
+#X obj 244 416 * 78;
+#X obj 245 448 pack 0 12 \$0;
+#X connect 0 0 6 0;
+#X connect 1 0 0 0;
+#X connect 6 0 7 0;
+#X connect 6 0 9 0;
+#X connect 7 0 8 0;
+#X connect 8 0 13 0;
+#X connect 9 0 10 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 14 0 2 0;
+#X coords 0 -1 1 1 16 82 2 82 100;
+#X restore 202 102 pd volume;
+#X obj 552 -91 r \$1_\$2_realtempo_toUI;
+#X obj 552 11 makefilename %d;
+#X obj 552 37 symbol \$1;
+#X obj 553 105 pack \$0 s;
+#X obj 552 72 t b s;
+#X msg 553 142 \; \$1_tempocnv label \$2;
+#X obj 106 -81 i 0;
+#X obj -25 -186 r \$1_\$2_readloop_stopwait_ui;
+#X floatatom 487 31 5 0 0 0 - - -, f 5;
+#X obj 165 142 cnv 15 35 15 empty \$0_tempocnv 119 15 6 2 10 -1 -241339
+0;
+#X obj 421 91 print cnvtempo;
+#X obj 573 -28 i 0;
+#X connect 4 0 14 0;
+#X connect 6 0 13 0;
+#X connect 7 0 13 1;
+#X connect 8 0 13 2;
+#X connect 9 0 10 0;
+#X connect 9 0 22 1;
+#X connect 10 0 7 0;
+#X connect 10 1 8 0;
+#X connect 11 0 6 0;
+#X connect 13 0 5 0;
+#X connect 15 0 12 0;
+#X connect 16 0 26 0;
+#X connect 16 0 27 0;
+#X connect 17 0 18 0;
+#X connect 18 0 20 0;
+#X connect 19 0 21 0;
+#X connect 20 0 19 0;
+#X connect 20 1 19 1;
+#X connect 22 0 10 0;
+#X connect 23 0 22 0;
+#X connect 27 0 17 0;
+#X connect 27 0 24 0;
+#X coords 0 -1 1 1 120 85 2 100 100;

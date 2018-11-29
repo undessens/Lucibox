@@ -1,0 +1,29 @@
+#N canvas 356 208 687 490 10;
+#X obj 101 134 cnv 15 139 23 empty empty SELECT 4 7 0 14 -33289 -262144
+0;
+#X obj 101 101 cnv 15 138 30 empty empty SYNTH_VOICE 12 13 0 18 -162280
+-66577 0;
+#X obj 278 282 extra/sv \$1_module_ask_selection;
+#X msg 341 260 1;
+#X obj 340 235 sel 0;
+#X obj 259 384 extra/sv synth_voice_chunk;
+#X obj 431 328 extra/sv synth_voice_panic;
+#X floatatom 310 353 5 0 100 0 - - -, f 5;
+#X obj 101 189 cnv 15 138 23 empty empty PANIC 5 8 0 14 -33289 -262144
+0;
+#X obj 165 135 extra/midiLearn \$1_module_ask_selection;
+#X obj 163 190 extra/midiLearn synth_voice_panic;
+#X obj 101 161 cnv 15 138 23 empty empty SIZE 5 6 0 14 -33289 -262144
+0;
+#X obj 164 161 extra/midiLearn synth_voice_chunksize;
+#X obj 128 400 extra/sv \$1_synth_volume;
+#X obj 101 215 cnv 15 138 23 empty empty VOLUME 5 8 0 14 -33289 -262144
+0;
+#X obj 163 220 extra/midiLearn 4_synth_volume;
+#X connect 3 0 2 1;
+#X connect 4 0 3 0;
+#X connect 7 0 5 1;
+#X connect 9 0 4 0;
+#X connect 12 0 7 0;
+#X connect 15 0 13 1;
+#X coords 0 -1 1 1 140 200 2 100 100;

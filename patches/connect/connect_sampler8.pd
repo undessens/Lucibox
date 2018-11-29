@@ -1,0 +1,64 @@
+#N canvas 183 245 1180 498 10;
+#X obj 102 100 cnv 15 563 40 empty empty SAMPLER8 20 12 0 14 -162280
+-66577 0;
+#X obj 103 150 cnv 15 138 50 empty empty PLAY_1 5 12 0 14 -33289 -262144
+0;
+#X obj 245 151 cnv 15 138 50 empty empty PLAY_2 5 12 0 14 -33289 -262144
+0;
+#X obj 386 151 cnv 15 138 50 empty empty PLAY_3 2 12 0 14 -33289 -262144
+0;
+#X obj 526 151 cnv 15 138 50 empty empty PLAY_4 5 12 0 14 -33289 -262144
+0;
+#X obj 103 203 cnv 15 138 50 empty empty PLAY_5 5 12 0 14 -33289 -262144
+0;
+#X obj 245 204 cnv 15 138 50 empty empty PLAY_6 5 12 0 14 -33289 -262144
+0;
+#X obj 386 204 cnv 15 138 50 empty empty PLAY_7 5 12 0 14 -33289 -262144
+0;
+#X obj 526 204 cnv 15 138 50 empty empty PLAY_8 5 12 0 14 -33289 -262144
+0;
+#X obj -313 202 extra/sv \$1_readsound_1_isplaying;
+#X obj 891 197 extra/sv \$1_readsound_4_isplaying;
+#X obj 669 197 extra/sv \$1_readsound_3_isplaying;
+#X obj -105 203 extra/sv \$1_readsound_2_isplaying;
+#X obj -314 253 extra/sv \$1_readsound_5_isplaying;
+#X obj -107 253 extra/sv \$1_readsound_6_isplaying;
+#X obj 671 241 extra/sv \$1_readsound_7_isplaying;
+#X obj 889 242 extra/sv \$1_readsound_8_isplaying;
+#X obj 768 130 extra/sv \$1_module_ask_selection;
+#X obj 831 83 sel 0;
+#X msg 831 106 1;
+#X obj 202 108 cnv 15 138 23 empty empty SELECT 5 12 0 14 -33289 -262144
+0;
+#X obj 101 260 cnv 15 138 23 empty empty VOLUME 5 12 0 14 -33289 -262144
+0;
+#X obj 383 384 extra/sv \$1_sampler_volume;
+#X obj 661 379 s globalPitch;
+#X obj 245 258 cnv 15 138 23 empty empty PITCH 5 12 0 14 -33289 -262144
+0;
+#X obj 167 153 extra/midiLearn sampler8_play1;
+#X obj 304 154 extra/midiLearn sampler8_play2;
+#X obj 445 155 extra/midiLearn sampler8_play3;
+#X obj 585 155 extra/midiLearn sampler8_play4;
+#X obj 165 205 extra/midiLearn sampler8_play5;
+#X obj 304 207 extra/midiLearn sampler8_play6;
+#X obj 448 207 extra/midiLearn sampler8_play7;
+#X obj 589 208 extra/midiLearn sampler8_play8;
+#X obj 264 110 extra/midiLearn \$1_module_ask_selection;
+#X obj 165 262 extra/midiLearn \$1_sampler_volume;
+#X obj 302 261 extra/midiLearn globalPitch;
+#X obj 86 353 extra/midiLearnn 2_sampler_volume;
+#X connect 18 0 19 0;
+#X connect 19 0 17 1;
+#X connect 25 0 9 1;
+#X connect 26 0 12 1;
+#X connect 27 0 11 1;
+#X connect 28 0 10 1;
+#X connect 29 0 13 1;
+#X connect 30 0 14 1;
+#X connect 31 0 15 1;
+#X connect 32 0 16 1;
+#X connect 33 0 18 0;
+#X connect 34 0 22 1;
+#X connect 35 0 23 0;
+#X coords 0 -1 1 1 565 211 2 101 99;

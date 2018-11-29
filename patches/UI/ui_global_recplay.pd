@@ -1,0 +1,113 @@
+#N canvas 71 206 641 427 10;
+#N canvas 608 166 652 696 bigbutton1 0;
+#X obj 104 105 hradio 90 1 0 1 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 101 101 cnv 15 98 98 empty empty empty 20 12 0 14 -128992 -66577
+0;
+#X obj 105 104 cnv 15 90 90 empty \$0_bigb1_cnv RECORD 4 40 0 22 -1
+-262144 0;
+#X obj 210 283 delay 200;
+#X msg 151 356 17;
+#X msg 222 355 22;
+#X obj 137 240 bang;
+#X obj 189 398 t b f;
+#X obj 160 432 pack \$0 0 0 0;
+#X msg 160 482 \; \$1_bigb1_cnv color \$2 \$3 \$4;
+#X msg 56 318 1;
+#X obj 54 399 outlet;
+#X connect 0 0 6 0;
+#X connect 3 0 5 0;
+#X connect 4 0 7 0;
+#X connect 5 0 7 0;
+#X connect 6 0 3 0;
+#X connect 6 0 4 0;
+#X connect 6 0 10 0;
+#X connect 7 0 8 0;
+#X connect 7 1 8 1;
+#X connect 8 0 9 0;
+#X connect 10 0 11 0;
+#X coords 0 -1 1 1 100 100 2 100 100;
+#X restore 104 105 pd bigbutton1;
+#N canvas 0 23 450 300 bigbutton2 0;
+#X obj 104 103 hradio 45 1 0 2 empty empty empty 0 -8 0 10 -262144
+-1 -1 1;
+#X obj 101 101 cnv 15 98 48 empty empty empty 20 12 0 14 -128992 -66577
+0;
+#X obj 210 283 delay 200;
+#X msg 151 356 17;
+#X msg 222 355 22;
+#X obj 137 240 bang;
+#X obj 189 398 t b f;
+#X obj 160 432 pack \$0 0 0 0;
+#X msg 79 254 1;
+#X obj 68 319 outlet;
+#X msg 160 482 \; \$1_bigb2_cnv color \$2 \$3 \$4;
+#X obj 105 105 cnv 15 90 20 empty \$0_bigb2_cnv PLAY 20 12 0 16 -1
+-262144 0;
+#X obj 105 125 cnv 15 90 20 empty \$0_bigb2_cnv STOP 20 12 0 16 -1
+-262144 0;
+#X connect 0 0 5 0;
+#X connect 0 0 8 0;
+#X connect 2 0 4 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 2 0;
+#X connect 5 0 3 0;
+#X connect 6 0 7 0;
+#X connect 6 1 7 1;
+#X connect 7 0 10 0;
+#X connect 8 0 9 0;
+#X coords 0 -1 1 1 100 50 2 100 100;
+#X restore 235 105 pd bigbutton2;
+#N canvas 0 22 450 300 bigbutton3 0;
+#X obj 111 101 hradio 38 1 0 2 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 101 100 cnv 15 98 40 empty empty empty 20 12 0 14 -128992 -66577
+0;
+#X obj 105 105 cnv 15 90 30 empty \$0_bigb3_cnv EFFACER 10 15 0 16
+-1 -262144 0;
+#X obj 210 283 delay 200;
+#X msg 151 356 17;
+#X msg 222 355 22;
+#X obj 137 240 bang;
+#X obj 189 398 t b f;
+#X obj 160 432 pack \$0 0 0 0;
+#X msg 79 254 1;
+#X obj 68 319 outlet;
+#X msg 160 482 \; \$1_bigb3_cnv color \$2 \$3 \$4;
+#X connect 0 0 6 0;
+#X connect 0 0 9 0;
+#X connect 3 0 5 0;
+#X connect 4 0 7 0;
+#X connect 5 0 7 0;
+#X connect 6 0 3 0;
+#X connect 6 0 4 0;
+#X connect 7 0 8 0;
+#X connect 7 1 8 1;
+#X connect 8 0 11 0;
+#X connect 9 0 10 0;
+#X coords 0 -1 1 1 100 40 2 100 100;
+#X restore 235 165 pd bigbutton3;
+#X obj 104 278 extra/sv global_rec;
+#X obj 428 215 extra/sv global_play;
+#X obj 388 177 del 40;
+#X msg 104 231 1;
+#X obj 388 155 t b f;
+#X msg 388 196 0;
+#X obj 428 305 extra/sv global_play;
+#X obj 388 245 t b f;
+#X msg 388 286 0;
+#X obj 388 267 del 1500;
+#X connect 0 0 6 0;
+#X connect 1 0 7 0;
+#X connect 2 0 10 0;
+#X connect 5 0 8 0;
+#X connect 6 0 3 1;
+#X connect 7 0 5 0;
+#X connect 7 1 4 1;
+#X connect 8 0 4 1;
+#X connect 10 0 12 0;
+#X connect 10 1 9 1;
+#X connect 11 0 9 1;
+#X connect 12 0 11 0;
+#X coords 0 -1 1 1 250 110 2 100 100;

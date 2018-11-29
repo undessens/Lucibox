@@ -1,0 +1,25 @@
+#N canvas 420 194 687 490 10;
+#X obj 101 101 cnv 15 138 30 empty \$0_titlecnv DELAY 20 12 0 18 -4032
+-66577 0;
+#X obj 217 216 vu 20 80 empty empty -1 -8 0 10 -66577 -1 0 0;
+#X msg 299 231 set \$1;
+#X obj 100 134 cnv 15 138 23 empty empty feedback 3 9 0 14 -33289 -262144
+0;
+#X obj -29 301 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 102 213 hradio 15 1 0 7 empty empty empty 0 -8 0 10 -128992
+-262144 -1 1;
+#X obj -39 249 extra/sv delay_divide;
+#X obj 298 196 extra/sv delay_feedback;
+#X obj 106 161 hsl 128 15 0 100 0 0 empty empty empty -2 -8 0 10 -128992
+-262144 -1 0 1;
+#X obj 100 184 cnv 15 138 23 empty empty Length 3 9 0 14 -33289 -262144
+0;
+#X msg -26 202 set \$1;
+#X connect 2 0 8 0;
+#X connect 5 0 6 1;
+#X connect 6 0 10 0;
+#X connect 7 0 2 0;
+#X connect 8 0 7 1;
+#X connect 10 0 5 0;
+#X coords 0 -1 1 1 140 200 2 100 100;

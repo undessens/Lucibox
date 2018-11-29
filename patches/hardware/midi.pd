@@ -1,0 +1,42 @@
+#N canvas 60 148 450 300 10;
+#X obj 101 101 cnv 15 189 51 empty empty MIDI 80 10 0 14 -204345 -66577
+0;
+#X obj 268 -142 ctlin;
+#X floatatom 109 -72 5 0 0 0 - - -, f 5;
+#X floatatom 281 -74 5 0 0 0 - - -, f 5;
+#X obj 147 -97 notein;
+#X obj 109 -46 t b f;
+#X obj 268 -37 t b f;
+#X text 102 -120 Message from MIDI NOTE;
+#X obj 109 6 pack 1 0 0 0;
+#X obj 270 3 pack 2 0 0 0;
+#X floatatom 171 134 5 0 0 2 num - -, f 5;
+#X floatatom 207 134 5 0 0 2 channel - -, f 5;
+#X floatatom 252 134 5 0 0 2 value - -, f 5;
+#X obj 125 133 hradio 15 1 0 2 empty empty NOTE/CC 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 167 53 unpack f f f f;
+#X obj 122 81 - 1;
+#X obj 102 132 bng 15 250 50 0 empty empty empty 17 7 0 10 -228856
+-1 -1;
+#X connect 1 0 6 0;
+#X connect 1 1 3 0;
+#X connect 1 2 9 2;
+#X connect 2 0 5 0;
+#X connect 3 0 9 1;
+#X connect 4 0 2 0;
+#X connect 4 1 8 3;
+#X connect 4 2 8 2;
+#X connect 5 0 8 0;
+#X connect 5 1 8 1;
+#X connect 6 0 9 0;
+#X connect 6 1 9 3;
+#X connect 8 0 14 0;
+#X connect 9 0 14 0;
+#X connect 14 0 15 0;
+#X connect 14 0 16 0;
+#X connect 14 1 10 0;
+#X connect 14 2 11 0;
+#X connect 14 3 12 0;
+#X connect 15 0 13 0;
+#X coords 0 -1 1 1 191 53 1 100 100;

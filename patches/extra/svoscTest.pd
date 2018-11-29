@@ -1,0 +1,78 @@
+#N canvas 662 65 496 538 10;
+#X floatatom 52 365 5 0 0 0 - - -, f 5;
+#X floatatom 124 365 5 0 0 0 - - -, f 5;
+#X obj 63 168 svosc slider1;
+#X obj 174 169 svosc slider2;
+#X obj 54 304 sv slider1;
+#X obj 124 304 sv slider2;
+#X obj 53 393 svsave slider1;
+#X floatatom 48 456 5 0 0 0 - - -, f 5;
+#X obj 175 68 bng 50 250 50 0 save_all empty save-all 17 7 0 10 -258179
+-1 -1;
+#X floatatom 68 191 5 0 0 0 - - -, f 5;
+#X floatatom 178 191 5 0 0 0 - - -, f 5;
+#N canvas 727 370 450 323 osc 0;
+#X obj 22 52 mrpeach/unpackOSC;
+#X obj 22 124 s fromOSC;
+#X obj 22 19 mrpeach/udpreceive 9999;
+#X obj 185 18 r toOSC;
+#X obj 185 121 mrpeach/packOSC;
+#X obj 185 161 mrpeach/udpsend;
+#X msg 352 84 connect 127.0.0.1 9998;
+#X obj 185 45 list prepend /ui;
+#X msg 185 82 send \$1 \$2 \$3;
+#X obj 342 36 inlet;
+#X obj 68 171 print;
+#X connect 0 0 1 0;
+#X connect 0 0 10 0;
+#X connect 2 0 0 0;
+#X connect 3 0 7 0;
+#X connect 4 0 5 0;
+#X connect 6 0 5 0;
+#X connect 7 0 8 0;
+#X connect 8 0 4 0;
+#X connect 9 0 6 0;
+#X restore 69 105 pd osc;
+#X obj 69 254 hsl 80 30 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 2737 1;
+#X obj 189 250 hsl 80 30 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 3235 1;
+#X msg 178 217 set \$1;
+#X msg 76 228 set \$1;
+#X obj 72 53 bng 15 250 50 0 empty empty connect 17 7 0 10 -262144
+-1 -1;
+#X floatatom 217 446 5 0 0 0 - - -, f 5;
+#X obj 193 395 svsave slider2;
+#X obj 255 68 bng 50 250 50 0 read_all empty read-all 17 7 0 10 -24520
+-1 -1;
+#X obj 318 169 svosc dial;
+#X floatatom 322 211 5 0 0 0 - - -, f 5;
+#X obj 324 249 svosc button;
+#X obj 329 284 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 327 345 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 322 310 svosc toggle;
+#X obj 336 414 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 331 379 svosc textbutton;
+#X obj 329 437 svosc select;
+#X floatatom 327 472 5 0 0 0 - - -, f 5;
+#X connect 2 0 9 0;
+#X connect 3 0 10 0;
+#X connect 4 0 0 0;
+#X connect 5 0 1 0;
+#X connect 6 0 7 0;
+#X connect 9 0 15 0;
+#X connect 10 0 14 0;
+#X connect 12 0 2 1;
+#X connect 13 0 3 1;
+#X connect 14 0 13 0;
+#X connect 15 0 12 0;
+#X connect 16 0 11 0;
+#X connect 18 0 17 0;
+#X connect 20 0 21 0;
+#X connect 22 0 23 0;
+#X connect 25 0 24 0;
+#X connect 27 0 26 0;
+#X connect 28 0 29 0;

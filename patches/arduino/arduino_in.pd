@@ -1,0 +1,125 @@
+#N canvas 658 136 1196 629 10;
+#X obj 102 151 cnv 15 578 55 empty empty DEPUIS:LUCIBOX 220 12 0 14
+-170864 -1 0;
+#X obj 101 153 vsl 15 50 0 255 0 0 empty empty A0 2 30 0 10 -249508
+-1 -1 0 1;
+#X obj 152 153 vsl 15 50 0 255 0 0 empty empty A2 2 30 0 10 -241442
+-1 -1 0 1;
+#X obj 178 153 vsl 15 50 0 255 0 0 empty empty A3 2 30 0 10 -241444
+-1 -1 0 1;
+#X obj 127 153 vsl 15 50 0 255 0 0 empty empty A1 2 30 0 10 -241442
+-1 -1 0 1;
+#X obj 61 113 route 0 1 2 3 4 5;
+#X obj 257 191 tgl 15 0 empty empty D1 2 7 0 10 -204786 -1 -1 0 255
+;
+#X obj 37 22 r arduinoOUT;
+#X obj 281 191 tgl 15 0 empty empty D2 2 7 0 10 -204786 -1 -1 0 255
+;
+#X obj 308 191 tgl 15 0 empty empty D3 2 7 0 10 -204786 -1 -1 0 255
+;
+#X obj 334 191 tgl 15 0 empty empty D4 2 7 0 10 -204786 -1 -1 0 255
+;
+#X obj -20 375 outlet;
+#X obj -72 375 outlet;
+#X obj 31 375 outlet;
+#X obj 82 375 outlet;
+#X obj 281 375 outlet;
+#X obj 229 375 outlet;
+#X obj 332 375 outlet;
+#X obj 383 375 outlet;
+#X obj 359 191 tgl 15 0 empty empty D5 2 7 0 10 -204786 -1 -1 0 255
+;
+#X obj 487 191 tgl 15 0 empty empty 10 2 7 0 10 -204786 -1 -1 0 255
+;
+#X obj 384 191 tgl 15 0 empty empty D6 2 7 0 10 -204786 -1 -1 0 255
+;
+#X obj 410 191 tgl 15 0 empty empty D7 2 7 0 10 -204786 -1 -1 0 255
+;
+#X obj 435 191 tgl 15 0 empty empty D8 2 7 0 10 -204786 -1 -1 0 255
+;
+#X obj 460 191 tgl 15 0 empty empty D9 2 7 0 10 -204786 -1 -1 0 255
+;
+#X obj 481 375 outlet;
+#X obj 429 375 outlet;
+#X obj 532 375 outlet;
+#X obj 583 375 outlet;
+#X obj 632 375 outlet;
+#X obj 683 375 outlet;
+#X obj 230 153 vsl 15 50 0 255 0 0 empty empty A5 2 30 0 10 -249508
+-1 -1 0 1;
+#X obj 204 153 vsl 15 50 0 255 0 0 empty empty A4 2 30 0 10 -241442
+-1 -1 0 1;
+#X obj 131 375 outlet;
+#X obj 182 375 outlet;
+#X obj 305 123 route 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35
+36;
+#X obj 514 191 tgl 15 0 empty empty 11 2 7 0 10 -204786 -1 -1 0 255
+;
+#X obj 539 191 tgl 15 0 empty empty 12 2 7 0 10 -204786 -1 -1 0 255
+;
+#X obj 664 191 tgl 15 0 empty empty 17 2 7 0 10 -204786 -1 -1 0 255
+;
+#X obj 564 191 tgl 15 0 empty empty 13 2 7 0 10 -204786 -1 -1 0 255
+;
+#X obj 590 191 tgl 15 0 empty empty 14 2 7 0 10 -204786 -1 -1 0 255
+;
+#X obj 615 191 tgl 15 0 empty empty 15 2 7 0 10 -204786 -1 -1 0 255
+;
+#X obj 640 191 tgl 15 0 empty empty 16 2 7 0 10 -204786 -1 -1 0 255
+;
+#X obj 743 375 outlet;
+#X obj 841 375 outlet;
+#X obj 789 375 outlet;
+#X obj 892 375 outlet;
+#X obj 943 375 outlet;
+#X obj 992 375 outlet;
+#X obj 1043 375 outlet;
+#X connect 1 0 12 0;
+#X connect 2 0 13 0;
+#X connect 3 0 14 0;
+#X connect 4 0 11 0;
+#X connect 5 0 1 0;
+#X connect 5 1 4 0;
+#X connect 5 2 2 0;
+#X connect 5 3 3 0;
+#X connect 5 4 32 0;
+#X connect 5 5 31 0;
+#X connect 6 0 16 0;
+#X connect 7 0 5 0;
+#X connect 7 0 35 0;
+#X connect 8 0 15 0;
+#X connect 9 0 17 0;
+#X connect 10 0 18 0;
+#X connect 19 0 26 0;
+#X connect 20 0 30 0;
+#X connect 21 0 25 0;
+#X connect 22 0 27 0;
+#X connect 23 0 28 0;
+#X connect 24 0 29 0;
+#X connect 31 0 34 0;
+#X connect 32 0 33 0;
+#X connect 35 0 6 0;
+#X connect 35 1 8 0;
+#X connect 35 2 9 0;
+#X connect 35 3 10 0;
+#X connect 35 4 19 0;
+#X connect 35 5 21 0;
+#X connect 35 6 22 0;
+#X connect 35 7 23 0;
+#X connect 35 8 24 0;
+#X connect 35 9 20 0;
+#X connect 35 10 36 0;
+#X connect 35 11 37 0;
+#X connect 35 12 39 0;
+#X connect 35 13 40 0;
+#X connect 35 14 41 0;
+#X connect 35 15 42 0;
+#X connect 35 16 38 0;
+#X connect 36 0 43 0;
+#X connect 37 0 45 0;
+#X connect 38 0 49 0;
+#X connect 39 0 44 0;
+#X connect 40 0 46 0;
+#X connect 41 0 47 0;
+#X connect 42 0 48 0;
+#X coords 0 -1 1 1 580 60 2 100 150;

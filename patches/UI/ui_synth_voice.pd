@@ -1,0 +1,137 @@
+#N canvas 791 23 640 605 10;
+#X obj 111 201 nbx 5 23 0 100 0 0 empty empty empty 0 -8 0 10 -262144
+-1 -1 43 256 0;
+#X obj 113 103 hradio 28 1 0 4 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj -98 166 extra/sv \$1_module_ask_selection;
+#X obj 101 101 cnv 15 137 30 empty \$0_bgcnv SYNTH 20 12 0 18 -262144
+-66577 0;
+#X msg -35 144 1;
+#X obj -82 442 t b f;
+#X msg -82 411 30;
+#X obj -83 381 sel 0 1;
+#X msg -55 501 \; \$4_bgcnv color \$1 \$2 \$3;
+#X obj -55 470 pack 22 2 2 \$0;
+#X msg -42 411 77;
+#X obj -83 325 extra/sv module_selected;
+#X obj -83 352 == \$1;
+#N canvas 419 233 1038 529 rec 0;
+#X obj 269 7 t b f;
+#X msg 292 -27 2;
+#X obj 296 31 pack 22 0 0 \$0;
+#X obj 348 -85 loadbang;
+#X obj 104 101 hradio 23 1 0 2 empty empty empty 0 -8 0 10 -262144
+-1 -1 1;
+#X obj 100 100 cnv 15 60 25 empty \$0_reccnv REC 20 12 0 15 -1 -66577
+0;
+#X obj 105 106 cnv 13 13 13 empty \$0_recsquare empty 6 9 0 14 -66577
+-262144 0;
+#X obj 105 214 bang;
+#X obj 101 260 outlet;
+#X obj 136 -110 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 136 -83 sel 1;
+#X msg 136 -173 bang;
+#X obj 136 -242 inlet;
+#X obj 336 -240 inlet;
+#X obj 396 -240 inlet;
+#X obj 335 -199 t b b;
+#X msg 328 -156 stop;
+#X obj 395 -198 t b b;
+#X msg 296 61 \; \$4_recsquare color \$1 \$2 \$3;
+#X msg 255 -27 43;
+#X obj 486 34 pack 22 0 0 \$0;
+#X obj 486 7 t b f;
+#X msg 509 -27 2;
+#X msg 486 59 \; \$4_reccnv color \$1 \$2 \$3;
+#X msg 472 -27 43;
+#X obj 136 -139 metro 150;
+#X connect 0 1 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 18 0;
+#X connect 3 0 1 0;
+#X connect 3 0 22 0;
+#X connect 4 0 7 0;
+#X connect 7 0 8 0;
+#X connect 9 0 10 0;
+#X connect 10 0 19 0;
+#X connect 10 1 1 0;
+#X connect 11 0 25 0;
+#X connect 12 0 11 0;
+#X connect 13 0 15 0;
+#X connect 14 0 17 0;
+#X connect 15 0 24 0;
+#X connect 15 1 16 0;
+#X connect 16 0 1 0;
+#X connect 16 0 25 0;
+#X connect 17 0 22 0;
+#X connect 17 1 16 0;
+#X connect 19 0 0 0;
+#X connect 20 0 23 0;
+#X connect 21 0 20 0;
+#X connect 21 1 20 2;
+#X connect 22 0 21 0;
+#X connect 24 0 21 0;
+#X connect 25 0 9 0;
+#X coords 0 -1 1 1 60 25 2 100 100;
+#X restore 106 151 pd rec;
+#X obj 191 146 bng 35 250 50 0 empty empty MIDI 5 -6 0 10 -1 -262144
+-1;
+#X obj 374 325 i 0;
+#X obj 374 393 makefilename %d;
+#X obj 374 419 symbol \$1;
+#X obj 375 487 pack \$0 s;
+#X obj 374 454 t b s;
+#X msg 373 227 set \$1;
+#X obj 608 208 r tempo_valueOUT;
+#X obj 106 196 cnv 15 125 31 empty empty LENGTH 65 16 0 14 -33289 -262144
+0;
+#X obj 113 200 cnv 15 52 22 empty \$0_num1cnv 43 4 10 0 22 -262144
+-1 0;
+#X obj 307 169 loadbang;
+#X msg 302 200 100;
+#X msg 375 524 \; \$1_num1cnv label \$2;
+#X obj -35 6 extra/sv synth_voice_rec;
+#X obj -35 74 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg -89 12 1;
+#X obj 281 67 extra/sv synth_voice_midiin;
+#X obj 201 392 extra/sv synth_voice_chunk;
+#X obj 106 232 bng 20 250 50 0 empty empty PANIC 22 7 0 10 -170602
+-1 -1;
+#X obj -81 273 extra/sv synth_voice_panic;
+#X obj -35 36 sel 0 1 2;
+#X connect 0 0 15 0;
+#X connect 0 0 32 0;
+#X connect 1 0 4 0;
+#X connect 4 0 2 1;
+#X connect 5 1 9 0;
+#X connect 6 0 5 0;
+#X connect 7 0 6 0;
+#X connect 7 1 10 0;
+#X connect 9 0 8 0;
+#X connect 10 0 5 0;
+#X connect 11 0 12 0;
+#X connect 12 0 7 0;
+#X connect 13 0 29 0;
+#X connect 15 0 16 0;
+#X connect 15 0 31 1;
+#X connect 16 0 17 0;
+#X connect 17 0 19 0;
+#X connect 18 0 26 0;
+#X connect 19 0 18 0;
+#X connect 19 1 18 1;
+#X connect 20 0 0 0;
+#X connect 21 0 16 0;
+#X connect 21 0 20 0;
+#X connect 24 0 25 0;
+#X connect 25 0 0 0;
+#X connect 27 0 34 0;
+#X connect 28 0 13 2;
+#X connect 29 0 27 1;
+#X connect 30 0 14 0;
+#X connect 32 0 33 1;
+#X connect 34 0 28 0;
+#X connect 34 1 13 0;
+#X connect 34 2 13 1;
+#X coords 0 -1 1 1 139 170 2 100 100;

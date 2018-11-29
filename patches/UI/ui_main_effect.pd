@@ -1,0 +1,67 @@
+#N canvas 795 23 635 520 10;
+#X obj 101 101 cnv 15 138 98 empty empty empty 20 12 0 14 -33289 -128992
+0;
+#X obj 103 103 cnv 15 133 93 empty empty EFFETS 45 12 0 14 -262144
+-33289 0;
+#X obj 127 112 vu 15 80 empty empty -1 -8 0 10 -66577 -1 0 0;
+#N canvas 716 201 682 523 volume 0;
+#X floatatom 244 309 5 0 0 0 - - -, f 5;
+#X obj 85 103 vsl 10 71 0 100 0 0 empty empty empty 0 -9 0 10 -170864
+-1 -1 5400 0;
+#X msg 247 502 \; \$3_slider vis_size \$2 \$1;
+#X obj 83 101 cnv 8 14 80 empty empty empty 20 12 0 14 -99865 -66577
+0;
+#X obj 84 103 cnv 5 12 76 empty empty empty 20 12 0 14 -1375 -66577
+0;
+#X obj 84 103 cnv 3 12 17 empty \$0_slider empty 20 12 0 14 -170864
+-66577 0;
+#X obj 246 339 / 100;
+#X obj 246 362 * -1;
+#X obj 246 390 + 1;
+#X obj 357 419 * 255;
+#X obj 356 465 outlet;
+#X obj 182 70 inlet;
+#X obj 244 416 * 78;
+#X obj 245 448 pack 0 12 \$0;
+#X obj 180 133 / 255;
+#X floatatom 414 468 5 0 0 0 - - -, f 5;
+#X connect 0 0 6 0;
+#X connect 1 0 0 0;
+#X connect 6 0 7 0;
+#X connect 6 0 9 0;
+#X connect 7 0 8 0;
+#X connect 8 0 12 0;
+#X connect 9 0 10 0;
+#X connect 9 0 15 0;
+#X connect 11 0 14 0;
+#X connect 12 0 13 0;
+#X connect 13 0 2 0;
+#X connect 14 0 7 0;
+#X coords 0 -1 1 1 16 82 2 82 100;
+#X restore 107 111 pd volume;
+#X obj 166 137 vsl 20 55 1.27 127 1 0 empty empty REV 0 -9 0 10 -99865
+-262144 -162280 2700 1;
+#X obj 192 137 vsl 20 55 1.27 127 1 0 empty empty DEL 0 -9 0 10 -99865
+-262144 -162280 0 1;
+#X obj 48 294 extra/sv \$1_main_effect_volume;
+#X obj 166 235 extra/sv \$1_main_effect_revsend;
+#X obj 373 235 extra/sv \$1_main_effect_delsend;
+#X msg 166 263 set \$1;
+#X msg 373 260 set \$1;
+#X msg 48 323 set \$1;
+#X floatatom 14 324 5 0 0 0 - - -, f 5;
+#X floatatom 217 263 5 0 0 0 - - -, f 5;
+#X floatatom 422 260 5 0 0 0 - - -, f 5;
+#X connect 3 0 6 1;
+#X connect 4 0 7 1;
+#X connect 5 0 8 1;
+#X connect 6 0 11 0;
+#X connect 6 0 12 0;
+#X connect 7 0 9 0;
+#X connect 7 0 13 0;
+#X connect 8 0 10 0;
+#X connect 8 0 14 0;
+#X connect 9 0 4 0;
+#X connect 10 0 5 0;
+#X connect 11 0 3 0;
+#X coords 0 -1 1 1 140 100 2 100 100;

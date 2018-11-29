@@ -1,0 +1,13 @@
+#N canvas 495 23 450 300 10;
+#X obj 40 30 midiLearn play;
+#X obj 190 29 midiLearn stop;
+#X obj 68 262 bng 35 250 50 0 empty empty PLAY 17 7 0 10 -262144 -1
+-1;
+#X obj 218 262 bng 35 250 50 0 empty empty PLAY 17 7 0 10 -262144 -1
+-1;
+#X obj 337 136 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 333 174 s save_all;
+#X connect 0 0 2 0;
+#X connect 1 0 3 0;
+#X connect 4 0 5 0;

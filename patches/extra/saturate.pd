@@ -1,0 +1,17 @@
+#N canvas 89 167 450 300 10;
+#X obj 101 101 tgl 18 0 empty empty empty 17 7 0 10 -258113 -1 -1 0
+1;
+#X obj 105 -40 inlet;
+#X obj 105 7 sel 1;
+#X msg 105 32 1;
+#X obj 148 33 del 1500;
+#X msg 148 54 0;
+#X obj 105 -17 > 0;
+#X connect 1 0 6 0;
+#X connect 2 0 3 0;
+#X connect 2 0 4 0;
+#X connect 3 0 0 0;
+#X connect 4 0 5 0;
+#X connect 5 0 0 0;
+#X connect 6 0 2 0;
+#X coords 0 -1 1 1 20 20 2 100 100;

@@ -1,0 +1,55 @@
+#N canvas 468 136 687 490 10;
+#X obj 101 101 cnv 15 148 30 empty \$0_titlecnv MIC 20 12 0 18 -162280
+-66577 0;
+#X obj 148 214 vu 15 80 empty empty -1 -8 0 10 -66577 -1 0 0;
+#X obj 125 193 vsl 20 100 0 127 0 0 empty empty empty 0 -9 0 10 -58255
+-262144 -1 0 1;
+#X msg -79 247 set \$1;
+#X obj 147 191 extra/saturate;
+#X obj 187 214 vu 15 80 empty empty -1 -8 0 10 -66577 -1 0 0;
+#X obj 170 214 vsl 15 80 0 127 0 0 empty empty empty 0 -9 0 10 -58255
+-262144 -1 0 1;
+#X obj 223 214 vu 15 80 empty empty -1 -8 0 10 -66577 -1 0 0;
+#X obj 206 214 vsl 15 80 0 127 0 0 empty empty empty 0 -9 0 10 -58255
+-262144 -1 0 1;
+#X obj 101 166 cnv 15 138 23 empty empty VOLUME 19 7 0 14 -33289 -262144
+0;
+#X msg 277 217 set \$1;
+#X msg 277 272 set \$1;
+#X obj -79 223 extra/sv mic_volume;
+#X obj 277 193 extra/sv mic_sendA;
+#X obj 277 248 extra/sv mic_sendB;
+#X obj 104 215 vu 15 80 empty empty -1 -8 0 10 -66577 -1 0 0;
+#X obj 102 191 ../extra/saturate;
+#X obj -24 89 r mic_prevumetre;
+#X floatatom 179 140 5 0 0 1 Thresh - -, f 5;
+#X obj 275 71 extra/sv mic_threshold;
+#X msg 275 91 set \$1;
+#X obj -91 133 r mic_volume_vumetre;
+#X obj 170 194 cnv 15 35 15 empty empty sendA 2 8 0 10 -66577 -262144
+0;
+#X obj 207 194 cnv 15 35 15 empty empty sendB 2 8 0 10 -66577 -262144
+0;
+#X floatatom 102 140 5 0 0 1 Gain - -, f 5;
+#X msg 159 41 set \$1;
+#X obj 159 21 extra/sv mic_gain;
+#X connect 2 0 12 1;
+#X connect 3 0 2 0;
+#X connect 6 0 13 1;
+#X connect 8 0 14 1;
+#X connect 10 0 6 0;
+#X connect 11 0 8 0;
+#X connect 12 0 3 0;
+#X connect 13 0 10 0;
+#X connect 14 0 11 0;
+#X connect 17 0 16 0;
+#X connect 17 0 15 0;
+#X connect 18 0 19 1;
+#X connect 19 0 20 0;
+#X connect 20 0 18 0;
+#X connect 21 0 1 0;
+#X connect 21 0 4 0;
+#X connect 24 0 26 1;
+#X connect 25 0 24 0;
+#X connect 26 0 25 0;
+#X coords 0 -1 1 1 150 200 2 100 100;

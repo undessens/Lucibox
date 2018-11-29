@@ -1,0 +1,43 @@
+#N canvas 610 49 723 493 10;
+#X obj 227 75 keyname;
+#X symbolatom 278 122 10 0 0 0 - - -, f 10;
+#X obj 237 433 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 192 433 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 267 433 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 295 433 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 193 134 5 0 0 0 - - -, f 5;
+#X obj 327 434 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 175 503 outlet;
+#X obj 225 503 outlet;
+#X obj 275 503 outlet;
+#X obj 325 503 outlet;
+#X obj 375 503 outlet;
+#X obj 193 251 pack s f;
+#X obj 193 205 symbol;
+#X obj 193 351 route Left Right Up Down Space;
+#X obj 193 162 t b f;
+#X msg 193 294 \$1 \$2;
+#X connect 0 0 6 0;
+#X connect 0 1 1 0;
+#X connect 0 1 14 1;
+#X connect 2 0 9 0;
+#X connect 3 0 8 0;
+#X connect 4 0 10 0;
+#X connect 5 0 11 0;
+#X connect 6 0 16 0;
+#X connect 7 0 12 0;
+#X connect 13 0 17 0;
+#X connect 14 0 13 0;
+#X connect 15 0 3 0;
+#X connect 15 1 2 0;
+#X connect 15 2 4 0;
+#X connect 15 3 5 0;
+#X connect 15 4 7 0;
+#X connect 16 0 14 0;
+#X connect 16 1 13 1;
+#X connect 17 0 15 0;
