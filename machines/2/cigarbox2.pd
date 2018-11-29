@@ -1,4 +1,4 @@
-#N canvas 363 223 1009 675 10;
+#N canvas 351 95 1009 675 10;
 #X declare -path ../../patches;
 #X obj 7 370 cnv 15 980 180 empty empty empty 330 30 0 45 -21525 -88297
 0;
@@ -9,7 +9,7 @@
 0;
 #X obj 7 107 cnv 15 144 259 empty empty empty 20 12 0 14 -233017 -66577
 0;
-#N canvas 8 243 812 500 patch 1;
+#N canvas 496 330 812 500 patch 0;
 #X obj 101 101 cnv 15 138 40 empty empty PATCH 20 12 0 14 -66577 -262144
 0;
 #X obj 235 155 audio/mic;
@@ -131,7 +131,7 @@
 #X obj 321 221 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 457 247 spigot;
-#X obj 472 219 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 472 219 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X floatatom 296 159 5 -1 11 0 - - -, f 5;
 #X obj 296 115 i 0;
@@ -211,7 +211,7 @@
 #X obj -31 322 s to1;
 #X obj 34 320 s to2;
 #X obj 297 243 spigot;
-#X obj 321 221 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 321 221 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 457 247 spigot;
 #X obj 472 219 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
@@ -377,7 +377,7 @@
 #X obj -31 322 s to1;
 #X obj 34 320 s to2;
 #X obj 297 243 spigot;
-#X obj 321 221 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 321 221 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 457 247 spigot;
 #X obj 472 219 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
@@ -461,7 +461,7 @@
 #X obj -31 322 s to1;
 #X obj 34 320 s to2;
 #X obj 297 243 spigot;
-#X obj 321 221 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 321 221 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 457 247 spigot;
 #X obj 472 219 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
@@ -551,7 +551,7 @@
 #X obj 897 267 s ledrec3;
 #X obj 119 739 extra/sv nbLoopPlaying;
 #X obj 334 208 audio/recloopsavesampler 1 1;
-#N canvas 68 256 747 350 autostop_from_loop 0;
+#N canvas 475 180 747 350 autostop_from_loop 0;
 #X obj 155 39 extra/sv 1_1_is_loop_playing;
 #X obj 188 62 extra/sv 2_1_is_loop_playing;
 #X obj 215 85 extra/sv 3_1_is_loop_playing;
@@ -568,7 +568,7 @@
 #X obj 301 289 +;
 #X floatatom 301 309 5 0 0 0 - - -, f 5;
 #X obj 300 326 sel 0;
-#X obj 299 352 s tempoStopIn;
+#X obj 300 352 s tempoStopIn;
 #X connect 0 0 8 0;
 #X connect 1 0 8 0;
 #X connect 2 0 8 0;
@@ -588,11 +588,11 @@
 #X connect 13 0 14 0;
 #X connect 14 0 15 0;
 #X restore 22 359 pd autostop_from_loop;
+#X obj 21 309 audio/tempo machines 2;
+#X obj 35 283 declare -path ../../patches;
 #X obj 561 204 audio/recloopsavesampler 2 1;
 #X obj 765 204 audio/recloopsavesampler 3 1;
 #X obj 992 200 audio/recloopsavesampler 4 1;
-#X obj 21 309 audio/tempo machines 2;
-#X obj 35 283 declare -path ../../patches;
 #X connect 1 1 42 0;
 #X connect 1 1 11 0;
 #X connect 1 1 12 0;
@@ -636,7 +636,7 @@
 #X connect 41 1 34 0;
 #X connect 42 0 3 0;
 #X connect 43 0 86 0;
-#X connect 44 0 88 0;
+#X connect 44 0 90 0;
 #X connect 45 0 42 0;
 #X connect 46 0 42 0;
 #X connect 47 0 42 0;
@@ -658,8 +658,8 @@
 #X connect 61 0 69 0;
 #X connect 61 0 70 0;
 #X connect 62 0 61 0;
-#X connect 69 0 89 0;
-#X connect 70 0 90 0;
+#X connect 69 0 91 0;
+#X connect 70 0 92 0;
 #X connect 74 0 42 0;
 #X connect 75 0 9 0;
 #X connect 76 0 54 0;
@@ -679,24 +679,24 @@
 #X connect 86 2 57 0;
 #X connect 86 3 15 0;
 #X connect 86 4 16 0;
-#X connect 88 0 48 0;
-#X connect 88 1 52 0;
-#X connect 88 2 58 0;
-#X connect 88 3 17 0;
-#X connect 88 4 18 0;
-#X connect 89 0 74 0;
-#X connect 89 1 75 0;
-#X connect 89 2 76 0;
-#X connect 89 3 84 0;
-#X connect 89 4 73 0;
-#X connect 90 0 77 0;
-#X connect 90 1 78 0;
-#X connect 90 2 79 0;
-#X connect 90 3 72 0;
-#X connect 90 4 71 0;
+#X connect 90 0 48 0;
+#X connect 90 1 52 0;
+#X connect 90 2 58 0;
+#X connect 90 3 17 0;
+#X connect 90 4 18 0;
+#X connect 91 0 74 0;
+#X connect 91 1 75 0;
+#X connect 91 2 76 0;
+#X connect 91 3 84 0;
+#X connect 91 4 73 0;
+#X connect 92 0 77 0;
+#X connect 92 1 78 0;
+#X connect 92 2 79 0;
+#X connect 92 3 72 0;
+#X connect 92 4 71 0;
 #X coords 0 -1 1 1 140 42 2 100 100;
 #X restore 7 139 pd patch;
-#N canvas 2 251 1009 599 connect 0;
+#N canvas 228 212 1009 599 connect 1;
 #X obj 625 97 connect/connect_global_recplay;
 #X obj 40 6 cnv 15 996 83 empty empty CONNECT 330 30 0 45 -21525 -88297
 0;
@@ -752,7 +752,7 @@
 #X obj 467 372 UI/ui_global_recplay;
 #X obj 466 486 hsl 250 60 0 1 0 0 empty global_tempo_slider empty -2
 -8 0 10 -33289 -4032 -1 0 1;
-#N canvas 2 202 1009 485 volumes 0;
+#N canvas 2 220 1009 485 volumes 0;
 #X obj 24 -13 cnv 15 996 83 empty empty VOLUMES 330 30 0 45 -21525
 -88297 0;
 #X obj 188 80 volumes/volume_recloopsave 1 1;
@@ -761,7 +761,7 @@
 0;
 #N canvas 285 163 1038 575 open 0;
 #X obj 103 102 hradio 15 0 0 3 empty empty empty 0 -8 0 10 -262144
--1 -1 1;
+-1 -1 0;
 #X text 462 314 label-color;
 #X text 477 339 label-color;
 #X obj 377 311 t b f;
