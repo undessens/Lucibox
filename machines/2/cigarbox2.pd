@@ -1,4 +1,4 @@
-#N canvas 349 107 1009 675 10;
+#N canvas 66 134 1009 675 10;
 #X declare -path ../../patches;
 #X obj 7 370 cnv 15 980 180 empty empty empty 330 30 0 45 -21525 -88297
 0;
@@ -9,7 +9,7 @@
 0;
 #X obj 7 107 cnv 15 144 259 empty empty empty 20 12 0 14 -233017 -66577
 0;
-#N canvas 396 164 812 500 patch 0;
+#N canvas 395 170 812 500 patch 0;
 #X obj 101 101 cnv 15 138 40 empty empty PATCH 20 12 0 14 -66577 -262144
 0;
 #X obj 235 155 audio/mic;
@@ -699,7 +699,7 @@
 #X connect 92 4 71 0;
 #X coords 0 -1 1 1 140 42 2 100 100;
 #X restore 7 139 pd patch;
-#N canvas 228 212 1009 599 connect 0;
+#N canvas 0 203 1009 599 connect 0;
 #X obj 625 97 connect/connect_global_recplay;
 #X obj 40 6 cnv 15 996 83 empty empty CONNECT 330 30 0 45 -21525 -88297
 0;
@@ -742,20 +742,21 @@
 #X restore 127 47 pd open;
 #X obj 585 14 arduino/arduino;
 #X obj 37 98 connect/connect_recloopsave 1 1;
-#X obj 647 488 extra/midiLearn effect_rev_drywet;
 #X obj 182 98 connect/connect_recloopsave 2 1;
 #X obj 623 304 connect/connect_mic;
 #X obj 43 305 connect/connect_sampler8 5;
 #X obj 780 305 connect/connect_synthvoice 6;
 #X obj 330 98 connect/connect_recloopsave 3 1;
 #X obj 475 98 connect/connect_recloopsave 4 1;
-#X connect 7 0 2 0;
+#X obj 783 11 hardware/midi;
+#X obj 647 488 extra/midiLearn effect_rev_drywet;
+#X connect 14 0 2 0;
 #X coords 0 -1 1 1 140 42 1 43 25;
 #X restore 8 191 pd connect;
 #X obj 467 372 UI/ui_global_recplay;
 #X obj 466 486 hsl 250 60 0 1 0 0 empty global_tempo_slider empty -2
 -8 0 10 -33289 -4032 -1 0 1;
-#N canvas 2 220 1009 485 volumes 0;
+#N canvas -71 235 1009 485 volumes 0;
 #X obj 24 -13 cnv 15 996 83 empty empty VOLUMES 330 30 0 45 -21525
 -88297 0;
 #X obj 188 80 volumes/volume_recloopsave 1 1;
@@ -764,7 +765,7 @@
 0;
 #N canvas 285 163 1038 575 open 0;
 #X obj 103 102 hradio 15 0 0 3 empty empty empty 0 -8 0 10 -262144
--1 -1 0;
+-1 -1 1;
 #X text 462 314 label-color;
 #X text 477 339 label-color;
 #X obj 377 311 t b f;

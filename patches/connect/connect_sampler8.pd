@@ -1,4 +1,4 @@
-#N canvas 183 245 1180 498 10;
+#N canvas 0 93 1280 627 10;
 #X obj 102 100 cnv 15 563 40 empty empty SAMPLER8 20 12 0 14 -162280
 -66577 0;
 #X obj 103 150 cnv 15 138 50 empty empty PLAY_1 5 12 0 14 -33289 -262144
@@ -48,6 +48,11 @@
 #X obj 165 262 extra/midiLearn \$1_sampler_volume;
 #X obj 302 261 extra/midiLearn globalPitch;
 #X obj 86 353 extra/midiLearnn 2_sampler_volume;
+#X obj 387 258 cnv 15 138 23 empty empty REC 5 12 0 14 -33289 -262144
+0;
+#X obj 439 260 extra/midiLearn sampler8_recmode;
+#X obj 660 335 extra/sv \$1_sampler8_recmode;
+#X obj 660 313 bang;
 #X connect 18 0 19 0;
 #X connect 19 0 17 1;
 #X connect 25 0 9 1;
@@ -61,4 +66,6 @@
 #X connect 33 0 18 0;
 #X connect 34 0 22 1;
 #X connect 35 0 23 0;
+#X connect 38 0 40 0;
+#X connect 40 0 39 0;
 #X coords 0 -1 1 1 565 211 2 101 99;

@@ -1,4 +1,4 @@
-#N canvas 83 97 925 667 10;
+#N canvas 120 95 925 667 10;
 #X obj 41 84 ctlin;
 #X floatatom -118 154 5 0 0 0 - - -, f 5;
 #X floatatom 54 152 5 0 0 0 - - -, f 5;
@@ -22,11 +22,11 @@
 #X obj 658 239 tgl 13 0 empty empty LEARN 14 7 0 10 -258254 -1 -1 0
 1;
 #X msg 678 379 \; pd-midiLearn_\$1 vis 1;
-#N canvas 305 494 388 195 midiLearn_\$0 1;
+#N canvas 305 494 388 195 midiLearn_\$0 0;
 #X obj 44 61 cnv 15 300 120 empty empty LEARN 80 -50 0 14 -233017 -66577
 0;
 #X obj 49 31 vradio 30 1 0 5 \$0_input_out \$0_input_in empty 0 -8
-0 10 -262144 -1 -1 0;
+0 10 -262144 -1 -1 3;
 #X obj 80 63 cnv 15 100 25 empty empty Midi-note 20 12 0 14 -262144
 -66577 0;
 #X obj 80 93 cnv 15 100 25 empty empty Midi-CC 20 12 0 14 -262144 -66577
@@ -40,7 +40,7 @@
 #X obj 181 93 nbx 5 25 0 200 0 0 empty \$0_channel2 empty 0 -8 0 10
 -262144 -1 -1 0 10;
 #X obj 181 123 nbx 5 25 0 200 0 0 empty \$0_channel3 empty 0 -8 0 10
--262144 -1 -1 0 10;
+-262144 -1 -1 25 10;
 #X obj 181 153 nbx 5 25 0 200 0 0 empty \$0_channel4 empty 0 -8 0 10
 -262144 -1 -1 0 10;
 #X obj 81 33 cnv 15 40 25 empty empty ---- 20 12 0 14 -262144 -66577
@@ -64,7 +64,7 @@
 #X obj 474 142 keyup;
 #X obj 380 165 t b f;
 #X obj 474 165 t b f;
-#N canvas 4 198 999 468 learn 0;
+#N canvas 142 184 999 468 learn 1;
 #X floatatom 304 57 5 0 0 0 - - -, f 5;
 #X text 299 32 choose if midi \, ctl \, arduino;
 #X floatatom 360 57 5 0 0 0 - - -, f 5;
@@ -75,12 +75,11 @@
 #X obj 358 229 s \$0_index;
 #X obj 421 -184 inlet;
 #X obj 303 -28 unpack f f f f;
-#X obj -89 128 symbol \$1;
-#X msg 135 176 clear;
-#X obj -75 273 textfile;
-#X obj -104 108 t b b l b;
-#X msg 42 176 add2 \$1 \$2 \$3;
-#X obj -104 87 list;
+#X obj -89 208 symbol \$1;
+#X msg 135 256 clear;
+#X obj -75 353 textfile;
+#X msg 42 256 add2 \$1 \$2 \$3;
+#X obj -104 77 list;
 #X floatatom 422 58 5 0 0 0 - - -, f 5;
 #X obj 576 -185 loadbang;
 #X obj 576 -163 t b b b b;
@@ -101,70 +100,72 @@
 #X msg 307 266 set \$1;
 #X msg 192 257 \; \$3_channel1 0 \; \$3_channel2 0 \; \$3_channel3
 0 \; \$3_channel4 0 \; \$3_channel\$2 \$1;
-#X obj 91 312 nbx 5 25 0 200 0 0 empty \$0_channel0 empty 0 -8 0 10
--262144 -1 -1 0 10;
+#X obj 155 392 nbx 5 25 0 200 0 0 empty \$0_channel0 empty 0 -8 0 10
+-262144 -1 -1 25 10;
 #X obj 85 71 pack f f f;
 #X obj 229 144 t b f;
 #X obj 614 -82 pack s s;
 #X obj 668 -140 s get_preset_location;
 #X obj 612 -126 r preset_location;
 #X msg 623 -29 read \$1/midiLearn_\$2.txt;
-#X msg -179 226 write \$1/midiLearn_\$2.txt;
-#X obj -180 198 pack s s;
-#X obj -174 137 s get_preset_location;
-#X obj -174 159 r preset_location;
+#X obj -153 231 s get_preset_location;
+#X obj -180 252 r preset_location;
+#X obj -104 98 t b b b l b;
+#X obj -180 278 pack 0 s s;
+#X msg -179 306 write \$2/midiLearn_\$3.txt;
 #X connect 0 0 3 0;
-#X connect 0 0 32 0;
+#X connect 0 0 31 0;
+#X connect 0 0 34 0;
 #X connect 0 0 35 0;
-#X connect 0 0 36 0;
 #X connect 2 0 4 0;
 #X connect 2 0 7 0;
-#X connect 2 0 35 1;
-#X connect 4 0 33 0;
-#X connect 5 0 25 0;
-#X connect 8 0 25 1;
+#X connect 2 0 34 1;
+#X connect 4 0 32 0;
+#X connect 5 0 24 0;
+#X connect 8 0 24 1;
 #X connect 9 0 0 0;
 #X connect 9 1 2 0;
-#X connect 9 2 16 0;
-#X connect 10 0 42 1;
+#X connect 9 2 15 0;
+#X connect 10 0 43 2;
 #X connect 11 0 12 0;
-#X connect 13 0 43 0;
-#X connect 13 1 10 0;
-#X connect 13 2 14 0;
-#X connect 13 3 11 0;
-#X connect 14 0 12 0;
-#X connect 15 0 13 0;
-#X connect 16 0 6 0;
-#X connect 16 0 35 2;
-#X connect 17 0 18 0;
-#X connect 18 0 21 0;
-#X connect 18 1 20 0;
-#X connect 18 2 38 0;
-#X connect 18 3 19 0;
-#X connect 19 0 37 1;
-#X connect 20 0 22 0;
-#X connect 21 0 22 0;
-#X connect 22 0 26 0;
-#X connect 23 0 18 0;
-#X connect 24 0 18 0;
-#X connect 25 0 9 0;
-#X connect 26 0 0 0;
-#X connect 26 1 2 0;
-#X connect 26 2 16 0;
-#X connect 27 0 29 0;
-#X connect 28 0 9 0;
-#X connect 28 0 15 0;
-#X connect 29 0 28 0;
-#X connect 32 0 31 0;
-#X connect 35 0 15 0;
-#X connect 36 0 4 0;
-#X connect 36 1 4 1;
-#X connect 37 0 40 0;
-#X connect 39 0 37 0;
-#X connect 40 0 22 0;
-#X connect 41 0 12 0;
-#X connect 42 0 41 0;
-#X connect 44 0 42 0;
+#X connect 13 0 12 0;
+#X connect 14 0 42 0;
+#X connect 15 0 6 0;
+#X connect 15 0 34 2;
+#X connect 16 0 17 0;
+#X connect 17 0 20 0;
+#X connect 17 1 19 0;
+#X connect 17 2 37 0;
+#X connect 17 3 18 0;
+#X connect 18 0 36 1;
+#X connect 19 0 21 0;
+#X connect 20 0 21 0;
+#X connect 21 0 25 0;
+#X connect 22 0 17 0;
+#X connect 23 0 17 0;
+#X connect 24 0 9 0;
+#X connect 25 0 0 0;
+#X connect 25 1 2 0;
+#X connect 25 2 15 0;
+#X connect 26 0 28 0;
+#X connect 27 0 9 0;
+#X connect 27 0 14 0;
+#X connect 28 0 27 0;
+#X connect 31 0 30 0;
+#X connect 34 0 14 0;
+#X connect 35 0 4 0;
+#X connect 35 1 4 1;
+#X connect 36 0 39 0;
+#X connect 38 0 36 0;
+#X connect 39 0 21 0;
+#X connect 41 0 43 1;
+#X connect 42 0 43 0;
+#X connect 42 1 40 0;
+#X connect 42 2 10 0;
+#X connect 42 3 13 0;
+#X connect 42 4 11 0;
+#X connect 43 0 44 0;
+#X connect 44 0 12 0;
 #X restore 337 349 pd learn;
 #X text 393 114 Keyboard;
 #X obj 190 375 route 0;
