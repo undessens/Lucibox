@@ -13,14 +13,14 @@
 #endif
 
 //NEOPIXEL
-#define PIN            4
+#define PIN            2
 
 #define NUMPIXELS      12
-#define MAXLUMINOSITY  0.01
+#define MAXLUMINOSITY  0.1
 
 
 #define ANALOGIN 0    // Nombre de potentiometre
-#define DIGITALIN 6   // Nombre de boutons
+#define DIGITALIN 8   // Nombre de boutons
 #define DIGITALOUT 14  // Nombre de leds
 #define ANALOG_THRESH 10 
 
@@ -35,7 +35,7 @@ int analogPin[] = { A0, A1, A2,A3,A4,A5 };
 
 // ------------   BOUTONS  ------------------
 int digitalinValue[DIGITALIN];
-int digitalinPin[] =  { 6,7,8,9,10,11};
+int digitalinPin[] =  { 3,4,5,6,7,8, 9, 10};
 
 
 
@@ -239,9 +239,9 @@ void setNeoPixel(int channel, int r, int v, int b){
 
   finalr = r*MAXLUMINOSITY;
   finalv = v*MAXLUMINOSITY;
-  finalb = r*MAXLUMINOSITY;
+  finalb = b*MAXLUMINOSITY;
 
-  pixels.setPixelColor(NUMPIXELS-(channel+1), pixels.Color(finalr,finalv,finalb));
+  pixels.setPixelColor(NUMPIXELS-(channel+1), pixels.Color(finalv,finalr,finalb));
   
 
 
