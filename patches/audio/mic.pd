@@ -1,4 +1,4 @@
-#N canvas 2 107 641 356 10;
+#N canvas 87 65 641 356 10;
 #X obj 5 -432 cnv 15 123 20 empty empty MICROPHONE 3 9 0 20 -170675
 -66577 0;
 #X obj 15 -374 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
@@ -22,7 +22,7 @@
 #X obj 146 -247 s mic_prevumetre;
 #X obj 47 -3 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
 #X obj 14 -397 r mic_prevumetre;
-#N canvas 579 250 641 372 init 1;
+#N canvas 579 250 641 372 init 0;
 #X obj 175 44 loadbang;
 #X msg 222 99 0;
 #X obj 269 107 extra/sv mic_threshold;
@@ -56,6 +56,7 @@
 #X obj 292 -490 f 0;
 #X obj 292 -466 / 100;
 #X obj 250 -43 mixer mic;
+#X obj 163 -396 hip~ 8;
 #X connect 3 0 24 1;
 #X connect 6 0 13 0;
 #X connect 7 0 9 1;
@@ -73,13 +74,14 @@
 #X connect 23 0 17 0;
 #X connect 28 0 31 0;
 #X connect 29 0 30 0;
-#X connect 30 0 12 0;
-#X connect 30 0 15 0;
-#X connect 30 0 9 0;
+#X connect 30 0 34 0;
 #X connect 31 0 32 0;
 #X connect 32 0 30 1;
 #X connect 33 0 4 0;
 #X connect 33 1 5 0;
 #X connect 33 2 25 0;
 #X connect 33 3 26 0;
+#X connect 34 0 15 0;
+#X connect 34 0 9 0;
+#X connect 34 0 12 0;
 #X coords 0 356 1 355 132 500 0;

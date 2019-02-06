@@ -1,11 +1,11 @@
-#N canvas 0 59 720 321 10;
+#N canvas 253 157 720 321 10;
 #X declare -path ../../patches;
 #X obj 5 87 cnv 15 680 230 empty empty empty 20 12 0 14 -233017 -66577
 0;
 #X obj 7 263 UI/ui_tempo_small;
 #X obj 5 3 cnv 15 680 81 empty empty LUCIBOX 20 36 0 45 -21525 -88297
 0;
-#N canvas 2 165 1065 627 patch 0;
+#N canvas 2 165 1065 627 patch 1;
 #X obj 101 101 cnv 15 138 40 empty empty PATCH 20 12 0 14 -66577 -262144
 0;
 #X obj 235 155 audio/mic;
@@ -23,7 +23,7 @@
 #X msg 400 277 2;
 #X obj 466 220 loadbang;
 #X obj 104 101 hradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
--1 -1 1;
+-1 -1 0;
 #X obj 104 166 bang;
 #X msg 363 277 43;
 #X obj 101 101 cnv 15 38 15 empty \$0_opencnv open 6 8 0 10 -66577
