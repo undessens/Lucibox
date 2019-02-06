@@ -1,11 +1,20 @@
-#N canvas 774 288 687 490 10;
+#N canvas 274 135 687 490 10;
 #X obj 101 101 cnv 15 138 30 empty empty MIC 20 12 0 18 -228856 -66577
 0;
 #X obj 101 167 cnv 15 138 23 empty empty VOLUME 5 12 0 14 -33289 -262144
 0;
 #X obj 101 199 cnv 15 138 23 empty empty SENDA 5 12 0 14 -33289 -262144
 0;
-#X obj 355 331 extra/sv mic_volume;
+#X obj 377 213 extra/sv mic_volume;
 #X obj 165 170 extra/midiLearn mic_volume;
+#X obj 218 348 extra/midiLearnn mic_senda;
+#X obj 163 202 extra/midiLearn mic_senda;
+#X obj 101 229 cnv 15 138 23 empty empty SENDB 5 12 0 14 -33289 -262144
+0;
+#X obj 163 231 extra/midiLearn mic_sendb;
+#X obj 375 297 extra/sv mic_sendA;
+#X obj 375 327 extra/sv mic_sendB;
 #X connect 4 0 3 1;
+#X connect 6 0 9 1;
+#X connect 8 0 10 1;
 #X coords 0 -1 1 1 140 160 2 100 100;
