@@ -1,8 +1,7 @@
 /*
- *        FABRIQUE DU REVE LUCIDE
- *        github.com/undessens/fabrique_reve_lucide
- *        github.com/undessens/lucidream
- * 
+ *        LUCIBOX MACHINE 2 : looper 4 channel
+ *        github.com/undessens/lucibox
+ *        
  *        Author : Aurelien Conil
  *        Casemate Fablab de Grenoble
  */
@@ -19,7 +18,7 @@
 #define MAXLUMINOSITY  0.1
 
 
-#define ANALOGIN 0    // Nombre de potentiometre
+#define ANALOGIN 3    // Nombre de potentiometre
 #define DIGITALIN 8   // Nombre de boutons
 #define DIGITALOUT 14  // Nombre de leds
 #define ANALOG_THRESH 10 
@@ -31,11 +30,19 @@ int digitaloutPin[] = {12 , 13};
 
 // ------------   POTENTIOMETRE --------------
 int analogValue[ANALOGIN];
-int analogPin[] = { A0, A1, A2,A3,A4,A5 };
+int analogPin[] = { A0, A1, A2};
 
 // ------------   BOUTONS  ------------------
 int digitalinValue[DIGITALIN];
 int digitalinPin[] =  { 3,4,5,6,7,8, 9, 10};
+
+// Others
+/* When Led song mode is on, neo pixel are display the current song.
+ *  No others leds are use. The current input is 0
+ * When an other event happen ( 1 or more ), then the Led song mode stop
+ * and every led are clear before execute the command.
+ */
+boolean led_song_mode = false;
 
 
 
@@ -116,24 +123,33 @@ void loop(){
     int finalvalue = value*255;
     char end_of_line = Serial.read();
 
+    //Check Led Song Mode
+    if(led_song_mode & (channel>0)){
+      setOneNeoPixel( -1, 0, 0, 0); //Clear; 
+      led_song_mode = false;
+    }
+
+    if(!led_song_mode & (channel==0)){
+      led_song_mode = true;
+    }
+
     //change Value because of led light power
 
     if(end_of_line == 13 ){
       
          switch(channel){
              case 0:
-                   //setNeoPixel(0, 0,finalvalue,0);
-                   digitalWrite(digitaloutPin[0], finalvalue>0);
+                   setOneNeoPixel( value, 0, 25, 25);
               break;
              case 1:
-                   digitalWrite(digitaloutPin[1], finalvalue>0);
+                   //digitalWrite(digitaloutPin[1], finalvalue>0);
                    //setNeoPixel(1, 0, 0, finalvalue);
                 break; 
             case 2: 
                    setNeoPixel(0,finalvalue,0 ,0);
                 break;
            case 3:
-                   setNeoPixel(1, finalvalue,finalvalue,finalvalue);
+                   setNeoPixel(1, finalvalue/3,finalvalue/3,finalvalue/3);
               break;
              case 4:
                    setNeoPixel(2,0,finalvalue, 0);
@@ -142,7 +158,7 @@ void loop(){
                    setNeoPixel(3, finalvalue,0,0);
                 break;
              case 6:
-                   setNeoPixel(4,finalvalue,finalvalue,finalvalue);
+                   setNeoPixel(4,finalvalue/3,finalvalue/3,finalvalue/3);
               break;
              case 7:
                    setNeoPixel(5, 0,finalvalue,0);
@@ -151,7 +167,7 @@ void loop(){
                    setNeoPixel(6, finalvalue,0 ,0);
                 break;
             case 9:
-                   setNeoPixel(7, finalvalue, finalvalue,finalvalue);
+                   setNeoPixel(7, finalvalue/3,finalvalue/3,finalvalue/3);
               break;
              case 10:
                    setNeoPixel(8, 0,finalvalue,0);
@@ -160,13 +176,13 @@ void loop(){
                    setNeoPixel(9,finalvalue,0,0);
                 break;
             case 12: 
-                   setNeoPixel(10,finalvalue,finalvalue,finalvalue);
+                   setNeoPixel(10,finalvalue/3,finalvalue/3,finalvalue/3);
                 break;
             case 13: 
                    setNeoPixel(11,0,finalvalue,0);
                 break;
             case 14:
-                   setOneNeoPixel( value, 255, 0, 0);
+                 break;
 
             
           
@@ -187,7 +203,6 @@ void loop(){
   }
   // Don't forget to update the LEDS when serial is over
   pixels.show();
-  
   
   delay(5);
   
@@ -216,27 +231,6 @@ Serial.println(value);
 void setNeoPixel(int channel, int r, int v, int b){
 
   int finalr, finalv, finalb;
-//  if( r == 0 ){
-//    finalr= digitaloutValue[channel];
-//  }else{
-//    digitaloutValue[channel] = r;
-//    finalr = r;
-//  }
-//  
-//  if( v == 0 ){
-//    finalv= digitaloutValue[channel+1];
-//  }else{
-//    digitaloutValue[channel+1] = v;
-//    finalv = v;
-//  }
-//  
-//  if( b == 0 ){
-//    finalb= digitaloutValue[channel+2];
-//  }else{
-//    digitaloutValue[channel+2] = b;
-//    finalb = b;
-//  }
-
   finalr = r*MAXLUMINOSITY;
   finalv = v*MAXLUMINOSITY;
   finalb = b*MAXLUMINOSITY;

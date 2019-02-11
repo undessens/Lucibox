@@ -1,4 +1,4 @@
-#N canvas 62 45 1028 533 10;
+#N canvas 343 147 1028 533 10;
 #X declare -path ../;
 #X obj -44 20 cnv 15 790 70 empty empty FROM::INLET 20 12 0 14 -204217
 -66577 0;
@@ -40,7 +40,7 @@
 #X obj 455 772 tabwrite~ \$0_loop;
 #X obj 639 467 cnv 15 210 350 empty empty play! 20 12 0 9 -204217 -66577
 0;
-#N canvas 224 160 567 572 rampgenerator 1;
+#N canvas 224 160 567 572 rampgenerator 0;
 #X obj 137 651 outlet~;
 #X text 217 585 2 = nbbar*1/tempofinal;
 #X floatatom 205 249 5 0 0 0 - - -, f 5;
@@ -174,7 +174,7 @@
 #X obj 401 7 inlet;
 #X obj 404 128 bng 40 1000 500 0 empty empty empty 17 7 0 10 -4034
 -1 -1;
-#X obj 326 93 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 326 93 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 279 76 extra/sv \$1_\$2_is_loop_recorded;
 #X obj 276 128 bng 40 1000 500 0 empty empty empty 17 7 0 10 -258113
@@ -477,7 +477,7 @@
 #X restore 8 288 pd save;
 #X obj 8 256 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#N canvas 56 120 670 562 open 0;
+#N canvas 56 120 670 562 open 1;
 #X obj 144 159 soundfiler;
 #X obj 183 319 / 44.1;
 #X floatatom 183 349 10 0 0 0 - - -, f 10;
@@ -496,7 +496,7 @@ exist ? \, volume \, reversed ? );
 #X obj 43 3 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 144 186 sel 0;
-#N canvas 385 184 630 509 checkinfofile 0;
+#N canvas 584 129 630 509 checkinfofile 0;
 #X obj 157 14 inlet;
 #X obj 250 133 extra/sv song;
 #X obj 196 220 textfile;
@@ -517,9 +517,6 @@ exist ? \, volume \, reversed ? );
 #X obj 190 267 route exist tempo duration;
 #X obj 309 292 s \$0_loop_size;
 #X obj 249 313 s \$0_loop_tempo;
-#X obj 115 449 extra/sv \$1_\$2_is_loop_waitforplay;
-#X msg 178 410 1;
-#X text 228 418 autostart from load;
 #X obj 70 381 s \$1_\$2_loop_clear;
 #X connect 0 0 5 0;
 #X connect 0 0 11 0;
@@ -530,8 +527,7 @@ exist ? \, volume \, reversed ? );
 #X connect 6 0 2 0;
 #X connect 7 0 2 0;
 #X connect 8 0 10 0;
-#X connect 8 0 20 0;
-#X connect 8 1 22 0;
+#X connect 8 1 19 0;
 #X connect 11 2 7 0;
 #X connect 11 3 6 0;
 #X connect 11 4 4 0;
@@ -545,7 +541,6 @@ exist ? \, volume \, reversed ? );
 #X connect 16 0 9 1;
 #X connect 16 1 18 0;
 #X connect 16 2 17 0;
-#X connect 20 0 19 1;
 #X restore 92 253 pd checkinfofile;
 #X obj 171 215 t b f;
 #X obj 183 293 f 0;
@@ -607,41 +602,36 @@ exist ? \, volume \, reversed ? );
 #X obj 144 111 pack \$0 \$1 \$2 1 s;
 #X obj 243 78 r samples_location;
 #X msg 144 137 read \$5/\$4/loop\$2_\$3.wav \$1_loop;
-#N canvas 503 85 509 628 config 0;
+#N canvas 94 81 509 628 config 0;
 #X obj 59 42 /;
 #X obj 59 1 inlet;
 #X obj 134 118 s \$0_loop_tempo;
 #X obj 78 148 s \$0_begin;
 #X msg 46 147 1;
 #X obj 24 177 extra/sv \$1_\$2_is_loop_recorded;
-#X obj -50 242 extra/sv \$1_\$2_is_loop_waitforplay;
 #X text 152 152 Toujours d'actualité?;
-#X msg 17 146 1;
 #X obj 133 46 s \$0_timer;
-#X msg -39 154 1;
 #X obj -100 176 s \$0_playstop_loop;
 #X msg -146 172 0;
 #X obj -137 215 extra/sv \$1_\$2_is_loop_waitforrec;
-#X obj -128 266 extra/sv \$1_\$2_is_loop_waitforplay;
-#X obj -128 315 extra/sv \$1_\$2_is_loop_recording;
-#X obj -130 291 s \$0_realstart_overdub;
+#X obj -125 239 extra/sv \$1_\$2_is_loop_waitforplay;
+#X obj -128 291 extra/sv \$1_\$2_is_loop_recording;
+#X obj -130 267 s \$0_realstart_overdub;
 #X obj 59 82 t b b b b b f;
-#X connect 0 0 17 0;
-#X connect 1 0 9 0;
+#X msg -39 154 0;
+#X connect 0 0 14 0;
+#X connect 1 0 7 0;
 #X connect 1 0 0 0;
 #X connect 4 0 5 1;
-#X connect 8 0 6 1;
-#X connect 10 0 11 0;
-#X connect 12 0 13 1;
-#X connect 12 0 14 1;
-#X connect 12 0 15 1;
-#X connect 12 0 16 0;
-#X connect 17 0 12 0;
-#X connect 17 1 10 0;
-#X connect 17 2 8 0;
-#X connect 17 3 4 0;
-#X connect 17 4 3 0;
-#X connect 17 5 2 0;
+#X connect 9 0 10 1;
+#X connect 9 0 11 1;
+#X connect 9 0 12 1;
+#X connect 9 0 13 0;
+#X connect 14 0 9 0;
+#X connect 14 1 15 0;
+#X connect 14 3 4 0;
+#X connect 14 5 2 0;
+#X connect 15 0 8 0;
 #X restore 183 390 pd config;
 #X obj 144 15 t b b b b;
 #X connect 0 0 15 0;
