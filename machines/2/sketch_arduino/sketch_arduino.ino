@@ -1,5 +1,6 @@
 /*
  *        LUCIBOX MACHINE 2 : looper 4 channel
+ *        MOON LOOPSTATION
  *        github.com/undessens/lucibox
  *        
  *        Author : Aurelien Conil
@@ -12,21 +13,21 @@
 #endif
 
 //NEOPIXEL
-#define PIN            2
+#define PIN            12
 
 #define NUMPIXELS      12
 #define MAXLUMINOSITY  0.1
 
 
 #define ANALOGIN 3    // Nombre de potentiometre
-#define DIGITALIN 8   // Nombre de boutons
-#define DIGITALOUT 14  // Nombre de leds
+#define DIGITALIN 10   // Nombre de boutons
+#define DIGITALOUT 0  // Nombre de leds
 #define ANALOG_THRESH 10 
 
 //--------------- NEOPIXEL ----------------
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_RGB +  NEO_KHZ800);
 int digitaloutValue[DIGITALOUT];
-int digitaloutPin[] = {12 , 13};
+int digitaloutPin[] = {};
 
 // ------------   POTENTIOMETRE --------------
 int analogValue[ANALOGIN];
@@ -34,7 +35,7 @@ int analogPin[] = { A0, A1, A2};
 
 // ------------   BOUTONS  ------------------
 int digitalinValue[DIGITALIN];
-int digitalinPin[] =  { 3,4,5,6,7,8, 9, 10};
+int digitalinPin[] =  { 2,3,4,5,6,7,8, 9, 10, 11};
 
 // Others
 /* When Led song mode is on, neo pixel are display the current song.
@@ -235,7 +236,7 @@ void setNeoPixel(int channel, int r, int v, int b){
   finalv = v*MAXLUMINOSITY;
   finalb = b*MAXLUMINOSITY;
 
-  pixels.setPixelColor(NUMPIXELS-(channel+1), pixels.Color(finalv,finalr,finalb));
+  pixels.setPixelColor(channel, pixels.Color(finalv,finalr,finalb));
   
 
 
