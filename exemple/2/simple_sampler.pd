@@ -1,24 +1,25 @@
-#N canvas 320 157 1005 504 10;
+#N canvas 369 119 1005 581 10;
 #X declare -path ../../patches;
-#X obj 7 370 cnv 15 980 120 empty empty empty 330 30 0 45 -21525 -88297
+#X obj 7 370 cnv 15 980 142 empty empty empty 330 30 0 45 -21525 -88297
 0;
 #X obj 154 107 cnv 15 834 258 empty empty empty 20 12 0 14 -233017
 -66577 0;
-#X obj 194 440 UI/ui_tempo_small;
+#X obj 225 419 UI/ui_tempo_small;
 #X obj 7 24 cnv 15 980 81 empty empty LUCIBOX 414 36 0 45 -21525 -88297
 0;
 #X obj 7 107 cnv 15 144 259 empty empty empty 20 12 0 14 -233017 -66577
 0;
-#N canvas 275 48 1440 663 patch 1;
+#N canvas 571 118 729 555 patch 0;
 #X obj 101 101 cnv 15 138 40 empty empty PATCH 20 12 0 14 -66577 -262144
 0;
-#X obj 277 108 adc~;
-#X obj 251 269 *~ 1;
-#X obj 283 301 dac~;
+#X obj 389 138 audio/mic;
+#X obj 389 110 adc~;
+#X obj 365 370 *~ 1;
+#X obj 365 400 dac~;
 #X obj 38 100 bng 35 250 50 0 empty empty CLOSE 4 20 0 10 -262144 -1
 -1;
 #X msg 38 164 \; pd-patch vis 0;
-#X obj 290 397 arduino/arduino_out;
+#X obj 263 447 arduino/arduino_out;
 #N canvas 447 412 1038 529 open 0;
 #X text 462 314 label-color;
 #X text 477 339 label-color;
@@ -51,35 +52,39 @@
 #X connect 12 0 3 0;
 #X coords 0 -1 1 1 40 17 2 100 100;
 #X restore 177 107 pd open;
-#X obj 466 271 s ledrec1;
-#X obj 499 245 s ledplay1;
-#X obj 251 246 *~ 1;
-#X obj 333 219 *~ 1;
-#X obj 333 196 audio/recloopsavesampler 1 1;
-#X obj 584 250 bang;
-#X obj 584 272 s tempoStopIn;
-#X obj 33 269 declare -path ../../patches;
-#X obj 36 305 audio/tempo atelier 1;
-#X obj 234 155 audio/mic;
-#X connect 1 0 17 0;
-#X connect 2 0 3 1;
-#X connect 2 0 3 0;
-#X connect 4 0 5 0;
-#X connect 10 0 2 0;
-#X connect 11 0 10 0;
-#X connect 12 0 11 0;
-#X connect 12 3 8 0;
-#X connect 12 4 9 0;
-#X connect 12 5 13 0;
-#X connect 13 0 14 0;
-#X connect 17 0 12 0;
-#X connect 17 1 10 0;
+#X obj 371 281 effect/reverb;
+#X obj 325 221 audio/sampler8 3;
+#X obj 407 189 *~ 1;
+#X obj 372 258 *~ 1;
+#X obj 465 281 effect/delay;
+#X obj 466 252 *~ 1;
+#X obj 82 244 loadbang;
+#X msg 82 269 127;
+#X obj 41 208 declare -path ../../patches;
+#X obj 41 291 audio/tempo exemple 2;
+#X connect 1 0 11 0;
+#X connect 2 0 1 0;
+#X connect 2 1 1 0;
+#X connect 3 0 4 1;
+#X connect 3 0 4 0;
+#X connect 5 0 6 0;
+#X connect 9 0 3 0;
+#X connect 10 0 3 0;
+#X connect 10 1 12 0;
+#X connect 10 2 14 0;
+#X connect 11 0 10 8;
+#X connect 12 0 9 0;
+#X connect 13 0 3 0;
+#X connect 14 0 13 0;
+#X connect 15 0 16 0;
+#X connect 16 0 18 1;
 #X coords 0 -1 1 1 140 42 2 100 100;
-#X restore 7 144 pd patch;
-#N canvas 518 153 922 462 connect 0;
-#X obj 39 6 cnv 15 650 83 empty empty CONNECT 250 30 0 45 -21525 -88297
+#X restore 7 139 pd patch;
+#N canvas 400 263 1070 501 connect 0;
+#X obj 385 103 connect/connect_sampler8 3;
+#X obj 40 6 cnv 15 996 83 empty empty CONNECT 330 30 0 45 -21525 -88297
 0;
-#X obj 43 26 cnv 15 138 40 empty empty CONNECT 20 12 0 14 -66577 -262144
+#X obj 44 26 cnv 15 138 40 empty empty CONNECT 20 12 0 14 -66577 -262144
 0;
 #N canvas 402 288 1038 552 open 0;
 #X obj 103 102 hradio 15 0 0 3 empty empty empty 0 -8 0 10 -262144
@@ -114,26 +119,26 @@
 #X connect 10 0 4 0;
 #X connect 14 0 15 0;
 #X coords 0 -1 1 1 49 17 2 100 100;
-#X restore 126 47 pd open;
-#X obj 35 95 arduino/arduino;
-#X obj 468 94 connect/connect_recloopsave 1 1;
-#X obj 320 94 connect/connect_mic;
-#X obj 35 154 hardware/midi;
-#X obj 35 211 hardware/keyboard;
+#X restore 127 47 pd open;
+#X obj 40 103 arduino/arduino;
+#X obj 236 103 connect/connect_mic;
+#X obj 38 159 hardware/midi;
+#X obj 37 217 hardware/keyboard;
 #X coords 0 -1 1 1 140 42 1 43 25;
-#X restore 7 208 pd connect;
-#X obj 232 370 hsl 550 60 0 1 0 0 empty global_tempo_slider empty -2
+#X restore 8 191 pd connect;
+#X obj 213 482 hsl 640 30 0 1 0 0 empty global_tempo_slider empty -2
 -8 0 10 -33289 -4032 -1 0 1;
-#N canvas 679 285 752 388 volumes 0;
-#X obj 25 -13 cnv 15 600 83 empty empty VOLUMES 230 30 0 45 -21525
+#X obj 330 149 UI/ui_sampler8 3 1;
+#N canvas 531 314 721 359 volumes 0;
+#X obj 24 -13 cnv 15 650 83 empty empty VOLUMES 330 30 0 45 -21525
 -88297 0;
-#X obj 341 81 volumes/volume_recloopsave 1 1;
-#X obj 181 81 volumes/volume_mic;
+#X obj 189 80 volumes/volume_sampler 3;
+#X obj 28 80 volumes/volume_mic;
 #X obj 44 26 cnv 15 138 40 empty empty VOLUMES 20 12 0 14 -66577 -262144
 0;
 #N canvas 285 163 1038 575 open 0;
 #X obj 103 102 hradio 15 0 0 3 empty empty empty 0 -8 0 10 -262144
--1 -1 2;
+-1 -1 1;
 #X text 462 314 label-color;
 #X text 477 339 label-color;
 #X obj 377 311 t b f;
@@ -163,8 +168,9 @@
 #X connect 10 0 4 0;
 #X coords 0 -1 1 1 49 17 2 100 100;
 #X restore 127 47 pd open;
-#X obj 513 2 bng 55 250 50 0 save_all empty SAVE 10 25 0 15 -258113
+#X obj 476 80 UI/delay;
+#X obj 332 80 UI/reverb;
+#X obj 209 0 bng 55 250 50 0 save_all empty SAVE 10 25 0 15 -258113
 -1 -1;
 #X coords 0 -1 1 1 140 42 1 43 25;
-#X restore 7 272 pd volumes;
-#X obj 453 139 UI/ui_recloopsave 1 1;
+#X restore 9 242 pd volumes;

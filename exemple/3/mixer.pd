@@ -1,10 +1,10 @@
 #N canvas 285 146 1005 581 10;
 #X declare -path ../../patches;
-#X obj 7 457 cnv 15 980 142 empty empty empty 330 30 0 45 -21525 -88297
+#X obj 7 461 cnv 15 980 142 empty empty empty 330 30 0 45 -21525 -88297
 0;
 #X obj 154 107 cnv 15 834 348 empty empty empty 20 12 0 14 -233017
 -66577 0;
-#X obj 225 499 UI/ui_tempo_small;
+#X obj 229 479 UI/ui_tempo_small;
 #X obj 7 24 cnv 15 980 81 empty empty LUCIBOX 414 36 0 45 -21525 -88297
 0;
 #X obj 7 107 cnv 15 144 349 empty empty empty 20 12 0 14 -233017 -66577
@@ -25,7 +25,7 @@
 #X msg 400 277 2;
 #X obj 466 220 loadbang;
 #X obj 104 101 hradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
--1 -1 1;
+-1 -1 0;
 #X obj 104 166 bang;
 #X msg 363 277 43;
 #X obj 101 101 cnv 15 38 15 empty \$0_opencnv open 6 8 0 10 -66577
@@ -57,8 +57,8 @@
 #X obj 82 244 loadbang;
 #X msg 82 269 127;
 #X obj 41 208 declare -path ../../patches;
-#X obj 377 124 audio/4_sync_loop 2;
-#X obj 41 291 audio/tempo atelier 3;
+#X obj 299 129 audio/4_sync_loop 2;
+#X obj 41 291 audio/tempo exemple 3;
 #X connect 1 0 2 1;
 #X connect 1 0 2 0;
 #X connect 3 0 4 0;
@@ -68,6 +68,7 @@
 #X connect 10 0 9 0;
 #X connect 11 0 12 0;
 #X connect 12 0 15 1;
+#X connect 14 0 1 0;
 #X coords 0 -1 1 1 140 42 2 100 100;
 #X restore 7 139 pd patch;
 #N canvas 370 263 1070 501 connect 0;
@@ -114,7 +115,7 @@
 #X obj 37 217 hardware/keyboard;
 #X coords 0 -1 1 1 140 42 1 43 25;
 #X restore 8 191 pd connect;
-#X obj 213 562 hsl 640 30 0 1 0 0 empty global_tempo_slider empty -2
+#X obj 204 529 hsl 640 30 0 1 0 0 empty global_tempo_slider empty -2
 -8 0 10 -33289 -4032 -1 0 1;
 #N canvas 531 314 721 359 volumes 0;
 #X obj 24 -13 cnv 15 650 83 empty empty VOLUMES 330 30 0 45 -21525

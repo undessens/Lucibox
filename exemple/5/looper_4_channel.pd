@@ -145,7 +145,7 @@
 #X obj 992 200 audio/recloopsavesampler 4 1;
 #X obj 86 723 extra/sv nbLoopPlaying;
 #X obj 35 283 declare -path ../../patches;
-#X obj 21 309 audio/tempo atelier 5;
+#X obj 21 309 audio/tempo exemple 5;
 #X connect 1 1 29 0;
 #X connect 1 1 31 0;
 #X connect 1 1 30 0;
