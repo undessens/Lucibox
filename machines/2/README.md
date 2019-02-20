@@ -80,3 +80,72 @@ Moon LoopStation is a 4 channels looper, able to save and open session, and load
 - Cutter ( big and fat)
 - Big and fat rule
 - Probably clamp and other extra stuff
+
+
+
+# Layout
+
+![mon image](docs/img/complete.png)
+
+
+
+# How does it work?
+
+
+
+## Volumes, level
+
+Input volumes and output are set from the PiSound card, and its potentiometer.
+
+## channels
+
+There is 4 channels. Each channel has
+
+- 1 footswitch record ( one press start recording, one press ends recording)
+- 1 footswitch play ( **short press**) or delete (**long press**)
+- 1 led red : recording
+- 1 led white : a loop is recorded, exist
+- 1 led green : a loop is playing
+
+
+
+## stop all / play all  / delete all button
+
+**short press** 
+
+This button stop all channel actually playing, and play all the channels stopped
+
+**long press = RESET**
+
+This action delete all the loops, and is equivalent to a <u>reset</u> of the pedal.
+
+
+
+## Syncro of recording
+
+### Case 1 : Nothing is playing
+
+If there is no loop playing, then the loopstation is stopped.
+
+Press the record button one time to start recording, then press again to stop recording.
+
+ At the point, the recording of a new loop is going to set a new tempo to the loopstation
+
+### Case 2 : One or more loop are playing
+
+If there is already loops playing, then the tempo is already set. Once you press the record button, the looper is waiting for the new  cycle before recording. At this point,  the red led of recording is blinking.
+
+Once the cycle start, the led is red and not blinking anymore, and the looper is recording. Your recording can be longer than the previous one ! When you finish, one press of the rec button begin the stop precedure: the red led is blinking unitl the next cycle.
+
+At least, channels can be set of different size, but are always multiple one from each other.
+
+
+
+## Syncro of playing
+
+
+
+
+
+
+
