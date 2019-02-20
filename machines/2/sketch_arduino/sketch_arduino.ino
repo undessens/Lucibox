@@ -7,10 +7,7 @@
  *        Casemate Fablab de Grenoble
  */
 
- #include <Adafruit_NeoPixel.h>
-#ifdef __AVR__
-  #include <avr/power.h>
-#endif
+ #include "Adafruit_NeoPixel.h"
 
 //NEOPIXEL
 #define PIN            12
@@ -259,6 +256,3 @@ for(int i=0; i<NUMPIXELS; i++){
 
   
 }
-
-
-
