@@ -1,11 +1,11 @@
-#N canvas 761 261 720 318 10;
+#N canvas 0 59 656 357 10;
 #X declare -path ../../patches;
 #X obj 5 87 cnv 15 680 230 empty empty empty 20 12 0 14 -233017 -66577
 0;
 #X obj 7 263 UI/ui_tempo_small;
 #X obj 5 3 cnv 15 680 81 empty empty LUCIBOX 20 36 0 45 -21525 -88297
 0;
-#N canvas 188 84 1292 647 patch 1;
+#N canvas 0 93 1080 527 patch 0;
 #X obj 101 101 cnv 15 138 40 empty empty PATCH 20 12 0 14 -66577 -262144
 0;
 #X obj 250 -2 audio/mic;
@@ -23,7 +23,7 @@
 #X msg 400 277 2;
 #X obj 466 220 loadbang;
 #X obj 104 101 hradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
--1 -1 1;
+-1 -1 0;
 #X obj 104 166 bang;
 #X msg 363 277 43;
 #X obj 101 101 cnv 15 38 15 empty \$0_opencnv open 6 8 0 10 -66577
@@ -145,7 +145,7 @@ stop;
 #X obj 234 228 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 234 251 sel 1;
-#X obj 129 231 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 129 231 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 79 267 spigot;
 #X obj 23 203 extra/sv song;
@@ -200,7 +200,7 @@ stop;
 #X obj 561 314 audio/recloopsave 2 1;
 #X obj 765 314 audio/recloopsave 3 1;
 #X obj 992 310 audio/recloopsave 4 1;
-#N canvas 0 22 450 300 global_play_delete 0;
+#N canvas 0 50 450 300 global_play_delete 0;
 #N canvas 293 165 623 468 longORshort 0;
 #X obj 153 75 inlet;
 #X obj 152 180 timer;
@@ -343,7 +343,7 @@ stop;
 #X connect 53 4 26 0;
 #X coords 0 -1 1 1 140 42 2 100 100;
 #X restore 221 20 pd patch;
-#N canvas 92 112 1302 647 connect 0;
+#N canvas 0 101 1065 560 connect 0;
 #X obj 625 97 connect/connect_global_recplay;
 #X obj 40 6 cnv 15 996 83 empty empty CONNECT 330 30 0 45 -21525 -88297
 0;
@@ -352,7 +352,7 @@ stop;
 0;
 #N canvas 402 288 1038 552 open 0;
 #X obj 103 102 hradio 15 0 0 3 empty empty empty 0 -8 0 10 -262144
--1 -1 1;
+-1 -1 2;
 #X text 462 314 label-color;
 #X text 477 339 label-color;
 #X obj 377 311 t b f;
@@ -446,8 +446,7 @@ stop;
 -1 -1;
 #X coords 0 -1 1 1 140 42 1 43 25;
 #X restore 507 20 pd volumes;
-#X obj 7 90 UI/ui_recloopsave 1 1;
-#X obj 151 90 UI/ui_recloopsave 2 1;
-#X obj 294 90 UI/ui_recloopsave 3 1;
-#X obj 437 90 UI/ui_recloopsave 4 1;
-#X obj 582 89 UI/ui_sampler8_mini;
+#X obj 42 90 UI/ui_recloopsave 1 1;
+#X obj 186 90 UI/ui_recloopsave 2 1;
+#X obj 329 90 UI/ui_recloopsave 3 1;
+#X obj 472 90 UI/ui_recloopsave 4 1;
