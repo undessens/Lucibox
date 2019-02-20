@@ -1,4 +1,4 @@
-# Machines 2 : Moon LoopStation
+# Machines 1 : Moon LoopStation
 
 ![mon image](docs/img/front.jpg)
 
