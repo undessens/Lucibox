@@ -1,11 +1,11 @@
-#N canvas 0 59 656 357 10;
+#N canvas 0 63 654 357 10;
 #X declare -path ../../patches;
 #X obj 5 87 cnv 15 680 230 empty empty empty 20 12 0 14 -233017 -66577
 0;
 #X obj 7 263 UI/ui_tempo_small;
 #X obj 5 3 cnv 15 680 81 empty empty LUCIBOX 20 36 0 45 -21525 -88297
 0;
-#N canvas 0 93 1080 527 patch 1;
+#N canvas 0 93 1080 527 patch 0;
 #X obj 101 101 cnv 15 138 40 empty empty PATCH 20 12 0 14 -66577 -262144
 0;
 #X obj 250 -2 audio/mic;
@@ -86,7 +86,7 @@
 #X obj 337 241 +;
 #X obj 319 266 +;
 #X obj 301 289 +;
-#X floatatom 301 309 5 0 0 0 - - -;
+#X floatatom 301 309 5 0 0 0 - - -, f 5;
 #X obj 300 326 sel 0;
 #X obj 300 352 s tempoStopIn;
 #X obj 280 353 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
@@ -161,7 +161,7 @@ stop;
 -1 -1;
 #X obj 206 435 i 0;
 #X obj 81 335 t b f;
-#X floatatom 108 495 5 0 0 0 - - -;
+#X floatatom 108 495 5 0 0 0 - - -, f 5;
 #X obj 281 379 sel 1 0;
 #X msg 279 432 -1;
 #X obj 406 248 t b a;
@@ -343,7 +343,7 @@ stop;
 #X connect 52 4 26 0;
 #X coords 0 -1 1 1 140 42 2 100 100;
 #X restore 221 20 pd patch;
-#N canvas 0 101 1065 560 connect 0;
+#N canvas 0 59 641 356 connect 0;
 #X obj 625 97 connect/connect_global_recplay;
 #X obj 40 6 cnv 15 996 83 empty empty CONNECT 330 30 0 45 -21525 -88297
 0;
@@ -352,7 +352,7 @@ stop;
 0;
 #N canvas 402 288 1038 552 open 0;
 #X obj 103 102 hradio 15 0 0 3 empty empty empty 0 -8 0 10 -262144
--1 -1 2;
+-1 -1 1;
 #X text 462 314 label-color;
 #X text 477 339 label-color;
 #X obj 377 311 t b f;
