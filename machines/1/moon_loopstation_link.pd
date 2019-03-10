@@ -1,11 +1,11 @@
-#N canvas 0 59 641 357 10;
+#N canvas 0 63 641 357 10;
 #X declare -path ../../patches;
 #X obj 5 87 cnv 15 680 230 empty empty empty 20 12 0 14 -233017 -66577
 0;
 #X obj 7 263 UI/ui_tempo_small;
 #X obj 5 3 cnv 15 680 81 empty empty LUCIBOX 20 36 0 45 -21525 -88297
 0;
-#N canvas 0 63 641 357 patch 0;
+#N canvas 0 71 641 357 patch 0;
 #X obj 101 101 cnv 15 138 40 empty empty PATCH 20 12 0 14 -66577 -262144
 0;
 #X obj 250 -2 audio/mic;
@@ -23,7 +23,7 @@
 #X msg 400 277 2;
 #X obj 466 220 loadbang;
 #X obj 104 101 hradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
--1 -1 0;
+-1 -1 1;
 #X obj 104 166 bang;
 #X msg 363 277 43;
 #X obj 101 101 cnv 15 38 15 empty \$0_opencnv open 6 8 0 10 -66577
@@ -71,7 +71,7 @@
 #X obj 768 363 *~ 1;
 #X obj 992 363 *~ 1;
 #X obj 817 351 s ledrec3;
-#N canvas 147 187 784 449 autostop_from_loop 0;
+#N canvas 0 59 641 356 autostop_from_loop 0;
 #X obj 155 39 extra/sv 1_1_is_loop_playing;
 #X obj 188 62 extra/sv 2_1_is_loop_playing;
 #X obj 215 85 extra/sv 3_1_is_loop_playing;
@@ -101,6 +101,7 @@
 #X obj 469 199 print playloop4;
 #X text 454 40 This patch stop the global player \, if all looper are
 stop;
+#X text 49 346 De-activate with ableton link;
 #X connect 0 0 8 0;
 #X connect 1 0 8 0;
 #X connect 2 0 8 0;
@@ -118,7 +119,6 @@ stop;
 #X connect 11 0 12 1;
 #X connect 12 0 13 0;
 #X connect 13 0 14 0;
-#X connect 14 0 15 0;
 #X connect 14 0 16 0;
 #X restore 22 383 pd autostop_from_loop;
 #X obj 35 283 declare -path ../../patches;
@@ -196,7 +196,7 @@ stop;
 #X connect 23 0 20 0;
 #X connect 24 0 1 1;
 #X restore 212 769 pd song_led;
-#N canvas 0 50 450 300 global_play_delete 0;
+#N canvas 104 71 450 300 global_play_delete 0;
 #N canvas 293 165 623 468 longORshort 0;
 #X obj 153 75 inlet;
 #X obj 152 180 timer;
@@ -246,7 +246,7 @@ stop;
 #X obj 143 85 spigot;
 #X obj 143 15 extra/sv global_play;
 #X obj 176 58 == 0;
-#X obj 215 178 extra/sv tempo_isplaying;
+#X obj 306 178 extra/sv tempo_isplaying;
 #X msg 262 153 0;
 #X obj 173 168 bang;
 #X obj 173 214 s bigReset;
@@ -258,6 +258,7 @@ stop;
 #X obj 307 224 s 2_1_loop_clear;
 #X obj 307 244 s 3_1_loop_clear;
 #X obj 307 264 s 4_1_loop_clear;
+#X msg 312 153 1;
 #X connect 0 0 11 0;
 #X connect 0 1 9 0;
 #X connect 0 1 10 0;
@@ -265,7 +266,6 @@ stop;
 #X connect 2 0 0 0;
 #X connect 3 0 2 0;
 #X connect 4 0 2 1;
-#X connect 6 0 5 1;
 #X connect 6 0 12 0;
 #X connect 6 0 13 0;
 #X connect 6 0 14 0;
@@ -273,6 +273,8 @@ stop;
 #X connect 7 0 8 0;
 #X connect 9 0 7 0;
 #X connect 9 1 6 0;
+#X connect 9 1 16 0;
+#X connect 16 0 5 1;
 #X restore 26 456 pd global_play_delete;
 #X obj 21 309 audio/tempo_link machines 1;
 #X obj 561 314 audio/recloopsave 2 1;
