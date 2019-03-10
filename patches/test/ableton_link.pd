@@ -1,0 +1,22 @@
+#N canvas 284 238 823 443 10;
+#X declare -path ../../patches;
+#X obj 14 40 declare -path ../../patches;
+#X obj 34 136 audio/tempo_link;
+#X obj 242 181 audio/recloopsave 1 1;
+#X obj 241 295 dac~;
+#X obj 241 54 adc~;
+#X obj 324 81 tgl 45 0 empty empty empty 17 7 0 10 -258113 -1 -1 0
+1;
+#X obj 394 81 tgl 45 0 empty empty empty 17 7 0 10 -4034 -1 -1 0 1
+;
+#X obj 324 261 tgl 45 0 empty empty empty 17 7 0 10 -258113 -1 -1 0
+1;
+#X obj 394 261 tgl 45 0 empty empty empty 17 7 0 10 -4034 -1 -1 0 1
+;
+#X obj 480 80 UI/ui_recloopsave 1 1;
+#X connect 2 0 3 0;
+#X connect 2 3 7 0;
+#X connect 2 4 8 0;
+#X connect 4 0 2 0;
+#X connect 5 0 2 1;
+#X connect 6 0 2 2;
