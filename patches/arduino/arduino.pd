@@ -1,4 +1,4 @@
-#N canvas 213 23 928 562 12;
+#N canvas 198 73 928 562 12;
 #X declare -path ../;
 #X msg 26 275 \$1 \$2 13;
 #X obj 26 250 r arduinoIN;
@@ -9,7 +9,7 @@
 -1 -1;
 #X obj 128 82 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#N canvas 658 189 705 483 read_serial 0;
+#N canvas 328 344 705 483 read_serial 0;
 #X obj 188 177 list prepend;
 #X obj 309 176 t l;
 #X obj 139 93 t f f;
@@ -29,6 +29,9 @@
 #X obj 185 132 f 0;
 #X obj 145 186 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
+#X obj 393 30 loadbang;
+#X text 405 68 clear list at beginning;
+#X obj 398 91 delay 800;
 #X connect 0 0 1 0;
 #X connect 0 0 5 1;
 #X connect 1 0 0 1;
@@ -45,6 +48,8 @@
 #X connect 13 0 6 0;
 #X connect 14 0 0 0;
 #X connect 15 0 14 0;
+#X connect 16 0 18 0;
+#X connect 18 0 6 0;
 #X restore 128 340 pd read_serial;
 #X obj 282 320 r arduino_reset;
 #X floatatom 637 115 3 0 0 0 - - -, f 3;
@@ -60,7 +65,7 @@
 #X obj 44 111 cnv 15 320 150 empty empty empty 80 -20 0 14 -233017
 -66577 0;
 #X obj 48 80 vradio 30 1 0 6 serial_choice_in serial_choice_out empty
-0 -8 0 10 -262144 -1 -1 0;
+0 -8 0 10 -262144 -1 -1 1;
 #X obj 80 113 cnv 15 280 25 empty serial0_name /dev/tty.Bluetooth-Incoming-Port-(0)
 20 12 0 12 -262144 -66577 0;
 #X obj 80 143 cnv 15 280 25 empty serial1_name --- 20 12 0 12 -262144
@@ -79,13 +84,13 @@
 #X obj 504 115 tgl 15 0 empty empty CONFIGURE 17 7 0 10 -258113 -1
 -1 0 1;
 #X obj 504 158 sel 1 0;
-#N canvas 756 23 665 442 makeDeviceList 0;
+#N canvas 756 50 665 442 makeDeviceList 0;
 #X obj 124 140 symbol;
 #X obj 174 50 inlet;
 #X text 171 24 comport device list;
 #X obj 124 164 t s b;
 #X obj 78 116 list split 1;
-#N canvas 372 37 450 300 atoi 0;
+#N canvas 372 50 450 300 atoi 0;
 #X obj 167 86 inlet;
 #X obj 144 254 outlet;
 #X msg 126 197 0;
@@ -292,7 +297,7 @@
 #X connect 10 0 4 3;
 #X restore 369 68 pd init;
 #X obj 168 111 r port_to_open;
-#X obj 506 135 cnv 15 180 15 empty current_serial_name no_arduino_connected
+#X obj 506 135 cnv 15 180 15 empty current_serial_name connected_port:0
 5 10 0 11 -233017 -66577 0;
 #N canvas 534 480 543 300 displayport 0;
 #X obj 153 27 inlet;
@@ -308,6 +313,7 @@
 #X connect 6 1 4 0;
 #X restore 243 136 pd displayport;
 #X obj 168 139 sel 0;
+#X obj 287 392 print msg_arduino;
 #X connect 0 0 15 0;
 #X connect 1 0 0 0;
 #X connect 5 0 4 0;
@@ -321,6 +327,7 @@
 #X connect 14 0 15 0;
 #X connect 15 0 5 0;
 #X connect 15 0 6 0;
+#X connect 15 0 42 0;
 #X connect 15 1 22 0;
 #X connect 16 0 10 0;
 #X connect 19 0 20 0;
