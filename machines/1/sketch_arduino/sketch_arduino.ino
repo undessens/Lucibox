@@ -48,7 +48,7 @@ void setup(){
 
     Serial.begin(38400);
     while(!Serial);
-    Serial.print("Lucibox");
+    
    
   
   for( int i=0 ;i<ANALOGIN ; i++){
