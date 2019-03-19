@@ -1,4 +1,4 @@
-#N canvas 285 146 1005 581 10;
+#N canvas 228 69 1005 581 10;
 #X declare -path ../../patches;
 #X obj 7 461 cnv 15 980 142 empty empty empty 330 30 0 45 -21525 -88297
 0;
@@ -9,7 +9,7 @@
 0;
 #X obj 7 107 cnv 15 144 349 empty empty empty 20 12 0 14 -233017 -66577
 0;
-#N canvas 560 84 729 555 patch 0;
+#N canvas 587 71 729 555 patch 1;
 #X obj 101 101 cnv 15 138 40 empty empty PATCH 20 12 0 14 -66577 -262144
 0;
 #X obj 365 370 *~ 1;
@@ -50,25 +50,21 @@
 #X connect 12 0 3 0;
 #X coords 0 -1 1 1 40 17 2 100 100;
 #X restore 177 107 pd open;
-#X obj 365 281 effect/reverb;
-#X obj 366 258 *~ 1;
-#X obj 465 281 effect/delay;
-#X obj 466 252 *~ 1;
 #X obj 82 244 loadbang;
 #X msg 82 269 127;
 #X obj 41 208 declare -path ../../patches;
-#X obj 299 129 audio/4_sync_loop 2;
 #X obj 41 291 audio/tempo exemple 3;
+#X obj 299 129 audio/4_sync_loop 1;
+#X obj 329 159 audio/4_sync_loop 2;
+#X obj 359 183 audio/4_sync_loop 3;
 #X connect 1 0 2 1;
 #X connect 1 0 2 0;
 #X connect 3 0 4 0;
-#X connect 7 0 1 0;
-#X connect 8 0 7 0;
-#X connect 9 0 1 0;
-#X connect 10 0 9 0;
-#X connect 11 0 12 0;
-#X connect 12 0 15 1;
-#X connect 14 0 1 0;
+#X connect 7 0 8 0;
+#X connect 8 0 10 1;
+#X connect 11 0 1 0;
+#X connect 12 0 1 0;
+#X connect 13 0 1 0;
 #X coords 0 -1 1 1 140 42 2 100 100;
 #X restore 7 139 pd patch;
 #N canvas 370 263 1070 501 connect 0;
@@ -162,3 +158,5 @@
 #X coords 0 -1 1 1 140 42 1 43 25;
 #X restore 9 242 pd volumes;
 #X obj 325 107 UI/ui_4_sync_loop 1;
+#X obj 490 106 UI/ui_4_sync_loop 2;
+#X obj 655 107 UI/ui_4_sync_loop 3;
