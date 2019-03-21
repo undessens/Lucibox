@@ -1,4 +1,4 @@
-#N canvas 198 73 928 562 12;
+#N canvas 195 77 928 562 12;
 #X declare -path ../;
 #X msg 26 275 \$1 \$2 13;
 #X obj 26 250 r arduinoIN;
@@ -313,7 +313,6 @@
 #X connect 6 1 4 0;
 #X restore 243 136 pd displayport;
 #X obj 168 139 sel 0;
-#X obj 287 392 print msg_arduino;
 #X connect 0 0 15 0;
 #X connect 1 0 0 0;
 #X connect 5 0 4 0;
@@ -327,7 +326,6 @@
 #X connect 14 0 15 0;
 #X connect 15 0 5 0;
 #X connect 15 0 6 0;
-#X connect 15 0 42 0;
 #X connect 15 1 22 0;
 #X connect 16 0 10 0;
 #X connect 19 0 20 0;
