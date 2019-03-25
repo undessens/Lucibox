@@ -1,13 +1,12 @@
-﻿﻿﻿﻿# Lucibox
+# Lucibox
 
 
 
-![Lucibox](docs/img/lucibox_brand.png)
+![Lucibox]( docs/img/lucibox_brand.png )
 
 This is about music, machines and D.I.Y
 
 > La documentation en français se trouve au bas de cette page
-
 
 
 **Lucibox** is more than an a software, it's a concept that allow people to create their own musical machine
@@ -48,7 +47,15 @@ Puredata work on all platform, that's make the code really easy to move from des
 
 The software can be controlled from Arduino ( serial ), midi controller, or keyboard ( including Makey Makey board ).  All arduino sketches and shematics are free to use.
 
+# How to begin ?
+ 1. Download PureData [PureData](https://puredata.info) 
+ 2. Install it and configure sound [ Link ](http://write.flossmanuals.net/pure-data/configuring/)
+ 3. Download Lucibox project, from the Github button ( **Clone or download** ) or directly this [link](https://github.com/undessens/Lucibox/archive/master.zip)
+ 4. Explore the folders, plug the headphone and enjoy.
+ 
+
 # What are the folder?
+
 ## Exemple
 
 Contains exemples of how the software can be used. For each exemple, you can control it using only the computer mouse, or a controller if you want. 
@@ -117,7 +124,7 @@ Dans la vision lucibox, la musique et le numérique  dépasse le logiciel de mus
 
 ## Education
 
-Ce projet est utilisé comme une nouvelle manière de découvrir arduino, raspberry pi, et la culture D.I.Y.  Le dossier *exemple* contient des examples utilisés durant des atelier arduino pour découvrir les origines de la musique electroniques, et découvrir la logique D.I.Y et le monde de l'open source.
+Ce projet est utilisé comme une nouvelle manière de découvrir arduino, raspberry pi, et la culture D.I.Y.  Le dossier *exemple* contient des exemples utilisés durant des atelier arduino pour découvrir les origines de la musique electroniques, et découvrir la logique D.I.Y et le monde de l'open source.
 
 Ces ateliers, sont organisés par l'association 
 
@@ -153,6 +160,11 @@ Il est possible de controler le logiciel depuis une carte Arduino ( serial), des
 
 Les codes arduino et les shémas de branchement sont fournis dans la doc.
 
+# Comment commencer ?
+ 1. Télécharger PureData [PureData](https://puredata.info) ( très léger : 7MB environ )
+ 2. Installer et configurer [ Link ](http://write.flossmanuals.net/pure-data/configuring/)
+ 3. Télécharger tout le projet Lucibox depuis le bouton Github ( **Clone or download** ) or directement avec ce  [lien](https://github.com/undessens/Lucibox/archive/master.zip)
+ 4. Explore the folders, plug the headphone and enjoy.
 
 
 # Arboresence et fichiers
