@@ -1,4 +1,4 @@
-#N canvas 211 102 1005 504 10;
+#N canvas 433 165 1005 504 10;
 #X declare -path ../../patches;
 #X obj 7 370 cnv 15 980 120 empty empty empty 330 30 0 45 -21525 -88297
 0;
@@ -9,7 +9,7 @@
 0;
 #X obj 7 107 cnv 15 144 259 empty empty empty 20 12 0 14 -233017 -66577
 0;
-#N canvas 275 48 1440 663 patch 0;
+#N canvas 275 48 1440 663 patch 1;
 #X obj 101 101 cnv 15 138 40 empty empty PATCH 20 12 0 14 -66577 -262144
 0;
 #X obj 277 108 adc~;
@@ -55,25 +55,25 @@
 #X obj 499 245 s ledplay1;
 #X obj 251 246 *~ 1;
 #X obj 333 219 *~ 1;
-#X obj 333 196 audio/recloopsavesampler 1 1;
 #X obj 584 250 bang;
 #X obj 584 272 s tempoStopIn;
 #X obj 33 269 declare -path ../../patches;
 #X obj 234 155 audio/mic;
 #X obj 36 305 audio/tempo exemple 1;
-#X connect 1 0 16 0;
+#X obj 333 196 audio/recloopsave 1 1;
+#X connect 1 0 15 0;
 #X connect 2 0 3 1;
 #X connect 2 0 3 0;
 #X connect 4 0 5 0;
 #X connect 10 0 2 0;
 #X connect 11 0 10 0;
-#X connect 12 0 11 0;
-#X connect 12 3 8 0;
-#X connect 12 4 9 0;
-#X connect 12 5 13 0;
-#X connect 13 0 14 0;
-#X connect 16 0 12 0;
-#X connect 16 1 10 0;
+#X connect 12 0 13 0;
+#X connect 15 0 17 0;
+#X connect 15 1 10 0;
+#X connect 17 0 11 0;
+#X connect 17 3 8 0;
+#X connect 17 4 9 0;
+#X connect 17 5 12 0;
 #X coords 0 -1 1 1 140 42 2 100 100;
 #X restore 7 144 pd patch;
 #N canvas 518 153 922 462 connect 0;
