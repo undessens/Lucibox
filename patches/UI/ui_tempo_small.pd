@@ -1,4 +1,4 @@
-#N canvas 552 301 1156 387 10;
+#N canvas 529 366 1156 387 10;
 #N canvas 510 23 660 415 play 0;
 #X obj 90 8 hradio 37 1 0 2 empty empty empty 0 -8 0 10 -262144 -1
 -1 0;
@@ -18,7 +18,7 @@
 #X msg 508 117 \; \$4_playcnv color \$1 \$2 \$3;
 #X msg 419 -31 16;
 #X obj 119 165 bang;
-#X obj 122 201 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 122 201 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 416 -122 inlet;
 #X connect 0 0 14 0;
@@ -77,10 +77,10 @@
 #X obj 605 33 r tempoStopOut;
 #X obj 142 101 bng 40 250 50 0 empty empty empty 17 7 0 10 -128992
 -228856 -1;
-#X obj 28 27 r tempo_click_bang;
-#X obj 101 101 bng 40 250 50 0 empty empty empty 17 7 0 10 -141278
--262144 -1;
-#X obj 168 25 r tempo_quantif_bang;
+#X obj 142 70 r tempo_click_bang;
+#X obj 101 101 bng 40 250 50 0 empty empty empty 4 18 0 14 -141278
+-262144 -262144;
+#X obj 101 6 r tempo_quantif_bang;
 #N canvas 643 175 854 398 bank 0;
 #X obj 182 235 loadbang;
 #X obj 157 271 i 0;
@@ -91,7 +91,7 @@
 #X msg 133 474 \; \$1_cnv label \$2;
 #X obj 101 101 cnv 15 210 38 empty empty SONG 88 17 0 20 -33289 -262144
 0;
-#X obj 127 107 cnv 15 30 22 empty \$0_cnv 3 4 10 0 22 -262144 -1 0
+#X obj 127 107 cnv 15 30 22 empty \$0_cnv 2 4 10 0 22 -262144 -1 0
 ;
 #N canvas 275 123 591 498 load 0;
 #X obj 207 271 t b f;
@@ -236,7 +236,7 @@
 #X connect 20 1 2 0;
 #X coords 0 -1 1 1 212 40 2 100 100;
 #X restore 498 101 pd bank;
-#N canvas 551 167 854 398 bank 1;
+#N canvas 551 167 854 398 bank 0;
 #X obj 109 173 i 0;
 #X obj 109 241 makefilename %d;
 #X obj 109 267 symbol \$1;
@@ -246,10 +246,10 @@
 #X msg 110 372 \; \$1_tempocnv label \$2;
 #X obj -2 239 s tempo_fromUI;
 #X obj 106 108 nbx 5 23 80 160 0 0 empty empty empty 0 -8 0 10 -262144
--1 -1 118 256;
+-1 -1 110 256;
 #X obj 101 101 cnv 15 140 38 empty empty TEMPO 70 17 0 20 -33289 -262144
 0;
-#X obj 111 107 cnv 15 52 22 empty \$0_tempocnv 118 4 10 0 22 -262144
+#X obj 111 107 cnv 15 52 22 empty \$0_tempocnv 109 4 10 0 22 -262144
 -1 0;
 #X obj 42 17 loadbang;
 #X msg 37 48 100;

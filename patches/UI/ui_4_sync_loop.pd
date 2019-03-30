@@ -1,4 +1,4 @@
-#N canvas 28 74 625 681 10;
+#N canvas 705 127 625 681 10;
 #X obj 101 132 cnv 15 148 298 empty empty empty 20 12 0 14 -261279
 -66577 0;
 #X obj 101 101 cnv 15 148 30 empty \$1_syncloopname batterie 30 12
@@ -11,7 +11,7 @@
 #X obj 331 91 pack 22 0 0 \$0;
 #X obj 523 -84 loadbang;
 #X obj 100 101 hradio 30 1 0 4 empty empty empty 0 -8 0 10 -262144
--1 -1 0;
+-1 -1 2;
 #X obj 105 214 bang;
 #X obj 101 260 outlet;
 #X msg 335 -27 13;
@@ -58,17 +58,22 @@
 #X connect 24 1 23 0;
 #X coords 0 -1 1 1 120 32 2 100 100;
 #X restore 118 415 pd play;
-#X obj 234 627 s \$1_5_click_fromUI;
-#X obj -107 524 r syncloop\$1_5_readloop_wait_ui;
-#X obj 360 484 r \$1_play5;
-#X obj 364 518 sel 1 0;
+#X obj 320 311 r \$1_play5;
+#X obj 324 345 sel 1 0;
 #X obj 141 205 UI/ui_syncloop \$1 2;
 #X obj 141 135 UI/ui_syncloop \$1 1;
 #X obj 141 275 UI/ui_syncloop \$1 3;
 #X obj 141 345 UI/ui_syncloop \$1 4;
-#X connect 2 0 3 0;
-#X connect 4 0 2 0;
-#X connect 5 0 6 0;
-#X connect 6 0 2 1;
-#X connect 6 1 2 2;
+#X obj 237 596 extra/sv \$1_readloop_askforstop;
+#X msg 298 559 1;
+#X obj -93 311 extra/sv \$1_readloop_waitforstop;
+#X obj 7 347 sel 1;
+#X connect 2 0 10 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 1;
+#X connect 4 1 2 2;
+#X connect 10 0 9 1;
+#X connect 11 0 12 0;
+#X connect 12 0 2 0;
+#X connect 12 1 2 2;
 #X coords 0 -1 1 1 150 350 2 100 100;

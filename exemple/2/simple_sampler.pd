@@ -1,4 +1,4 @@
-#N canvas 369 119 1005 581 10;
+#N canvas 436 93 1005 581 10;
 #X declare -path ../../patches;
 #X obj 7 370 cnv 15 980 142 empty empty empty 330 30 0 45 -21525 -88297
 0;
@@ -53,7 +53,6 @@
 #X coords 0 -1 1 1 40 17 2 100 100;
 #X restore 177 107 pd open;
 #X obj 371 281 effect/reverb;
-#X obj 325 221 audio/sampler8 3;
 #X obj 407 189 *~ 1;
 #X obj 372 258 *~ 1;
 #X obj 465 281 effect/delay;
@@ -62,26 +61,26 @@
 #X msg 82 269 127;
 #X obj 41 208 declare -path ../../patches;
 #X obj 41 291 audio/tempo exemple 2;
-#X connect 1 0 11 0;
+#X obj 325 221 audio/sampler8 1;
+#X connect 1 0 10 0;
 #X connect 2 0 1 0;
 #X connect 2 1 1 0;
 #X connect 3 0 4 1;
 #X connect 3 0 4 0;
 #X connect 5 0 6 0;
 #X connect 9 0 3 0;
-#X connect 10 0 3 0;
-#X connect 10 1 12 0;
-#X connect 10 2 14 0;
-#X connect 11 0 10 8;
-#X connect 12 0 9 0;
-#X connect 13 0 3 0;
-#X connect 14 0 13 0;
-#X connect 15 0 16 0;
-#X connect 16 0 18 1;
+#X connect 10 0 18 8;
+#X connect 11 0 9 0;
+#X connect 12 0 3 0;
+#X connect 13 0 12 0;
+#X connect 14 0 15 0;
+#X connect 15 0 17 1;
+#X connect 18 0 3 0;
+#X connect 18 1 11 0;
+#X connect 18 2 13 0;
 #X coords 0 -1 1 1 140 42 2 100 100;
 #X restore 7 139 pd patch;
 #N canvas 400 263 1070 501 connect 0;
-#X obj 385 103 connect/connect_sampler8 3;
 #X obj 40 6 cnv 15 996 83 empty empty CONNECT 330 30 0 45 -21525 -88297
 0;
 #X obj 44 26 cnv 15 138 40 empty empty CONNECT 20 12 0 14 -66577 -262144
@@ -124,12 +123,12 @@
 #X obj 236 103 connect/connect_mic;
 #X obj 38 159 hardware/midi;
 #X obj 37 217 hardware/keyboard;
+#X obj 388 103 connect/connect_sampler8 1;
 #X coords 0 -1 1 1 140 42 1 43 25;
 #X restore 8 191 pd connect;
 #X obj 213 482 hsl 640 30 0 1 0 0 empty global_tempo_slider empty -2
--8 0 10 -33289 -4032 -1 0 1;
-#X obj 330 149 UI/ui_sampler8 3 1;
-#N canvas 531 314 721 359 volumes 0;
+-8 0 10 -33289 -4032 -1 20385 1;
+#N canvas 531 314 721 359 volumes 1;
 #X obj 24 -13 cnv 15 650 83 empty empty VOLUMES 330 30 0 45 -21525
 -88297 0;
 #X obj 189 80 volumes/volume_sampler 3;
@@ -174,3 +173,4 @@
 -1 -1;
 #X coords 0 -1 1 1 140 42 1 43 25;
 #X restore 9 242 pd volumes;
+#X obj 362 137 UI/ui_sampler8 1;

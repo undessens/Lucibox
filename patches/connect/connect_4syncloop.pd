@@ -1,0 +1,33 @@
+#N canvas 138 288 687 490 10;
+#X obj 101 101 cnv 15 138 30 empty \$0-label SyncLoop_1 20 12 0 18
+-228856 -66577 0;
+#X obj 101 167 cnv 15 138 23 empty empty VOLUME 5 12 0 14 -33289 -262144
+0;
+#X obj 101 199 cnv 15 138 23 empty empty SENDA 5 12 0 14 -33289 -262144
+0;
+#X obj 101 229 cnv 15 138 23 empty empty SENDB 5 12 0 14 -33289 -262144
+0;
+#X obj 190 1 loadbang;
+#X obj 190 23 pack \$0 \$1;
+#X obj 161 1 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 184 47 \; \$1-label label SyncLoop_\$2;
+#X obj 218 378 extra/midiLearnn \$1_4syncloop_volume;
+#X obj 164 170 extra/midiLearn \$1_4syncloop_volume;
+#X obj 377 213 extra/sv \$1_4syncloop_volume;
+#X obj 162 203 extra/midiLearn \$1_4syncloop_sendA;
+#X obj 377 243 extra/sv \$1_4syncloop_sendA;
+#X obj 377 273 extra/sv \$1_4syncloop_sendB;
+#X obj 164 231 extra/midiLearn \$1_4syncloop_sendB;
+#X obj 379 179 extra/sv \$1_4syncloop_num;
+#X obj 101 137 cnv 15 138 23 empty empty NUM 5 12 0 14 -33289 -262144
+0;
+#X obj 164 139 extra/midiLearn \$1_4syncloop_num;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 5 0;
+#X connect 9 0 10 1;
+#X connect 11 0 12 1;
+#X connect 14 0 13 1;
+#X connect 17 0 15 1;
+#X coords 0 -1 1 1 140 160 2 100 100;

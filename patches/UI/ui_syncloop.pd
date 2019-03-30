@@ -1,4 +1,4 @@
-#N canvas 301 241 920 617 10;
+#N canvas 777 252 920 617 10;
 #X obj 174 66 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 139 66 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
@@ -7,9 +7,9 @@
 #N canvas 402 255 1038 529 play 0;
 #X obj 106 104 hradio 20 0 0 3 empty empty empty 0 -8 0 10 -262144
 -1 -1 1;
-#X obj 101 101 cnv 15 74 27 empty \$0_playcnv PLAY 22 11 0 14 -1 -66577
+#X obj 101 101 cnv 15 74 27 empty \$0_playcnv PLAY 22 11 0 14 -1 -24198
 0;
-#X obj 105 107 cnv 15 15 14 empty \$0_playsquare empty 6 9 0 14 -66577
+#X obj 105 107 cnv 15 15 14 empty \$0_playsquare empty 6 9 0 14 -24198
 -262144 0;
 #X obj 105 214 bang;
 #X obj 101 260 outlet;
@@ -75,8 +75,8 @@
 #X connect 31 0 6 0;
 #X coords 0 -1 1 1 76 29 2 100 100;
 #X restore 97 97 pd play;
-#X obj 99 127 hsl 72 17 0 1 0 0 empty empty empty -2 -8 0 10 -99865
--4034 -1 0 1;
+#X obj 100 127 hsl 72 17 0 1 0 0 empty empty empty -2 -8 0 10 -99865
+-4034 -1 7100 1;
 #N canvas 716 201 679 427 volume 0;
 #X floatatom 244 309 5 0 0 0 - - -, f 5;
 #X obj 85 103 vsl 10 71 0 100 0 0 empty empty empty 0 -9 0 10 -170864
@@ -124,13 +124,13 @@
 #X obj -34 203 del 1000;
 #X msg -74 210 1;
 #X msg -34 227 0;
-#X obj -88 64 r \$1_readsound_\$2_slider_ui;
-#X obj 137 147 cnv 15 35 15 empty \$0_tempocnv 120 15 6 2 10 -1 -241339
+#X obj 137 147 cnv 15 35 15 empty \$0_tempocnv 109 15 6 2 10 -1 -241339
 0;
 #X obj 145 -20 extra/sv \$1_\$2_readloop_isplaying;
 #X obj -101 254 extra/sv \$1_\$2_readloop_askforplay;
 #X obj 149 23 sel 1;
 #X obj 30 4 extra/sv \$1_\$2_readloop_waitforplay;
+#X obj -88 64 r \$1_\$2_readloop_slider_ui;
 #X connect 0 0 3 2;
 #X connect 1 0 3 1;
 #X connect 3 0 15 0;
@@ -146,11 +146,11 @@
 #X connect 15 0 17 0;
 #X connect 15 0 16 0;
 #X connect 16 0 18 0;
-#X connect 17 0 22 1;
-#X connect 18 0 22 1;
-#X connect 19 0 4 0;
-#X connect 21 0 23 0;
-#X connect 23 0 1 0;
-#X connect 23 1 0 0;
-#X connect 24 0 3 0;
+#X connect 17 0 21 1;
+#X connect 18 0 21 1;
+#X connect 20 0 22 0;
+#X connect 22 0 1 0;
+#X connect 22 1 0 0;
+#X connect 23 0 3 0;
+#X connect 24 0 4 0;
 #X coords 0 -1 1 1 78 67 2 96 96;
