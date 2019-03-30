@@ -12,6 +12,9 @@
 
 Here is the link of the youtube video
 
+# SD Card Image
+download [here](http://assoundessens.fr/bigfiles/lucibox/moonloopstation.gz)
+
 ## Features
 
 Moon LoopStation is a 4 channels looper, able to save and open session, and load .wav files, with a low latency sound card.
