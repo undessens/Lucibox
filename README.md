@@ -1,81 +1,8 @@
 # Lucibox
 
-This is about music, machines and D.I.Y
-**Lucibox** is more than an a software, it's a concept that allow people to create their own musical machine
-
-This project is created from **Un Des Sens**
-[ http://AssoUnDesSens.fr/lucibox
-](http://assoundessens.fr/lucibox)
-
-It's a french project, so the website is only in french right now, but the code approach is in english, and the "github" approach too.
-
-# Concept
-
-At the contrary of a workstation, Lucibox is not only a musical software to play sitted in front of your desktop. It is a software to create musical machine, play live,  indeed headless and controlled from interface.
-
- 1. Try the software on your computer
- 2. Control it with an arduino, keyboard, or midi controler
- 3. Switch from computer to Raspberry Pi
- 4. Build the enclosure
- 5.  You have now a musical machine
-
-## Education
-
-The first goal about this project is a musical approch about arduino, raspberry pi, and D.I.Y .  The first folder, called "exemple", means that their exemples inside are used during arduino workshop, in order to discover both the origines of electronic music and D.I.Y culture.
-
-## Personalized musical machine
-The second goal of this software is to personalize machine, for musician , that have specials need and special esthetics. Sampler, loopstation, synth, boombox, effects ...
 
 
-# Software
-
-Software is based on [PureData](https://puredata.info)  ( or Pd ) 
-Externals are included, just download PureData, and Lucibox.
-Puredata works on all platform, that's make the code really easy to move from desktop to Raspberry Pi.
-
-# Controler
-
-The software can be controlled from Arduino ( serial ), midi controller, or keyboard ( including Makey Makey board ).  All arduino sketches and shematics are free to use.
-
-# How to begin? 
-
-1. Download Puredata Vanilla  [PureData](https://puredata.info)  ( about 7 MB )
-2.  Install it and configure sound [ Configure ](http://write.flossmanuals.net/pure-data/configuring/ )
-3.  Download 
-
-# What are the folder?
-## Exemple
-
-Contains exemples of how the software can be used. For each exemple, you can control it using only the computer mouse, or a controller if you want. 
-
-## Machines
-
-A machine is the result of a headless raspberry pi, containing the lucibox program and working as an hardware audio material. It can be an effect pedal , a sampler , and loopstation. More than the software, there is the entire documentation of the components and the materials you need.
-There is also a link to the raspberry pi image, that's make the machine easy to build, for any people far or close from the D.I.Y stuff.
-
-## Patches 
-
-Contains all the PureData Patches that the program needs. They are documented in a specific doc file, in the documentation folder.
-
-## Samples
-
-Contains samples of "one shot" sound and drum loops. These samples are shared samples. The samples from loopstation saving their sessions are located in the specific folder of the machine.
-
-## Docs
-
-This is the generic documentation platform of the project.  How the software work, the list of component and card compatible with this project. Perspectives ...
-
-------
-
-# Français
-
-------
-
-
-
-
-
-> English documentation is above
+> English documentation is bellow
 
 
 
@@ -143,7 +70,6 @@ Il est possible de controler le logiciel depuis une carte Arduino ( serial), des
 Les codes arduino et les shémas de branchement sont fournis dans la doc.
 
 
-
 # Arboresence et fichiers
 
 ## Exemple
@@ -175,8 +101,83 @@ Contains samples of "one shot" sound and drum loops. These samples are shared sa
 
 Contient tout le doc générale et spécifique au projet.
 
+---
+---
+
+*English English English English English English English English English * 
+
+---
+---
 
 
+This is about music, machines and D.I.Y
+**Lucibox** is more than an a software, it's a concept that allow people to create their own musical machine
+
+This project is created from **Un Des Sens**
+[ http://AssoUnDesSens.fr/lucibox
+](http://assoundessens.fr/lucibox)
+
+It's a french project, so the website is only in french right now, but the code approach is in english, and the "github" approach too.
+
+# Concept
+
+At the contrary of a workstation, Lucibox is not only a musical software to play sitted in front of your desktop. It is a software to create musical machine, play live,  indeed headless and controlled from interface.
+
+ 1. Try the software on your computer
+ 2. Control it with an arduino, keyboard, or midi controler
+ 3. Switch from computer to Raspberry Pi
+ 4. Build the enclosure
+ 5.  You have now a musical machine
+
+## Education
+
+The first goal about this project is a musical approch about arduino, raspberry pi, and D.I.Y .  The first folder, called "exemple", means that their exemples inside are used during arduino workshop, in order to discover both the origines of electronic music and D.I.Y culture.
+
+## Personalized musical machine
+The second goal of this software is to personalize machine, for musician , that have specials need and special esthetics. Sampler, loopstation, synth, boombox, effects ...
+
+
+# Software
+
+Software is based on [PureData](https://puredata.info)  ( or Pd ) 
+Externals are included, just download PureData, and Lucibox.
+Puredata works on all platform, that's make the code really easy to move from desktop to Raspberry Pi.
+
+# Controler
+
+The software can be controlled from Arduino ( serial ), midi controller, or keyboard ( including Makey Makey board ).  All arduino sketches and shematics are free to use.
+
+# How to begin? 
+
+1. Download Puredata Vanilla  [PureData](https://puredata.info)  ( about 7 MB )
+2.  Install it and configure sound [ Configure ](http://write.flossmanuals.net/pure-data/configuring/ )
+3.  Download the entire project
+
+# What are the folder?
+## Exemple
+
+Contains exemples of how the software can be used. For each exemple, you can control it using only the computer mouse, or a controller if you want. 
+
+## Machines
+
+A machine is the result of a headless raspberry pi, containing the lucibox program and working as an hardware audio material. It can be an effect pedal , a sampler , and loopstation. More than the software, there is the entire documentation of the components and the materials you need.
+There is also a link to the raspberry pi image, that's make the machine easy to build, for any people far or close from the D.I.Y stuff.
+
+## Patches 
+
+Contains all the PureData Patches that the program needs. They are documented in a specific doc file, in the documentation folder.
+
+## Samples
+
+Contains samples of "one shot" sound and drum loops. These samples are shared samples. The samples from loopstation saving their sessions are located in the specific folder of the machine.
+
+## Docs
+
+This is the generic documentation platform of the project.  How the software work, the list of component and card compatible with this project. Perspectives ...
+
+------
+
+# 
  
  
 
