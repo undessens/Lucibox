@@ -1,22 +1,23 @@
-#N canvas 437 22 514 373 10;
+#N canvas 436 59 599 485 10;
+#X declare -path ../;
 #X declare -path ../../patches;
 #X obj 7 74 arduino/arduino;
-#X obj 192 205 cnv 15 100 60 empty empty empty 20 12 0 14 -233017 -66577
+#X obj 184 356 cnv 15 100 60 empty empty empty 20 12 0 14 -233017 -66577
 0;
-#X obj 191 277 cnv 15 180 110 empty empty empty 20 12 0 14 -233017
+#X obj 183 428 cnv 15 180 110 empty empty empty 20 12 0 14 -233017
 -66577 0;
 #X obj 5 8 cnv 15 500 60 empty empty STORY_BOX 20 12 0 14 -233017 -66577
 0;
 #X obj 205 73 arduino/arduino_in;
 #X obj 328 14 declare -path ../../patches;
-#X obj 225 245 hradio 15 1 0 5 empty empty empty 0 -8 0 10 -262144
+#X obj 217 396 hradio 15 1 0 5 empty empty empty 0 -8 0 10 -262144
 -1 -1 1;
-#X obj 237 448 dac~;
-#X obj 240 421 *~ 0.7;
-#X obj 279 377 loadbang;
-#X msg 279 399 0.75;
-#X floatatom 225 227 5 0 0 0 - - -, f 5;
-#X obj 225 161 bng 35 250 50 0 empty empty empty 17 7 0 10 -258113
+#X obj 229 599 dac~;
+#X obj 232 572 *~ 0.7;
+#X obj 271 528 loadbang;
+#X msg 271 550 0.75;
+#X floatatom 217 378 5 0 0 0 - - -, f 5;
+#X obj 217 312 bng 35 250 50 0 empty empty empty 17 7 0 10 -258113
 -1 -1;
 #N canvas 1 54 450 300 incr 0;
 #X obj 160 101 i 0;
@@ -32,14 +33,31 @@
 #X connect 3 0 0 0;
 #X connect 5 0 2 0;
 #X connect 5 1 0 1;
-#X restore 225 207 pd incr 12;
-#X obj 240 357 readsf~ 1 44100;
-#X obj 208 298 t b f;
-#X msg 208 340 1;
-#X msg 240 332 open samples/\$1.wav;
+#X restore 217 358 pd incr 12;
+#X obj 232 508 readsf~ 1 44100;
+#X obj 200 449 t b f;
+#X msg 200 491 1;
+#X msg 232 483 open samples/\$1.wav;
 #X obj 86 199 loadbang;
 #X msg 86 230 1;
 #X msg 86 255 \; pd dsp \$1;
+#X floatatom 185 138 5 0 0 0 - - -, f 5;
+#X obj 185 186 sel 1;
+#X obj 185 161 > 100;
+#X obj 270 269 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 185 215 t b b;
+#X msg 270 243 0;
+#X msg 305 243 1;
+#X obj 217 290 spigot 1;
+#X obj 334 545 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 334 581 s endOfFile;
+#X obj 305 221 r endOfFile;
+#X msg 410 491 0;
+#X obj 410 160 < 70;
+#X obj 410 187 sel 1;
+#X connect 4 0 21 0;
 #X connect 6 0 15 0;
 #X connect 8 0 7 1;
 #X connect 8 0 7 0;
@@ -49,9 +67,26 @@
 #X connect 12 0 13 0;
 #X connect 13 0 11 0;
 #X connect 14 0 8 0;
+#X connect 14 1 29 0;
 #X connect 15 0 16 0;
 #X connect 15 1 17 0;
 #X connect 16 0 14 0;
 #X connect 17 0 14 0;
 #X connect 18 0 19 0;
 #X connect 19 0 20 0;
+#X connect 21 0 23 0;
+#X connect 21 0 33 0;
+#X connect 22 0 25 0;
+#X connect 23 0 22 0;
+#X connect 24 0 28 1;
+#X connect 25 0 26 0;
+#X connect 25 1 28 0;
+#X connect 26 0 24 0;
+#X connect 27 0 24 0;
+#X connect 28 0 12 0;
+#X connect 29 0 30 0;
+#X connect 31 0 27 0;
+#X connect 32 0 14 0;
+#X connect 32 0 29 0;
+#X connect 33 0 34 0;
+#X connect 34 0 32 0;
