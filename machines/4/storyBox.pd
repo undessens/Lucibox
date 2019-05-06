@@ -1,0 +1,57 @@
+#N canvas 437 22 514 373 10;
+#X declare -path ../../patches;
+#X obj 7 74 arduino/arduino;
+#X obj 192 205 cnv 15 100 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 191 277 cnv 15 180 110 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X obj 5 8 cnv 15 500 60 empty empty STORY_BOX 20 12 0 14 -233017 -66577
+0;
+#X obj 205 73 arduino/arduino_in;
+#X obj 328 14 declare -path ../../patches;
+#X obj 225 245 hradio 15 1 0 5 empty empty empty 0 -8 0 10 -262144
+-1 -1 1;
+#X obj 237 448 dac~;
+#X obj 240 421 *~ 0.7;
+#X obj 279 377 loadbang;
+#X msg 279 399 0.75;
+#X floatatom 225 227 5 0 0 0 - - -, f 5;
+#X obj 225 161 bng 35 250 50 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#N canvas 1 54 450 300 incr 0;
+#X obj 160 101 i 0;
+#X obj 160 178 + 1;
+#X msg 222 56 0;
+#X obj 160 52 inlet;
+#X obj 139 269 outlet;
+#X obj 222 204 sel 4;
+#X connect 0 0 1 0;
+#X connect 1 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 0 1;
+#X connect 3 0 0 0;
+#X connect 5 0 2 0;
+#X connect 5 1 0 1;
+#X restore 225 207 pd incr 12;
+#X obj 240 357 readsf~ 1 44100;
+#X obj 208 298 t b f;
+#X msg 208 340 1;
+#X msg 240 332 open samples/\$1.wav;
+#X obj 86 199 loadbang;
+#X msg 86 230 1;
+#X msg 86 255 \; pd dsp \$1;
+#X connect 6 0 15 0;
+#X connect 8 0 7 1;
+#X connect 8 0 7 0;
+#X connect 9 0 10 0;
+#X connect 10 0 8 1;
+#X connect 11 0 6 0;
+#X connect 12 0 13 0;
+#X connect 13 0 11 0;
+#X connect 14 0 8 0;
+#X connect 15 0 16 0;
+#X connect 15 1 17 0;
+#X connect 16 0 14 0;
+#X connect 17 0 14 0;
+#X connect 18 0 19 0;
+#X connect 19 0 20 0;

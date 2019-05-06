@@ -1,4 +1,4 @@
-#N canvas 195 77 928 562 12;
+#N canvas 268 22 928 562 12;
 #X declare -path ../;
 #X msg 26 275 \$1 \$2 13;
 #X obj 26 250 r arduinoIN;
@@ -50,7 +50,7 @@
 #X connect 15 0 14 0;
 #X connect 16 0 18 0;
 #X connect 18 0 6 0;
-#X restore 128 340 pd read_serial;
+#X restore 128 342 pd read_serial;
 #X obj 282 320 r arduino_reset;
 #X floatatom 637 115 3 0 0 0 - - -, f 3;
 #X floatatom 664 115 3 0 0 0 - - -, f 3;
@@ -65,11 +65,11 @@
 #X obj 44 111 cnv 15 320 150 empty empty empty 80 -20 0 14 -233017
 -66577 0;
 #X obj 48 80 vradio 30 1 0 6 serial_choice_in serial_choice_out empty
-0 -8 0 10 -262144 -1 -1 1;
+0 -8 0 10 -262144 -1 -1 2;
 #X obj 80 113 cnv 15 280 25 empty serial0_name /dev/tty.Bluetooth-Incoming-Port-(0)
 20 12 0 12 -262144 -66577 0;
-#X obj 80 143 cnv 15 280 25 empty serial1_name --- 20 12 0 12 -262144
--66577 0;
+#X obj 80 143 cnv 15 280 25 empty serial1_name /dev/tty.usbmodem1411-(2)
+20 12 0 12 -262144 -66577 0;
 #X obj 80 173 cnv 15 280 25 empty serial2_name --- 20 12 0 12 -262144
 -66577 0;
 #X obj 80 203 cnv 15 280 25 empty serial3_name --- 20 12 0 12 -262144
@@ -297,7 +297,7 @@
 #X connect 10 0 4 3;
 #X restore 369 68 pd init;
 #X obj 168 111 r port_to_open;
-#X obj 506 135 cnv 15 180 15 empty current_serial_name connected_port:0
+#X obj 506 135 cnv 15 180 15 empty current_serial_name connected_port:2
 5 10 0 11 -233017 -66577 0;
 #N canvas 534 480 543 300 displayport 0;
 #X obj 153 27 inlet;
