@@ -10,7 +10,7 @@ Tutorial
 Voici le lien de la vidéo tuto [link](https://www.youtube.com/watch?v=dRp9piBg44w)
 
 # Image de la carte SD
-L'image de la carte sd arrive très bientôt.
+[télécharger ici](http://assoundessens.fr/storage/lucibox/sd-card-image/lucibox-moonloopstation.zip)
 
 ## Caractéristiques
 
@@ -143,7 +143,7 @@ Remise à zéro. Toutes les pistes sont effacées. Cette action provoque un lege
 Here is the link of the youtube video [link](https://www.youtube.com/watch?v=dRp9piBg44w)
 
 # SD Card Image
-Arriving soon ...[here]()
+[download here](http://assoundessens.fr/storage/lucibox/sd-card-image/lucibox-moonloopstation.zip))
 
 ## Features
 
