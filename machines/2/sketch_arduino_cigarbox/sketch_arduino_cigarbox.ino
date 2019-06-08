@@ -16,7 +16,7 @@
 #define PIN            4
 
 #define NUMPIXELS      12
-#define MAXLUMINOSITY  0.01
+#define MAXLUMINOSITY  1
 
 
 #define ANALOGIN 0    // Nombre de potentiometre
@@ -36,6 +36,9 @@ int analogPin[] = { A0, A1, A2,A3,A4,A5 };
 // ------------   BOUTONS  ------------------
 int digitalinValue[DIGITALIN];
 int digitalinPin[] =  { 6,7,8,9,10,11};
+
+//-------------- COLORS --------------------
+int globalR, globalG, globalB;
 
 
 
@@ -64,6 +67,7 @@ void setup(){
     
   }
   pixels.show();
+  setColor(0);
   pinMode(digitaloutPin[0], OUTPUT );
   pinMode(digitaloutPin[1], OUTPUT );
 
@@ -130,43 +134,18 @@ void loop(){
                    //setNeoPixel(1, 0, 0, finalvalue);
                 break; 
             case 2: 
-                   setNeoPixel(0,finalvalue,0 ,0);
+                   // TRUC 
                 break;
-           case 3:
-                   setNeoPixel(1, finalvalue,finalvalue,finalvalue);
-              break;
-             case 4:
-                   setNeoPixel(2,0,finalvalue, 0);
-                break; 
-            case 5: 
-                   setNeoPixel(3, finalvalue,0,0);
-                break;
-             case 6:
-                   setNeoPixel(4,finalvalue,finalvalue,finalvalue);
-              break;
-             case 7:
-                   setNeoPixel(5, 0,finalvalue,0);
-                break; 
-            case 8: 
-                   setNeoPixel(6, finalvalue,0 ,0);
-                break;
-            case 9:
-                   setNeoPixel(7, finalvalue, finalvalue,finalvalue);
-              break;
-             case 10:
-                   setNeoPixel(8, 0,finalvalue,0);
-                break; 
-            case 11: 
-                   setNeoPixel(9,finalvalue,0,0);
+             case 11: 
+                   setBarNeoPixel(value, globalR, globalG, globalB);
                 break;
             case 12: 
-                   setNeoPixel(10,finalvalue,finalvalue,finalvalue);
+                   setOneNeoPixel(value,globalR,globalG,globalB);
                 break;
             case 13: 
-                   setNeoPixel(11,0,finalvalue,0);
+                   setColor(value);
                 break;
-            case 14:
-                   setOneNeoPixel( value, 255, 0, 0);
+
 
             
           
@@ -239,7 +218,7 @@ void setNeoPixel(int channel, int r, int v, int b){
 
   finalr = r*MAXLUMINOSITY;
   finalv = v*MAXLUMINOSITY;
-  finalb = r*MAXLUMINOSITY;
+  finalb = b*MAXLUMINOSITY;
 
   pixels.setPixelColor(NUMPIXELS-(channel+1), pixels.Color(finalr,finalv,finalb));
   
@@ -263,6 +242,58 @@ for(int i=0; i<NUMPIXELS; i++){
 
 
   
+}
+
+void setBarNeoPixel(int channel, int r, int v, int b ){
+
+for(int i=0; i<NUMPIXELS; i++){
+  setNeoPixel(i, 0, 0, 0);
+}
+
+// Effect of filling bar
+for(int i=0; i<(channel+1); i++){
+  setNeoPixel(i, r, v, b);
+}
+
+
+
+
+  
+}
+
+void setColor(int module){
+
+switch(module){
+
+  case 0:
+    globalR = 12;
+    globalG = 12;
+    globalB = 12;
+  break;
+  case 1:
+    globalR = 12; //BLeu
+    globalG = 0;
+    globalB = 0;
+  break;
+  case 2:
+    globalR = 0;
+    globalG = 12; //Red
+    globalB = 0;
+  break;
+  case 3:
+    globalR = 0;
+    globalG = 0;
+    globalB = 12;
+  break;
+  case 4:
+    globalR = 12;
+    globalG = 12;
+    globalB = 0;
+  break;
+
+  
+
+}
 }
 
 
