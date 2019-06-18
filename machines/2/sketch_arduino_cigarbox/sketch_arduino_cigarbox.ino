@@ -39,6 +39,7 @@ int digitalinPin[] =  { 6,7,8,9,10,11};
 
 //-------------- COLORS --------------------
 int globalR, globalG, globalB;
+boolean isWaiting = true;
 
 
 
@@ -159,11 +160,19 @@ void loop(){
      
      
     }
+
+    
    
    
 
     
   }
+
+  if(isWaiting){
+      setWaveNeoPixel();
+    }
+
+    
   // Don't forget to update the LEDS when serial is over
   pixels.show();
   
@@ -228,6 +237,8 @@ void setNeoPixel(int channel, int r, int v, int b){
 
 void setOneNeoPixel(int channel, int r, int v, int b ){
 
+isWaiting = false;
+
 for(int i=0; i<NUMPIXELS; i++){
   setNeoPixel(i, 0, 0, 0);
 }
@@ -246,6 +257,8 @@ for(int i=0; i<NUMPIXELS; i++){
 
 void setBarNeoPixel(int channel, int r, int v, int b ){
 
+isWaiting = false;
+
 for(int i=0; i<NUMPIXELS; i++){
   setNeoPixel(i, 0, 0, 0);
 }
@@ -261,7 +274,24 @@ for(int i=0; i<(channel+1); i++){
   
 }
 
+void setWaveNeoPixel(){
+
+  float freq = 0.4;
+  float modulation = ( sin(freq*(millis()/1000.0f)*2*PI))/2.0 + 0.5;
+  float finalR = globalR*modulation;
+  float finalG = globalG*modulation;
+  float finalB = globalB*modulation;
+  
+  for(int i=0; i<NUMPIXELS; i++){
+  setNeoPixel(i, finalR, finalG, finalB);
+  }
+
+  
+}
+
 void setColor(int module){
+
+isWaiting = true;
 
 switch(module){
 
