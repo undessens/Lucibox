@@ -1,4 +1,4 @@
-#N canvas 4 67 1005 581 10;
+#N canvas 100 113 1005 581 10;
 #X declare -path ../../patches;
 #X obj 7 370 cnv 15 980 142 empty empty empty 330 30 0 45 -21525 -88297
 0;
@@ -9,7 +9,7 @@
 0;
 #X obj 7 107 cnv 15 144 259 empty empty empty 20 12 0 14 -233017 -66577
 0;
-#N canvas 14 54 1009 801 patch 1;
+#N canvas 8 92 1009 801 patch 0;
 #X obj 101 101 cnv 15 138 40 empty empty PATCH 20 12 0 14 -66577 -262144
 0;
 #X obj 235 155 audio/mic;
@@ -27,7 +27,7 @@
 #X msg 400 277 2;
 #X obj 466 220 loadbang;
 #X obj 104 101 hradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
--1 -1 1;
+-1 -1 0;
 #X obj 104 166 bang;
 #X msg 363 277 43;
 #X obj 101 101 cnv 15 38 15 empty \$0_opencnv open 6 8 0 10 -66577
@@ -59,7 +59,7 @@
 #X obj 834 172 *~ 1;
 #X obj 921 172 *~ 1;
 #X obj 715 831 hradio 30 0 0 5 empty empty empty 0 -8 0 10 -262144
--1 -1 0;
+-1 -1 1;
 #X obj 714 809 extra/sv module_selected;
 #X obj 21 889 hradio 35 0 0 4 empty empty empty 0 -8 0 10 -262144 -1
 -1 2;
@@ -72,7 +72,7 @@
 #X obj 605 827 r to13;
 #X obj 36 937 s to12;
 #N canvas 77 95 612 371 ledmodule0 0;
-#X floatatom 68 137 5 -1 11 0 - - -, f 5;
+#X floatatom 68 137 5 -1 11 0 - - -;
 #X obj 68 93 i 0;
 #X obj 68 115 moses 13;
 #X obj 68 69 * 12;
@@ -139,10 +139,10 @@
 #X obj 190 126 == 1;
 #X obj 429 6 extra/sv \$1_\$2_is_loop_recorded;
 #X obj 34 256 spigot;
-#X obj 67 210 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 67 210 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj -31 256 spigot;
-#X obj 4 210 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+#X obj 4 210 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
 ;
 #X obj -32 61 r ledrec1;
 #X obj 34 61 r ledplay1;
@@ -156,17 +156,17 @@
 #X obj 457 247 spigot;
 #X obj 472 219 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X floatatom 296 159 5 -1 11 0 - - -, f 5;
+#X floatatom 296 159 5 -1 11 0 - - -;
 #X obj 296 115 i 0;
 #X obj 296 137 moses 13;
 #X obj 296 91 * 12;
 #X obj 296 68 r global_tempo_slider;
-#X floatatom 457 165 5 -1 11 0 - - -, f 5;
+#X floatatom 457 165 5 -1 11 0 - - -;
 #X obj 457 88 i 0;
 #X obj 457 142 moses 13;
 #X obj 457 63 * 12;
 #X obj 298 324 spigot;
-#X obj 192 309 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 192 309 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 321 195 == 0;
 #X obj 472 195 == 1;
@@ -237,12 +237,12 @@
 #X obj 457 247 spigot;
 #X obj 472 219 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X floatatom 296 159 5 -1 11 0 - - -, f 5;
+#X floatatom 296 159 5 -1 11 0 - - -;
 #X obj 296 115 i 0;
 #X obj 296 137 moses 13;
 #X obj 296 91 * 12;
 #X obj 296 68 r global_tempo_slider;
-#X floatatom 457 165 5 -1 11 0 - - -, f 5;
+#X floatatom 457 165 5 -1 11 0 - - -;
 #X obj 457 88 i 0;
 #X obj 457 142 moses 13;
 #X obj 457 63 * 12;
@@ -462,7 +462,7 @@
 #X obj -37 28 extra/sv synth_voice_midiin;
 #X obj 85 92 spigot;
 #X obj 85 124 % 11;
-#X floatatom 85 162 5 0 0 0 - - -, f 5;
+#X floatatom 85 162 5 0 0 0 - - -;
 #X obj 85 203 s to12;
 #X connect 0 0 5 0;
 #X connect 1 0 3 0;
@@ -506,9 +506,11 @@
 -1 -1;
 #X obj 230 171 t b b b b;
 #X obj 337 241 +;
-#X floatatom 301 309 5 0 0 0 - - -, f 5;
+#X floatatom 301 309 5 0 0 0 - - -;
 #X obj 300 326 sel 0;
 #X obj 299 352 s tempoStopIn;
+#X obj 269 357 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
 #X connect 0 0 4 0;
 #X connect 1 0 4 0;
 #X connect 2 1 6 1;
@@ -519,10 +521,11 @@
 #X connect 6 0 7 0;
 #X connect 7 0 8 0;
 #X connect 8 0 9 0;
+#X connect 8 0 10 0;
 #X restore 40 283 pd autostop_from_loop;
 #X obj 41 208 declare -path ../../patches;
 #X obj 42 233 audio/tempo machines 2;
-#X floatatom 525 855 5 0 0 0 - - -, f 5;
+#X floatatom 525 855 5 0 0 0 - - -;
 #X obj 334 208 audio/recloopsave 1 1;
 #X obj 561 204 audio/recloopsave 2 1;
 #X obj 266 827 r to1;
@@ -660,7 +663,7 @@
 #X connect 74 1 71 0;
 #X coords 0 -1 1 1 140 42 2 100 100;
 #X restore 7 139 pd patch;
-#N canvas 274 87 1070 501 connect 0;
+#N canvas 81 146 1070 501 connect 0;
 #X obj 371 320 connect/connect_global_recplay;
 #X obj 327 98 connect/connect_sampler8 3;
 #X obj 40 6 cnv 15 996 83 empty empty CONNECT 330 30 0 45 -21525 -88297
@@ -671,7 +674,7 @@
 0;
 #N canvas 402 288 1038 552 open 0;
 #X obj 103 102 hradio 15 0 0 3 empty empty empty 0 -8 0 10 -262144
--1 -1 1;
+-1 -1 2;
 #X text 462 314 label-color;
 #X text 477 339 label-color;
 #X obj 377 311 t b f;
@@ -706,25 +709,22 @@
 #X obj 585 14 arduino/arduino;
 #X obj 37 98 connect/connect_recloopsave 1 1;
 #X obj 227 320 connect/connect_mic;
-#X obj 222 19 bng 55 250 50 0 save_all empty SAVE 10 25 0 15 -258113
--1 -1;
 #X obj 708 346 extra/midiLearn effect_rev_drywet;
 #X obj 182 98 connect/connect_recloopsave 2 1;
-#X connect 11 0 4 0;
+#X connect 10 0 4 0;
 #X coords 0 -1 1 1 140 42 1 43 25;
 #X restore 8 191 pd connect;
 #X obj 359 373 UI/ui_global_recplay;
 #X obj 307 139 UI/ui_recloopsave 2 1;
 #X obj 213 482 hsl 640 30 0 1 0 0 empty global_tempo_slider empty -2
--8 0 10 -33289 -4032 -1 0 1;
+-8 0 10 -33289 -4032 -1 29854 1;
 #X obj 450 139 UI/ui_sampler8 3 1;
 #X obj 164 139 UI/ui_recloopsave 1 1;
 #X obj 826 138 UI/ui_synth_voice 4;
-#N canvas 359 565 1126 485 volumes 0;
+#N canvas 51 262 1126 485 volumes 0;
 #X obj 24 -13 cnv 15 996 83 empty empty VOLUMES 330 30 0 45 -21525
 -88297 0;
 #X obj 188 80 volumes/volume_recloopsave 1 1;
-#X obj 348 80 Volumes/volume_recloopsave 2 1;
 #X obj 508 80 volumes/volume_sampler 3;
 #X obj 668 80 volumes/volume_synth 4;
 #X obj 28 80 volumes/volume_mic;
@@ -764,5 +764,8 @@
 #X restore 127 47 pd open;
 #X obj 963 80 UI/delay;
 #X obj 815 80 UI/reverb;
+#X obj 348 80 volumes/volume_recloopsave 2 1;
+#X obj 214 2 bng 55 250 50 0 save_all empty SAVE 10 25 0 15 -258113
+-1 -1;
 #X coords 0 -1 1 1 140 42 1 43 25;
 #X restore 9 242 pd volumes;
