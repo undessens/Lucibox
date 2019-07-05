@@ -9,7 +9,7 @@
 0;
 #X obj 7 107 cnv 15 144 259 empty empty empty 20 12 0 14 -233017 -66577
 0;
-#N canvas 0 93 1280 627 patch 1;
+#N canvas 0 93 1280 627 patch 0;
 #X obj 101 101 cnv 15 138 40 empty empty PATCH 20 12 0 14 -66577 -262144
 0;
 #X obj 235 155 audio/mic;
@@ -285,7 +285,7 @@
 #X obj -25 602 extra/sv tempo_isplaying;
 #X obj 139 603 s 1_1_loop_clear;
 #X obj 144 672 extra/sv tempo_isplaying;
-#N canvas 594 239 450 300 song_mode 1;
+#N canvas 594 239 450 300 song_mode 0;
 #X obj 153 76 extra/sv song;
 #X obj 153 107 change;
 #X obj 261 76 extra/sv song_mode;
@@ -411,7 +411,7 @@
 0;
 #N canvas 402 288 1038 552 open 0;
 #X obj 103 102 hradio 15 0 0 3 empty empty empty 0 -8 0 10 -262144
--1 -1 0;
+-1 -1 1;
 #X text 462 314 label-color;
 #X text 477 339 label-color;
 #X obj 377 311 t b f;
