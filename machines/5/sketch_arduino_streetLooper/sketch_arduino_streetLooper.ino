@@ -14,7 +14,7 @@
 //NEOPIXEL
 #define PIN            2
 
-#define NUMPIXELS      6
+#define NUMPIXELS      12
 #define MAXLUMINOSITY  1
 
 
