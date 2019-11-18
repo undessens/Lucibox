@@ -51,7 +51,7 @@
 #X msg 510 469 30;
 #X msg 543 470 32;
 #X text 550 -75 Display the real tempo of the loop;
-#X text 501 203 Display is the loop is active or not;
+#X text 501 184 Display is the loop is active or not;
 #X obj 193 37 sel 1 0;
 #X obj 88 60 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
@@ -84,7 +84,7 @@
 #X obj 105 214 bang;
 #X obj 101 260 outlet;
 #X obj 256 -110 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-0 1;
+1 1;
 #X obj 256 -83 sel 1;
 #X msg 256 -169 bang;
 #X obj 256 -243 inlet;
@@ -130,8 +130,8 @@
 #X connect 27 0 11 0;
 #X coords 0 -1 1 1 60 25 2 100 100;
 #X restore 172 142 pd play;
-#X obj 113 169 hsl 116 30 0 1 0 0 empty \$0_temposlider 0 85 24 0 10
--262144 -262144 -262144 11500 1;
+#X obj 113 169 hsl 116 30 0 1 0 0 empty \$0_temposlider 96 85 24 0
+10 -262144 -262144 -262144 11500 1;
 #N canvas 447 412 1038 529 open 0;
 #X text 462 314 label-color;
 #X text 477 339 label-color;
@@ -218,7 +218,7 @@
 #X obj 112 102 hradio 28 1 0 4 empty empty empty 0 -8 0 10 -262144
 -1 -1 3;
 #X obj -108 123 extra/sv \$1_module_ask_selection;
-#X obj 101 101 cnv 15 137 30 empty \$0_bgcnv LOOPER_3 20 12 0 18 -262144
+#X obj 101 101 cnv 15 137 30 empty \$0_bgcnv LOOPER_1 20 12 0 18 -262144
 -66577 0;
 #X msg -45 101 1;
 #X obj 57 312 extra/sv module_selected;
@@ -238,7 +238,7 @@
 #X obj 105 214 bang;
 #X obj 101 260 outlet;
 #X obj 136 -110 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-0 1;
+1 1;
 #X obj 136 -83 sel 1;
 #X msg 136 -173 bang;
 #X obj 136 -242 inlet;
@@ -297,6 +297,7 @@
 #X obj 520 244 extra/sv \$1_\$2_is_loop_recorded;
 #X obj 520 291 t b b;
 #X obj 520 269 sel 1 0;
+#X obj 510 204 r \$1_\$2_loop_undo;
 #X connect 0 0 31 0;
 #X connect 1 0 31 1;
 #X connect 2 0 31 2;
@@ -364,4 +365,5 @@
 #X connect 73 1 39 0;
 #X connect 74 0 73 0;
 #X connect 74 1 14 0;
+#X connect 75 0 38 0;
 #X coords 0 -1 1 1 139 170 2 100 100;
