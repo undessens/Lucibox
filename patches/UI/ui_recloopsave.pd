@@ -1,4 +1,4 @@
-#N canvas 56 328 976 643 10;
+#N canvas 288 139 976 643 10;
 #X obj 172 60 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 193 60 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
@@ -7,7 +7,7 @@
 -1;
 #X obj 321 392 s \$1_\$2_readloop_volume_fromUI;
 #N canvas 716 201 679 427 volume 0;
-#X floatatom 244 309 5 0 0 0 - - -, f 5;
+#X floatatom 244 309 5 0 0 0 - - -;
 #X obj 85 103 vsl 10 71 0 100 0 0 empty empty empty 0 -9 0 10 -170864
 -1 -1 0 0;
 #X msg 247 502 \; \$3_slider vis_size \$2 \$1;
@@ -61,7 +61,7 @@
 -1;
 #X obj 121 38 sel 1 0;
 #X obj 192 -99 extra/sv \$1_\$2_is_loop_playing;
-#X obj -28 -99 extra/sv \$1_\$2_is_loop_recording;
+#X obj -28 -129 extra/sv \$1_\$2_is_loop_recording;
 #X obj 58 428 t b f;
 #X msg 58 397 30;
 #X obj 57 367 sel 0 1;
@@ -84,7 +84,7 @@
 #X obj 105 214 bang;
 #X obj 101 260 outlet;
 #X obj 256 -110 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-1 1;
+0 1;
 #X obj 256 -83 sel 1;
 #X msg 256 -169 bang;
 #X obj 256 -243 inlet;
@@ -130,8 +130,8 @@
 #X connect 27 0 11 0;
 #X coords 0 -1 1 1 60 25 2 100 100;
 #X restore 172 142 pd play;
-#X obj 113 169 hsl 116 30 0 1 0 0 empty \$0_temposlider 96 85 24 0
-10 -262144 -262144 -262144 11500 1;
+#X obj 113 169 hsl 116 30 0 1 0 0 empty \$0_temposlider 103 85 24 0
+10 -262144 -262144 -262144 8 1;
 #N canvas 447 412 1038 529 open 0;
 #X text 462 314 label-color;
 #X text 477 339 label-color;
@@ -193,7 +193,7 @@
 #X connect 12 0 11 0;
 #X coords 0 -1 1 1 50 17 2 100 100;
 #X restore 172 208 pd del;
-#X floatatom 267 216 3 0 0 0 - - -, f 3;
+#X floatatom 267 216 3 0 0 0 - - -;
 #X obj 267 240 s \$1_\$2_loop_transpose;
 #X obj 707 245 r \$1_\$2_recloop_deleted_ui;
 #X msg 510 325 bang;
@@ -238,7 +238,7 @@
 #X obj 105 214 bang;
 #X obj 101 260 outlet;
 #X obj 136 -110 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-1 1;
+0 1;
 #X obj 136 -83 sel 1;
 #X msg 136 -173 bang;
 #X obj 136 -242 inlet;
@@ -286,18 +286,22 @@
 #X restore 112 142 pd rec;
 #X obj -143 148 extra/sv \$1_\$2_recloop_slider;
 #X msg -103 224 1;
-#X msg 361 176 1;
+#X msg 358 132 1;
 #X obj 172 -128 extra/sv \$1_\$2_is_loop_waitforplay;
-#X obj -92 -129 extra/sv \$1_\$2_is_loop_waitforrec;
+#X obj -92 -159 extra/sv \$1_\$2_is_loop_waitforrec;
 #X obj 169 -30 sel 1;
 #X obj 40 34 sel 1;
 #X obj -160 245 extra/sv \$1_\$2_loop_recbutton;
-#X obj 302 197 extra/sv \$1_\$2_loop_playbutton;
+#X obj 302 211 extra/sv \$1_\$2_loop_playbutton;
 #X obj 510 224 r \$1_\$2_loop_clear;
 #X obj 520 244 extra/sv \$1_\$2_is_loop_recorded;
 #X obj 520 291 t b b;
 #X obj 520 269 sel 1 0;
-#X obj 510 204 r \$1_\$2_loop_undo;
+#X obj 55 -105 r \$1_\$2_loop_undo_ui;
+#X msg 85 -42 0;
+#X obj 403 165 del 200;
+#X obj 403 146 bang;
+#X msg 403 184 0;
 #X connect 0 0 31 0;
 #X connect 1 0 31 1;
 #X connect 2 0 31 2;
@@ -355,6 +359,7 @@
 #X connect 62 0 32 0;
 #X connect 63 0 69 1;
 #X connect 64 0 70 1;
+#X connect 64 0 78 0;
 #X connect 65 0 67 0;
 #X connect 66 0 68 0;
 #X connect 67 0 0 0;
@@ -365,5 +370,9 @@
 #X connect 73 1 39 0;
 #X connect 74 0 73 0;
 #X connect 74 1 14 0;
-#X connect 75 0 38 0;
+#X connect 75 0 76 0;
+#X connect 76 0 22 0;
+#X connect 77 0 79 0;
+#X connect 78 0 77 0;
+#X connect 79 0 70 1;
 #X coords 0 -1 1 1 139 170 2 100 100;
