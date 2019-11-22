@@ -10,7 +10,7 @@ Tutorial
 Voici le lien de la vidéo tuto [link](https://www.youtube.com/watch?v=dRp9piBg44w)
 
 # Image de la carte SD
-[télécharger ici](http://assoundessens.fr/storage/lucibox/sd-card-image/lucibox_moonloopstation.zip)
+[télécharger ici](http://assoundessens.fr/storage/lucibox/sd-card-image/moon_loopstationV2.zip)
 
 ## Caractéristiques
 
