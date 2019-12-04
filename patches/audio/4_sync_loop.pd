@@ -1,9 +1,9 @@
-#N canvas 3 126 934 544 10;
+#N canvas 27 95 934 544 10;
 #X obj 513 69 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 513 33 r tempo_click_bang;
 #X obj 164 207 r \$0_path1;
-#X obj 433 207 r \$0_path2;
+#X obj 363 207 r \$0_path2;
 #N canvas 369 22 997 416 files_path 0;
 #X obj 157 323 s \$0_path1;
 #X obj 341 324 s \$0_path2;
@@ -44,16 +44,16 @@
 #X connect 17 0 18 0;
 #X connect 18 0 5 0;
 #X restore 535 -31 pd files_path;
-#X obj 674 207 r \$0_path3;
-#X obj 674 207 r \$0_path3;
-#X obj 943 207 r \$0_path4;
+#X obj 554 207 r \$0_path3;
+#X obj 554 207 r \$0_path3;
+#X obj 753 207 r \$0_path4;
 #X obj 283 207 r \$0_play1;
-#X obj 553 207 r \$0_play2;
-#X obj 793 207 r \$0_play3;
-#X obj 1026 207 r \$0_play4;
-#N canvas 305 151 1104 518 changeloop 1;
+#X obj 447 207 r \$0_play2;
+#X obj 673 207 r \$0_play3;
+#X obj 836 207 r \$0_play4;
+#N canvas 305 151 1104 518 changeloop 0;
 #X obj 531 -179 vradio 15 1 0 5 empty empty empty 0 -8 0 10 -262144
--1 -1 4;
+-1 -1 2;
 #X obj 531 -203 inlet;
 #X obj 244 -215 loadbang;
 #X msg 244 -193 4;
@@ -145,10 +145,10 @@
 #X obj 648 -116 vradio 15 1 0 5 empty empty empty 0 -8 0 10 -262144
 -1 -1 2;
 #X obj 648 -155 inlet;
-#X obj 323 282 s \$0_click1;
-#X obj 564 282 s \$0_click2;
-#X obj 805 282 s \$0_click3;
-#X obj 1054 281 s \$0_click4;
+#X obj 275 271 s \$0_click1;
+#X obj 475 269 s \$0_click2;
+#X obj 664 269 s \$0_click3;
+#X obj 864 270 s \$0_click4;
 #N canvas 1102 256 450 300 load_UI 0;
 #X obj 132 20 loadbang;
 #X obj 132 51 i \$1;
@@ -207,7 +207,7 @@
 #X obj 225 290 delay 100;
 #X obj 227 231 sel 0 1;
 #N canvas 133 247 562 463 istempoplaying 0;
-#X obj 134 114 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 134 114 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 113 323 outlet;
 #X obj 188 324 outlet;
@@ -303,15 +303,15 @@
 #X obj 730 -81 i 0;
 #X obj 528 -116 vradio 15 1 0 5 empty empty empty 0 -8 0 10 -262144
 -1 -1 1;
-#X obj 674 245 audio/readloop \$1 3;
-#X obj 434 245 audio/readloop \$1 2;
+#X obj 554 245 audio/readloop \$1 3;
+#X obj 364 245 audio/readloop \$1 2;
 #X obj 164 245 audio/readloop \$1 1;
-#X obj 943 245 audio/readloop \$1 4;
+#X obj 753 245 audio/readloop \$1 4;
 #X obj 426 538 audio/mixer \$1_4syncloop;
 #X connect 0 0 57 2;
+#X connect 0 0 60 2;
 #X connect 0 0 58 2;
 #X connect 0 0 59 2;
-#X connect 0 0 60 2;
 #X connect 1 0 0 0;
 #X connect 2 0 59 0;
 #X connect 3 0 58 0;

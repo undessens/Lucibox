@@ -19,11 +19,8 @@
 #X text 66 -75 switch the toogle;
 #X obj 459 -48 inlet;
 #X text 451 -74 set without output;
-#X obj 506 -48 r fromOSC;
-#X obj 244 4 s toOSC;
 #X connect 0 0 4 0;
 #X connect 1 0 7 0;
-#X connect 1 0 21 0;
 #X connect 2 0 15 0;
 #X connect 3 0 0 0;
 #X connect 7 0 9 0;
