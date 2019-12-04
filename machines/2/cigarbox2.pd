@@ -1,4 +1,4 @@
-#N canvas 391 40 656 357 10;
+#N canvas 406 143 656 357 10;
 #X declare -path ../../patches;
 #X obj 5 87 cnv 15 680 230 empty empty empty 20 12 0 14 -233017 -66577
 0;
@@ -22,7 +22,7 @@
 #X msg 400 277 2;
 #X obj 466 220 loadbang;
 #X obj 104 101 hradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
--1 -1 0;
+-1 -1 1;
 #X obj 104 166 bang;
 #X msg 363 277 43;
 #X obj 101 101 cnv 15 38 15 empty \$0_opencnv open 6 8 0 10 -66577
@@ -74,7 +74,7 @@
 #X obj 337 241 +;
 #X obj 319 266 +;
 #X obj 301 289 +;
-#X floatatom 301 309 5 0 0 0 - - -, f 5;
+#X floatatom 301 309 5 0 0 0 - - -;
 #X obj 300 326 sel 0;
 #X obj 300 352 s tempoStopIn;
 #X obj 280 353 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
@@ -140,7 +140,7 @@ stop;
 -1 -1;
 #X obj 206 435 i 0;
 #X obj 81 335 t b f;
-#X floatatom 108 495 5 0 0 0 - - -, f 5;
+#X floatatom 108 495 5 0 0 0 - - -;
 #X obj 281 379 sel 1 0;
 #X msg 279 432 -1;
 #X obj 406 248 t b a;
@@ -254,7 +254,7 @@ stop;
 #X obj 200 286 +;
 #X obj 182 311 +;
 #X obj 164 334 +;
-#X floatatom 164 354 5 0 0 0 - - -, f 5;
+#X floatatom 164 354 5 0 0 0 - - -;
 #X obj 164 376 sel 0;
 #X text 397 122 Long press : delete everything;
 #X text 397 138 and stop playing;
@@ -350,7 +350,13 @@ stop;
 #X obj 337 738 sel 0 1;
 #X msg 334 758 1;
 #X msg 364 758 6;
-#X obj 337 715 extra/sv 2_1_looper_inverse;
+#X obj 780 152 extra/sv song;
+#X obj 780 47 loadbang;
+#X obj 780 76 delay 2000;
+#X obj 780 97 t b b;
+#X msg 803 127 1;
+#X obj 698 143 s loadsong;
+#X obj 337 715 extra/sv 1_1_looper_inverse;
 #X connect 1 1 30 0;
 #X connect 1 1 56 0;
 #X connect 1 1 59 0;
@@ -477,7 +483,12 @@ stop;
 #X connect 93 1 95 0;
 #X connect 94 0 83 0;
 #X connect 95 0 83 0;
-#X connect 96 0 93 0;
+#X connect 97 0 98 0;
+#X connect 98 0 99 0;
+#X connect 99 0 101 0;
+#X connect 99 1 100 0;
+#X connect 100 0 96 1;
+#X connect 102 0 93 0;
 #X coords 0 -1 1 1 140 42 2 100 100;
 #X restore 221 20 pd patch;
 #N canvas 74 78 641 356 connect 0;
@@ -534,7 +545,7 @@ stop;
 #X connect 12 0 2 0;
 #X coords 0 -1 1 1 140 42 1 43 25;
 #X restore 364 20 pd connect;
-#N canvas 229 141 1175 592 volumes 0;
+#N canvas 2 149 1175 592 volumes 0;
 #X obj 24 -13 cnv 15 996 83 empty empty VOLUMES 330 30 0 45 -21525
 -88297 0;
 #X obj 188 80 volumes/volume_recloopsave 1 1;
