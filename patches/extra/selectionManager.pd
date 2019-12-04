@@ -1,4 +1,4 @@
-#N canvas 261 351 612 417 10;
+#N canvas 84 219 612 417 10;
 #X obj 33 96 extra/sv module_selected;
 #X obj 35 29 loadbang;
 #X obj 278 224 extra/sv module_selected;
@@ -24,7 +24,7 @@
 #X obj 272 58 extra/sv 2_module_ask_selection;
 #X obj 302 82 extra/sv 3_module_ask_selection;
 #X obj 346 104 extra/sv 4_module_ask_selection;
-#X floatatom 39 150 5 0 0 0 - - -, f 5;
+#X floatatom 39 150 5 0 0 0 - - -;
 #X msg 35 61 0;
 #X connect 0 0 21 0;
 #X connect 1 0 22 0;

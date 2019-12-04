@@ -1,4 +1,4 @@
-#N canvas 288 139 976 643 10;
+#N canvas 242 104 976 643 10;
 #X obj 172 60 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 193 60 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
@@ -17,15 +17,15 @@
 0;
 #X obj 84 103 cnv 3 12 67 empty \$0_slider empty 20 12 0 14 -170864
 -66577 0;
-#X obj 246 339 / 100;
-#X obj 246 362 * -1;
-#X obj 246 390 + 1;
+#X obj 244 339 / 100;
+#X obj 244 370 * -1;
+#X obj 244 401 + 1;
 #X obj 357 419 * 255;
 #X obj 356 465 outlet;
 #X obj 182 70 inlet;
 #X obj 180 133 / 200;
-#X obj 244 416 * 78;
-#X obj 245 448 pack 0 12 \$0;
+#X obj 244 432 * 78;
+#X obj 244 463 pack 0 12 \$0;
 #X connect 0 0 6 0;
 #X connect 1 0 0 0;
 #X connect 6 0 7 0;
@@ -38,7 +38,7 @@
 #X connect 13 0 14 0;
 #X connect 14 0 2 0;
 #X coords 0 -1 1 1 16 82 2 82 100;
-#X restore 321 296 pd volume;
+#X restore 332 280 pd volume;
 #X obj 552 -44 r \$1_\$2_realtempo_toUI;
 #X obj 552 11 makefilename %d;
 #X obj 552 37 symbol \$1;
@@ -130,8 +130,8 @@
 #X connect 27 0 11 0;
 #X coords 0 -1 1 1 60 25 2 100 100;
 #X restore 172 142 pd play;
-#X obj 113 169 hsl 116 30 0 1 0 0 empty \$0_temposlider 103 85 24 0
-10 -262144 -262144 -262144 8 1;
+#X obj 113 169 hsl 116 30 0 1 0 0 empty \$0_temposlider 0 85 24 0 10
+-262144 -262144 -262144 0 1;
 #N canvas 447 412 1038 529 open 0;
 #X text 462 314 label-color;
 #X text 477 339 label-color;
@@ -206,7 +206,7 @@
 #X obj 534 366 metro 100;
 #X obj -1 -74 r \$1_\$2_recloop_deleted_ui;
 #X msg -1 -52 0;
-#X obj 364 -3 cnv 15 139 99 empty empty empty 20 12 0 14 -33289 -66577
+#X obj 345 -15 cnv 15 139 99 empty empty empty 20 12 0 14 -33289 -66577
 0;
 #X obj -28 537 pack \$1 \$2 \$0;
 #X obj -28 508 loadbang;

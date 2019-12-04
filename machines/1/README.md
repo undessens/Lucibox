@@ -10,7 +10,7 @@ Tutorial
 Voici le lien de la vidéo tuto [link](https://www.youtube.com/watch?v=dRp9piBg44w)
 
 # Image de la carte SD
-[télécharger ici](http://assoundessens.fr/storage/lucibox/sd-card-image/lucibox_moonloopstation.zip)
+[télécharger ici](http://assoundessens.fr/storage/lucibox/sd-card-image/moon_loopstationV2.zip)
 
 ## Caractéristiques
 
@@ -95,9 +95,9 @@ Moon Loopstation est une looper 4 voies, capable d'enregistrer et de ré-ouvrir 
 
 ## Wifi connection 
 Grâce au logiciel VNC Viewer [ telecharger ici]( http://realvnc.com ).
-Connection au réseau lucibox ( nom : **lucibox**, mot de passe **luciboxnet** ).
-Connection à l'adresse IP : **192.168.4.1** ou **rapsberrypi.local**
-Login : pi
+Connection au réseau lucibox ( nom : **luciboxnet**, mot de passe **luciboxnet** ).
+Connection à l'adresse IP : **patchbox.local**
+Login : patch
 password : raspberry
 
 
@@ -278,6 +278,14 @@ At least, channels can be set of different size, but are always multiple one fro
 
 
 
+## Wifi connection 
+Download software VNC Viewer [ telecharger ici]( http://realvnc.com ).
+Connect to lucibox network ( nom : **luciboxnet**, mot de passe **luciboxnet** ).
+open vnc session with the ip : **patchbox.local**
+Login : patch
+password : raspberry
+
+Then you can access to Luxibox looper gui and edit volumes, effect and ... almost everything
 
 
 

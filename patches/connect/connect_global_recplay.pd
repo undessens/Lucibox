@@ -30,7 +30,7 @@
 #X restore 120 108 pd bigbutton1;
 #N canvas 0 50 450 300 bigbutton2 0;
 #X obj 104 103 hradio 45 1 0 2 empty empty empty 0 -8 0 10 -262144
--1 -1 0;
+-1 -1 1;
 #X obj 101 101 cnv 15 98 48 empty empty empty 20 12 0 14 -128992 -66577
 0;
 #X obj 210 283 delay 200;
@@ -89,14 +89,27 @@
 #X coords 0 -1 1 1 100 40 2 100 100;
 #X restore 268 178 pd bigbutton3;
 #X obj 77 369 extra/sv global_rec;
-#X obj 259 371 extra/sv global_play;
+#X obj 267 392 extra/sv global_play;
 #X text 282 161 LONG PRESS;
 #X obj 132 210 extra/midiLearn global_rec;
 #X obj 287 220 extra/midiLearn global_play;
 #X obj 132 230 extra/midiLearn global_rec2;
 #X obj 287 240 extra/midiLearn global_play2;
+#X msg 88 309 1;
+#X msg 420 286 1;
+#X obj 420 334 delay 20;
+#X obj 420 310 bang;
+#X msg 420 357 0;
+#X connect 0 0 10 0;
+#X connect 1 0 11 0;
 #X connect 6 0 3 1;
 #X connect 7 0 4 1;
 #X connect 8 0 3 1;
 #X connect 9 0 4 1;
+#X connect 10 0 3 1;
+#X connect 11 0 13 0;
+#X connect 11 0 4 1;
+#X connect 12 0 14 0;
+#X connect 13 0 12 0;
+#X connect 14 0 4 1;
 #X coords 0 -1 1 1 284 160 2 100 100;
