@@ -12,7 +12,6 @@
 #X msg 430 191 1;
 #X obj 429 166 sel 0;
 #X obj 105 400 s 1_looper_volume_fromUI;
-#X obj 292 381 extra/midiLearnn 2_looper_volume;
 #X obj 383 345 extra/sv \$1_\$2_looper_volume;
 #X obj 101 242 cnv 15 138 23 empty empty VOLUME 5 12 0 14 -33289 -262144
 0;
@@ -26,62 +25,15 @@
 #X obj 166 245 extra/midiLearn \$1_\$2_looper_volume;
 #X obj 167 205 extra/midiLearn \$1_\$2_looper_waitforplay;
 #X obj 167 171 extra/midiLearn \$1_\$2_looper_waitforrec;
-#X obj 380 253 extra/sv \$1_\$2_loop_recbutton;
-#X obj 580 324 extra/sv \$1_\$2_loop_playbutton;
-#N canvas 379 215 623 468 longORshort 0;
-#X obj 153 75 inlet;
-#X obj 152 180 timer;
-#X obj 153 119 sel 0;
-#X obj 187 149 bang;
-#X obj 151 224 > 500;
-#X obj 151 298 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 181 298 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 151 256 sel 0;
-#X obj 151 419 outlet;
-#X obj 223 417 outlet;
-#X obj 380 102 sel 0;
-#X obj 398 239 i 0;
-#X obj 398 270 sel 0;
-#X obj 399 311 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 431 312 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 435 162 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 444 196 delay 1000;
-#X connect 0 0 2 0;
-#X connect 0 0 10 0;
-#X connect 0 0 11 1;
-#X connect 1 0 4 0;
-#X connect 2 0 1 1;
-#X connect 2 1 3 0;
-#X connect 3 0 1 0;
-#X connect 4 0 7 0;
-#X connect 5 0 8 0;
-#X connect 7 0 5 0;
-#X connect 7 1 6 0;
-#X connect 10 1 15 0;
-#X connect 11 0 12 0;
-#X connect 12 0 13 0;
-#X connect 12 1 14 0;
-#X connect 14 0 9 0;
-#X connect 15 0 16 0;
-#X connect 16 0 11 0;
-#X restore 608 277 pd longORshort;
-#X msg 623 303 1;
-#X obj 717 302 s \$1_\$2_loop_clear;
+#X obj 517 267 extra/sv \$1_\$2_loop_recbutton;
+#X obj 294 262 extra/sv \$1_\$2_loop_playbutton;
 #X connect 2 0 5 0;
 #X connect 3 0 2 0;
 #X connect 4 0 2 0;
 #X connect 7 0 6 1;
 #X connect 8 0 7 0;
-#X connect 14 0 8 0;
-#X connect 17 0 11 1;
-#X connect 18 0 22 0;
-#X connect 19 0 20 1;
-#X connect 22 0 23 0;
-#X connect 22 1 24 0;
-#X connect 23 0 21 1;
+#X connect 13 0 8 0;
+#X connect 16 0 10 1;
+#X connect 17 0 20 1;
+#X connect 18 0 19 1;
 #X coords 0 -1 1 1 140 200 2 100 100;

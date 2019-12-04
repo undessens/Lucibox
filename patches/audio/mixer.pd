@@ -1,4 +1,4 @@
-#N canvas 88 112 640 426 10;
+#N canvas 682 197 640 426 10;
 #X obj 35 33 inlet~;
 #X obj 31 154 outlet~;
 #X obj 183 154 outlet~;
@@ -16,15 +16,15 @@
 #X obj 500 -2 extra/sv \$1_sendB;
 #X obj 165 200 env~ 4096 4096;
 #X obj 165 251 s \$1_volume_vumetre;
-#X floatatom 222 23 10 0 0 0 - - -, f 10;
-#X floatatom 260 -60 5 0 0 0 - - -, f 5;
+#X floatatom 222 23 10 0 0 0 - - -;
+#X floatatom 260 -60 5 0 0 0 - - -;
 #X text 322 173 SEND A;
 #X text 477 174 send B;
-#X floatatom 158 -5 5 0 0 0 - - -, f 5;
+#X floatatom 158 -5 5 0 0 0 - - -;
 #X obj 205 -34 dbtopow;
 #X obj 204 -84 / 4;
 #X obj 208 -58 + 80;
-#X obj 165 226 - 95;
+#X obj 165 226 - 90;
 #X connect 0 0 1 0;
 #X connect 0 0 7 0;
 #X connect 0 0 9 0;
