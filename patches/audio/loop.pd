@@ -1,4 +1,4 @@
-#N canvas 164 115 996 655 10;
+#N canvas 0 93 1280 627 10;
 #X declare -path ../;
 #X obj -44 20 cnv 15 1200 70 empty empty FROM::INLET 20 12 0 14 -204217
 -66577 0;
@@ -353,7 +353,7 @@
 #X connect 33 0 32 1;
 #X restore 17 126 pd init;
 #X obj 1041 278 hsl 170 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 14287 1;
+-1 -1 0 1;
 #X obj 142 293 sel 0;
 #N canvas 441 169 776 489 save 0;
 #X obj -565 234 soundfiler;
@@ -428,7 +428,7 @@
 #X restore 8 288 pd save;
 #X obj 8 256 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#N canvas 47 99 670 562 open 0;
+#N canvas 47 99 670 562 open 1;
 #X obj 144 249 soundfiler;
 #X obj 176 328 / 44.1;
 #X floatatom 176 358 10 0 0 0 - - -;
@@ -552,7 +552,7 @@ exist ? \, volume \, reversed ? );
 #X text 515 269 From a file \, open the file only;
 #X obj 163 122 s get_samples_location;
 #X obj 144 201 pack \$0 \$1 \$2 1 s;
-#N canvas 88 186 509 452 config 0;
+#N canvas 88 186 509 452 config 1;
 #X obj 59 1 inlet;
 #X msg 134 101 1;
 #X obj 73 126 extra/sv \$1_\$2_is_loop_recorded;
@@ -568,6 +568,9 @@ exist ? \, volume \, reversed ? );
 #X msg 54 188 1;
 #X obj 20 354 extra/sv \$1_\$2_looper_arrayindex;
 #X obj 114 332 extra/sv \$1_\$2_is_loop_playing;
+#X obj 334 228 extra/sv \$1_\$2_looper_inverse;
+#X obj 333 274 extra/sv \$1_\$2_looper_slice;
+#X obj 333 316 extra/sv \$1_\$2_looper_start;
 #X connect 0 0 3 0;
 #X connect 0 0 11 0;
 #X connect 1 0 2 1;
@@ -576,6 +579,9 @@ exist ? \, volume \, reversed ? );
 #X connect 5 0 8 1;
 #X connect 5 0 9 0;
 #X connect 5 0 14 1;
+#X connect 5 0 15 1;
+#X connect 5 0 16 1;
+#X connect 5 0 17 1;
 #X connect 10 0 4 0;
 #X connect 11 2 12 0;
 #X connect 11 3 5 0;
@@ -1427,7 +1433,7 @@ exist ? \, volume \, reversed ? );
 #X msg 1395 584 1;
 #X msg 1601 673 0;
 #X obj 1040 716 s \$0_index_save;
-#N canvas 0 41 819 539 rampgenerator 1;
+#N canvas 0 41 819 539 rampgenerator 0;
 #X obj 163 54 inlet;
 #X obj 151 146 sel 1 2 3;
 #X obj 163 78 bang;
