@@ -27,6 +27,8 @@
 //--------------- NEOPIXEL ----------------
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_RGB +  NEO_KHZ800);
 int digitaloutValue[DIGITALOUT];
+int pixelsColor[NUMPIXELS][3];
+boolean pixelsOn[NUMPIXELS];
 int digitaloutPin[] = {};
 
 // ------------   POTENTIOMETRE --------------
@@ -48,13 +50,9 @@ void setup(){
     Serial.begin(38400);
     while(!Serial);
 
-   
-  
   for( int i=0 ;i<ANALOGIN ; i++){
-    
     pinMode(analogPin[i], INPUT);
     analogValue[i] = analogRead(analogPin[i]);
-
   }
 
   for(int i=0 ; i<DIGITALIN ; i++ ){
@@ -62,10 +60,21 @@ void setup(){
     digitalinValue[i] = digitalRead(digitalinPin[i]);
   }
 
+  //Array of pixels ON
+  for(int i=0; i<NUMPIXELS; i++){
+    pixelsOn[i] = false;
+  }
+
+  //SET defaulut color
+  for(int i=0; i<4; i++){
+    setColorNeoPixel(i*3, 2);
+    setColorNeoPixel(i*3 + 1, 3);
+    setColorNeoPixel(i*3 + 2, 7);
+  }
+  
   pixels.begin();
   for (int i= 0; i<DIGITALOUT; i++){
      setNeoPixel(i, 0,0,0);
-    
   }
   pixels.show();
   setColor(0);
@@ -227,34 +236,63 @@ void setNeoPixel(int channel, int r, int v, int b){
 void setColorNeoPixel(int channel,int colorIndex){
 
   isWaiting = false;
-  int finalr, finalg, finalb;
+  int finalr ;
+  int finalg ;
+  int finalb ;
+  
+  
+  // if colorIndex is 1 or 0 : set On or Off
+  if(colorIndex<2 && channel<NUMPIXELS){
 
-  switch( colorIndex){
-      //BLACK
-      case 0: finalr = 0; finalg = 0; finalb = 0;
-        break;
-      //RED
-      case 1: finalr = 25; finalg = 0; finalb = 0;
-        break;
-      //RED
-      case 2: finalr = 0; finalg = 25; finalb = 0;
-        break;
-      //LIGHT WHITE
-      case 3: finalr = 3; finalg = 3; finalb = 3;
-        break;
-      //MEDIUM WHITE
-      case 4: finalr = 30; finalg = 30; finalb = 30;
-        break;
-      //BLUE
-      case 5: finalr = 0; finalg = 0; finalb = 25;
-        break;
-      // YELLOW
-      case 6: finalr = 12; finalg = 12; finalb = 0;
-        break;
+       if(colorIndex==1) {
+        pixelsOn[channel] = true;
+       }else{
+        pixelsOn[channel] = false;
+       }
+
+  }
+  else{
+   //if colorIndex >=0, set color
+  
+    switch( colorIndex){
+        //RED
+        case 2: finalr = 0; finalg = 25; finalb = 0;
+          break;
+        //LIGHT WHITE
+        case 3: finalr = 2; finalg = 2; finalb = 2;
+          break;
+        //MEDIUM WHITE
+        case 4: finalr = 30; finalg = 30; finalb = 30;
+          break;
+        //BLUE
+        case 5: finalr = 0; finalg = 0; finalb = 25;
+          break;
+        // YELLOW
+        case 6: finalr = 12; finalg = 12; finalb = 0;
+          break;
+       // GREEN
+        case 7: finalr = 25; finalg = 0; finalb = 0;
+          break;
+    }
+
+    pixelsColor[channel][0] = finalr;
+    pixelsColor[channel][1] = finalg;
+    pixelsColor[channel][2] = finalb;
+
   }
 
+  //Finally draw pixel
+  int mult = 0;
+  if(pixelsOn[channel]) mult = 1;
+  
+  finalr = pixelsColor[channel][0] * mult;
+  finalg = pixelsColor[channel][1] * mult;
+  finalb = pixelsColor[channel][2] * mult;
 
-  pixels.setPixelColor(NUMPIXELS-(channel+1), pixels.Color(finalr,finalg,finalb));
+   pixels.setPixelColor(NUMPIXELS-(channel+1), pixels.Color(finalr,finalg,finalb));
+
+
+  
   
 }
 
