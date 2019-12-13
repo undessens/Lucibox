@@ -25,7 +25,7 @@
 #X msg 400 277 2;
 #X obj 466 220 loadbang;
 #X obj 104 101 hradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
--1 -1 1;
+-1 -1 0;
 #X obj 104 166 bang;
 #X msg 363 277 43;
 #X obj 101 101 cnv 15 38 15 empty \$0_opencnv open 6 8 0 10 -66577
@@ -83,7 +83,7 @@
 0;
 #N canvas 402 288 1038 552 open 0;
 #X obj 103 102 hradio 15 0 0 3 empty empty empty 0 -8 0 10 -262144
--1 -1 1;
+-1 -1 0;
 #X text 462 314 label-color;
 #X text 477 339 label-color;
 #X obj 377 311 t b f;
@@ -122,7 +122,7 @@
 #X coords 0 -1 1 1 140 42 1 43 25;
 #X restore 8 191 pd connect;
 #X obj 204 529 hsl 640 30 0 1 0 0 empty global_tempo_slider empty -2
--8 0 10 -33289 -4032 -1 31950 1;
+-8 0 10 -33289 -4032 -1 39937 1;
 #N canvas 29 296 833 362 volumes 0;
 #X obj 24 -13 cnv 15 650 83 empty empty VOLUMES 330 30 0 45 -21525
 -88297 0;

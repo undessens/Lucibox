@@ -13,29 +13,31 @@
 #endif
 
 //NEOPIXEL
-#define PIN            4
+#define PIN            12
 
 #define NUMPIXELS      12
 #define MAXLUMINOSITY  1
 
 
-#define ANALOGIN 0    // Nombre de potentiometre
-#define DIGITALIN 6   // Nombre de boutons
-#define DIGITALOUT 14  // Nombre de leds
+#define ANALOGIN 3    // Nombre de potentiometre
+#define DIGITALIN 7   // Nombre de boutons
+#define DIGITALOUT 0  // Nombre de leds
 #define ANALOG_THRESH 10 
 
 //--------------- NEOPIXEL ----------------
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_RGB +  NEO_KHZ800);
 int digitaloutValue[DIGITALOUT];
-int digitaloutPin[] = {12 , 13};
+int pixelsColor[NUMPIXELS][3];
+boolean pixelsOn[NUMPIXELS];
+int digitaloutPin[] = {};
 
 // ------------   POTENTIOMETRE --------------
 int analogValue[ANALOGIN];
-int analogPin[] = { A0, A1, A2,A3,A4,A5 };
+int analogPin[] = { A0, A1, A2 };
 
 // ------------   BOUTONS  ------------------
 int digitalinValue[DIGITALIN];
-int digitalinPin[] =  { 6,7,8,9,10,11};
+int digitalinPin[] =  { 2, 3, 4, 5, 6, 7, 8};
 
 //-------------- COLORS --------------------
 int globalR, globalG, globalB;
@@ -47,14 +49,10 @@ void setup(){
 
     Serial.begin(38400);
     while(!Serial);
-    Serial.print("Lucibox");
-   
-  
+
   for( int i=0 ;i<ANALOGIN ; i++){
-    
     pinMode(analogPin[i], INPUT);
     analogValue[i] = analogRead(analogPin[i]);
-
   }
 
   for(int i=0 ; i<DIGITALIN ; i++ ){
@@ -62,10 +60,21 @@ void setup(){
     digitalinValue[i] = digitalRead(digitalinPin[i]);
   }
 
+  //Array of pixels ON
+  for(int i=0; i<NUMPIXELS; i++){
+    pixelsOn[i] = false;
+  }
+
+  //SET defaulut color
+  for(int i=0; i<4; i++){
+    setColorNeoPixel(i*3, 2);
+    setColorNeoPixel(i*3 + 1, 3);
+    setColorNeoPixel(i*3 + 2, 7);
+  }
+  
   pixels.begin();
   for (int i= 0; i<DIGITALOUT; i++){
      setNeoPixel(i, 0,0,0);
-    
   }
   pixels.show();
   setColor(0);
@@ -118,7 +127,7 @@ void loop(){
     
     int channel = (Serial.read()) ;
     int value = (Serial.read()) ;
-    int finalvalue = value*255;
+    int finalvalue = value;
     char end_of_line = Serial.read();
 
     //change Value because of led light power
@@ -127,48 +136,59 @@ void loop(){
       
          switch(channel){
              case 0:
-                   //setNeoPixel(0, 0,finalvalue,0);
-                   digitalWrite(digitaloutPin[0], finalvalue>0);
+                   setOneNeoPixel( value, 0, 25, 25);
               break;
              case 1:
-                   digitalWrite(digitaloutPin[1], finalvalue>0);
+                   //digitalWrite(digitaloutPin[1], finalvalue>0);
                    //setNeoPixel(1, 0, 0, finalvalue);
                 break; 
             case 2: 
-                   // TRUC 
+                   setColorNeoPixel(0,finalvalue);
                 break;
-             case 11: 
-                   setBarNeoPixel(value, globalR, globalG, globalB);
+           case 3:
+                   setColorNeoPixel(1, finalvalue);
+              break;
+             case 4:
+                   setColorNeoPixel(2,finalvalue);
+                break; 
+            case 5: 
+                   setColorNeoPixel(3, finalvalue);
+                break;
+             case 6:
+                   setColorNeoPixel(4,finalvalue);
+              break;
+             case 7:
+                   setColorNeoPixel(5, finalvalue);
+                break; 
+            case 8: 
+                   setColorNeoPixel(6, finalvalue);
+                break;
+            case 9:
+                   setColorNeoPixel(7, finalvalue);
+              break;
+             case 10:
+                   setColorNeoPixel(8,finalvalue);
+                break; 
+            case 11: 
+                   setColorNeoPixel(9,finalvalue);
                 break;
             case 12: 
-                   setOneNeoPixel(value,globalR,globalG,globalB);
+                   setColorNeoPixel(10,finalvalue);
                 break;
             case 13: 
-                   setColor(value);
+                   setColorNeoPixel(11,finalvalue);
                 break;
+            case 14:
+                 break;
 
 
-            
-          
-             
-
-             
              }
 
-
-     
-     
-     
     }
 
-    
-   
-   
-
-    
   }
 
-  if(isWaiting){
+  if(!Serial){
       setWaveNeoPixel();
     }
 
@@ -204,26 +224,6 @@ Serial.println(value);
 void setNeoPixel(int channel, int r, int v, int b){
 
   int finalr, finalv, finalb;
-//  if( r == 0 ){
-//    finalr= digitaloutValue[channel];
-//  }else{
-//    digitaloutValue[channel] = r;
-//    finalr = r;
-//  }
-//  
-//  if( v == 0 ){
-//    finalv= digitaloutValue[channel+1];
-//  }else{
-//    digitaloutValue[channel+1] = v;
-//    finalv = v;
-//  }
-//  
-//  if( b == 0 ){
-//    finalb= digitaloutValue[channel+2];
-//  }else{
-//    digitaloutValue[channel+2] = b;
-//    finalb = b;
-//  }
 
   finalr = r*MAXLUMINOSITY;
   finalv = v*MAXLUMINOSITY;
@@ -231,8 +231,69 @@ void setNeoPixel(int channel, int r, int v, int b){
 
   pixels.setPixelColor(NUMPIXELS-(channel+1), pixels.Color(finalr,finalv,finalb));
   
+}
+
+void setColorNeoPixel(int channel,int colorIndex){
+
+  isWaiting = false;
+  int finalr ;
+  int finalg ;
+  int finalb ;
+  
+  
+  // if colorIndex is 1 or 0 : set On or Off
+  if(colorIndex<2 && channel<NUMPIXELS){
+
+       if(colorIndex==1) {
+        pixelsOn[channel] = true;
+       }else{
+        pixelsOn[channel] = false;
+       }
+
+  }
+  else{
+   //if colorIndex >=0, set color
+  
+    switch( colorIndex){
+        //RED
+        case 2: finalr = 0; finalg = 25; finalb = 0;
+          break;
+        //LIGHT WHITE
+        case 3: finalr = 2; finalg = 2; finalb = 2;
+          break;
+        //MEDIUM WHITE
+        case 4: finalr = 30; finalg = 30; finalb = 30;
+          break;
+        //BLUE
+        case 5: finalr = 0; finalg = 0; finalb = 25;
+          break;
+        // YELLOW
+        case 6: finalr = 12; finalg = 12; finalb = 0;
+          break;
+       // GREEN
+        case 7: finalr = 25; finalg = 0; finalb = 0;
+          break;
+    }
+
+    pixelsColor[channel][0] = finalr;
+    pixelsColor[channel][1] = finalg;
+    pixelsColor[channel][2] = finalb;
+
+  }
+
+  //Finally draw pixel
+  int mult = 0;
+  if(pixelsOn[channel]) mult = 1;
+  
+  finalr = pixelsColor[channel][0] * mult;
+  finalg = pixelsColor[channel][1] * mult;
+  finalb = pixelsColor[channel][2] * mult;
+
+   pixels.setPixelColor(NUMPIXELS-(channel+1), pixels.Color(finalr,finalg,finalb));
 
 
+  
+  
 }
 
 void setOneNeoPixel(int channel, int r, int v, int b ){

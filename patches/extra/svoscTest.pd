@@ -11,32 +11,32 @@
 -1 -1;
 #X floatatom 68 191 5 0 0 0 - - -, f 5;
 #X floatatom 178 191 5 0 0 0 - - -, f 5;
-#N canvas 727 370 450 323 osc 0;
+#N canvas 727 370 450 323 osc 1;
 #X obj 22 52 mrpeach/unpackOSC;
 #X obj 22 124 s fromOSC;
-#X obj 22 19 mrpeach/udpreceive 9999;
 #X obj 185 18 r toOSC;
 #X obj 185 121 mrpeach/packOSC;
 #X obj 185 161 mrpeach/udpsend;
-#X msg 352 84 connect 127.0.0.1 9998;
 #X obj 185 45 list prepend /ui;
 #X msg 185 82 send \$1 \$2 \$3;
 #X obj 342 36 inlet;
 #X obj 68 171 print;
+#X obj 22 19 mrpeach/udpreceive 12345;
+#X msg 352 84 connect 127.0.0.1 12344;
 #X connect 0 0 1 0;
-#X connect 0 0 10 0;
-#X connect 2 0 0 0;
-#X connect 3 0 7 0;
-#X connect 4 0 5 0;
-#X connect 6 0 5 0;
-#X connect 7 0 8 0;
-#X connect 8 0 4 0;
-#X connect 9 0 6 0;
+#X connect 0 0 8 0;
+#X connect 2 0 5 0;
+#X connect 3 0 4 0;
+#X connect 5 0 6 0;
+#X connect 6 0 3 0;
+#X connect 7 0 10 0;
+#X connect 9 0 0 0;
+#X connect 10 0 4 0;
 #X restore 69 105 pd osc;
 #X obj 69 254 hsl 80 30 0 127 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 2737 1;
+-1 -1 4550 1;
 #X obj 189 250 hsl 80 30 0 127 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 3235 1;
+-1 -1 0 1;
 #X msg 178 217 set \$1;
 #X msg 76 228 set \$1;
 #X obj 72 53 bng 15 250 50 0 empty empty connect 17 7 0 10 -262144
