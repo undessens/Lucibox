@@ -130,16 +130,16 @@
 #X connect 27 0 11 0;
 #X coords 0 -1 1 1 60 25 2 100 100;
 #X restore 172 142 pd play;
-#X obj 113 169 hsl 116 30 0 1 0 0 empty \$0_temposlider 0 85 24 0 10
--262144 -262144 -262144 0 1;
-#N canvas 447 412 1038 529 open 0;
+#X obj 113 169 hsl 116 30 0 1 0 0 empty \$0_temposlider 582 85 24 0
+10 -66577 -262144 -262144 34 1;
+#N canvas 402 345 1038 529 open 0;
 #X text 462 314 label-color;
 #X text 477 339 label-color;
 #X obj 377 311 t b f;
 #X msg 400 277 2;
 #X obj 551 220 loadbang;
 #X obj 104 101 hradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
--1 -1 0;
+-1 -1 1;
 #X obj 104 166 bang;
 #X msg 363 277 43;
 #X obj 101 101 cnv 15 38 15 empty \$0_opencnv open 6 8 0 10 -66577
@@ -148,7 +148,7 @@
 #X obj 363 197 bang;
 #X obj 535 388 pack 43 0 0 \$0;
 #X obj 380 239 delay 200;
-#X obj 102 208 s \$1_\$2_loop_open;
+#X obj 102 208 s \$1_\$2_loop_open_browser;
 #X connect 2 1 11 0;
 #X connect 3 0 2 0;
 #X connect 4 0 3 0;
