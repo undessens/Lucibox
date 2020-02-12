@@ -9,7 +9,7 @@
 0;
 #X obj 7 107 cnv 15 144 259 empty empty empty 20 12 0 14 -233017 -66577
 0;
-#N canvas 0 97 1280 627 patch 1;
+#N canvas 0 97 1280 627 patch 0;
 #X obj 101 101 cnv 15 138 40 empty empty PATCH 20 12 0 14 -66577 -262144
 0;
 #X obj 235 155 audio/mic;
@@ -444,7 +444,7 @@
 #X coords 0 -1 1 1 140 42 1 43 25;
 #X restore 8 191 pd connect;
 #X obj 211 340 hsl 640 30 0 1 0 0 empty global_tempo_slider empty -2
--8 0 10 -33289 -4032 -1 48399 1;
+-8 0 10 -33289 -4032 -1 12423 1;
 #X obj 389 139 UI/ui_sampler8 3 1;
 #N canvas 51 262 1126 485 volumes 0;
 #X obj 24 -13 cnv 15 996 83 empty empty VOLUMES 330 30 0 45 -21525
