@@ -1,4 +1,4 @@
-#N canvas 435 61 1005 581 10;
+#N canvas 2350 68 1005 581 10;
 #X declare -path ../../patches;
 #X obj 7 370 cnv 15 980 142 empty empty empty 330 30 0 45 -21525 -88297
 0;
@@ -9,7 +9,7 @@
 0;
 #X obj 7 107 cnv 15 144 259 empty empty empty 20 12 0 14 -233017 -66577
 0;
-#N canvas 103 116 729 555 patch 0;
+#N canvas 1495 477 729 555 patch 0;
 #X obj 101 101 cnv 15 138 40 empty empty PATCH 20 12 0 14 -66577 -262144
 0;
 #X obj 306 125 audio/mic;
@@ -65,9 +65,9 @@
 #X floatatom 472 53 3 0 0 0 - - -;
 #X obj 467 185 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 497 185 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 497 186 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 527 185 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 527 185 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 559 185 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
@@ -89,7 +89,6 @@
 #X connect 17 0 3 0;
 #X connect 17 1 11 0;
 #X connect 17 2 13 0;
-#X connect 19 0 25 0;
 #X connect 20 0 17 1;
 #X connect 21 0 17 2;
 #X connect 22 0 17 3;
@@ -101,7 +100,7 @@
 #X connect 25 3 23 0;
 #X coords 0 -1 1 1 140 42 2 100 100;
 #X restore 7 139 pd patch;
-#N canvas 370 263 1070 501 connect 0;
+#N canvas 1440 128 1070 501 connect 0;
 #X obj 40 6 cnv 15 996 83 empty empty CONNECT 330 30 0 45 -21525 -88297
 0;
 #X obj 44 26 cnv 15 138 40 empty empty CONNECT 20 12 0 14 -66577 -262144
@@ -144,12 +143,12 @@
 #X obj 236 103 connect/connect_mic;
 #X obj 38 159 hardware/midi;
 #X obj 37 217 hardware/keyboard;
-#X obj 388 103 connect/connect_sampler8 1;
+#X obj 384 111 connect/connect_samplerloop;
 #X coords 0 -1 1 1 140 42 1 43 25;
-#X restore 8 191 pd connect;
+#X restore 7 192 pd connect;
 #X obj 213 482 hsl 640 30 0 1 0 0 empty global_tempo_slider empty -2
 -8 0 10 -33289 -4032 -1 0 1;
-#N canvas 179 90 721 359 volumes 0;
+#N canvas 1546 313 721 359 volumes 0;
 #X obj 24 -13 cnv 15 650 83 empty empty VOLUMES 330 30 0 45 -21525
 -88297 0;
 #X obj 28 80 volumes/volume_mic;
@@ -191,10 +190,18 @@
 #X obj 332 80 UI/reverb;
 #X obj 209 0 bng 55 250 50 0 save_all empty SAVE 10 25 0 15 -258113
 -1 -1;
-#X obj 188 81 volumes/volume_sampler 1;
+#X obj 188 80 volumes/volume_samplerlooper 1;
 #X coords 0 -1 1 1 140 42 1 43 25;
 #X restore 9 242 pd volumes;
-#X obj 158 108 UI/UI_looper 1 1;
-#X obj 306 108 UI/UI_looper 2 1;
-#X obj 454 109 UI/UI_looper 3 1;
-#X obj 602 110 UI/UI_looper 4 1;
+#X obj 190 246 UI/UI_looper_mini 1 1;
+#X obj 315 246 UI/UI_looper_mini 2 1;
+#X obj 441 246 UI/UI_looper_mini 3 1;
+#X obj 566 246 UI/UI_looper_mini 4 1;
+#X obj 691 246 UI/UI_looper_mini 5 1;
+#X obj 816 246 UI/UI_looper_mini 6 1;
+#X obj 190 148 UI/UI_looper_mini 7 1;
+#X obj 315 148 UI/UI_looper_mini 8 1;
+#X obj 441 148 UI/UI_looper_mini 9 1;
+#X obj 566 148 UI/UI_looper_mini 10 1;
+#X obj 691 148 UI/UI_looper_mini 11 1;
+#X obj 816 148 UI/UI_looper_mini 12 1;

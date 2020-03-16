@@ -1,0 +1,55 @@
+#N canvas 626 323 687 490 10;
+#X obj 632 170 cnv 15 138 50 empty empty SELECT 20 12 0 14 -33289 -262144
+0;
+#X obj 101 101 cnv 15 138 30 empty \$0_titlecnv SAMPLER_1 20 12 0 18
+-162280 -66577 0;
+#X obj 258 -17 loadbang;
+#X obj 238 -16 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 634 198 extra/midiLearn \$1_module_ask_selection;
+#X obj 571 275 extra/sv \$1_module_ask_selection;
+#X msg 634 253 1;
+#X obj 633 228 sel 0;
+#X obj 129 214 vu 20 80 empty empty -1 -8 0 10 -66577 -1 0 0;
+#X obj 101 193 vsl 25 100 0 127 0 0 empty empty empty 0 -9 0 10 -58255
+-262144 -1 0 1;
+#X msg -79 247 set \$1;
+#X obj 130 193 extra/saturate;
+#X obj 175 214 vu 15 80 empty empty -1 -8 0 10 -66577 -1 0 0;
+#X obj 158 214 vsl 15 80 0 127 0 0 empty empty empty 0 -9 0 10 -58255
+-262144 -1 0 1;
+#X obj 218 214 vu 15 80 empty empty -1 -8 0 10 -66577 -1 0 0;
+#X obj 201 214 vsl 15 80 0 127 0 0 empty empty empty 0 -9 0 10 -58255
+-262144 -1 0 1;
+#X obj 101 166 cnv 15 138 23 empty empty VOLUME 3 9 0 14 -33289 -262144
+0;
+#X msg 277 217 set \$1;
+#X msg 277 272 set \$1;
+#X obj 258 12 pack \$1 \$0;
+#X msg 258 45 \; \$2_titlecnv label SAMPLER_\$1;
+#X obj 157 194 cnv 15 35 15 empty empty sendA 2 8 0 10 -66577 -262144
+0;
+#X obj 199 194 cnv 15 35 15 empty empty sendB 2 8 0 10 -66577 -262144
+0;
+#X obj -79 223 extra/sv \$1_samplerlooper_volume;
+#X obj -142 138 r \$1_samplerlooper_volume_vumetre;
+#X obj 277 193 extra/sv \$1_samplerlooper_sendA;
+#X obj 277 248 extra/sv \$1_samplerlooper_sendB;
+#X connect 2 0 19 0;
+#X connect 3 0 19 0;
+#X connect 4 0 7 0;
+#X connect 6 0 5 1;
+#X connect 7 0 6 0;
+#X connect 9 0 23 1;
+#X connect 10 0 9 0;
+#X connect 13 0 25 1;
+#X connect 15 0 26 1;
+#X connect 17 0 13 0;
+#X connect 18 0 15 0;
+#X connect 19 0 20 0;
+#X connect 23 0 10 0;
+#X connect 24 0 8 0;
+#X connect 24 0 11 0;
+#X connect 25 0 17 0;
+#X connect 26 0 18 0;
+#X coords 0 -1 1 1 140 200 2 100 100;

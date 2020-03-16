@@ -1,4 +1,4 @@
-#N canvas 160 48 1280 627 10;
+#N canvas 2080 388 1280 627 10;
 #X declare -path ../;
 #X obj -44 20 cnv 15 1200 70 empty empty FROM::INLET 20 12 0 14 -204217
 -66577 0;
@@ -354,7 +354,7 @@
 #X connect 33 0 32 1;
 #X restore 17 126 pd init;
 #X obj 1041 278 hsl 170 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 16900 1;
+-1 -1 29 1;
 #X obj 142 293 sel 0;
 #N canvas 441 169 776 489 save 0;
 #X obj -565 234 soundfiler;
@@ -1253,9 +1253,9 @@ exist ? \, volume \, reversed ? );
 #X obj 1146 775 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
 0 1;
 #X obj 1249 778 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-1 1;
+0 1;
 #X obj 869 714 pack 0 \$0;
-#X obj 869 674 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 869 674 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X msg 869 735 set \$2_loop\$1;
 #X obj 872 625 extra/sv \$1_\$2_looper_arrayindex;
@@ -1788,7 +1788,7 @@ sample;
 #X obj 103 365 line~;
 #X obj 47 182 t b b;
 #X obj 47 241 f 0;
-#X msg -161 340 300;
+#X msg -159 335 300;
 #X obj 351 22 extra/sv tempo;
 #X text 419 -7 TODO : get global tempo when loop_tempo changed;
 #X obj 574 221 s \$1_\$2_realtempo_toUI;
@@ -1809,10 +1809,13 @@ sample;
 #X floatatom 142 259 10 0 0 0 - - -;
 #X obj 142 280 * 44.1;
 #X obj 47 294 pack f f;
-#X msg 47 327 \$2 \$1;
+#X msg 47 323 \$2 \$1;
 #X obj 375 76 / 1;
 #X obj -58 19 r \$0_playsampler_loop;
-#X obj -58 48 sel 0 1;
+#X obj -58 49 sel 0 1;
+#X obj -124 466 extra/sv \$1_\$2_is_loop_playing;
+#X msg -85 428 1;
+#X msg -127 427 0;
 #X connect 2 0 20 0;
 #X connect 3 0 39 0;
 #X connect 4 0 3 0;
@@ -1837,6 +1840,7 @@ sample;
 #X connect 22 1 11 0;
 #X connect 23 0 44 0;
 #X connect 24 0 21 0;
+#X connect 24 0 51 0;
 #X connect 25 0 46 0;
 #X connect 28 0 2 0;
 #X connect 29 0 24 0;
@@ -1854,11 +1858,15 @@ sample;
 #X connect 43 0 44 1;
 #X connect 44 0 45 0;
 #X connect 45 0 21 0;
+#X connect 45 0 50 0;
 #X connect 46 0 6 0;
 #X connect 46 0 4 0;
 #X connect 47 0 48 0;
 #X connect 48 0 24 0;
 #X connect 48 1 40 0;
+#X connect 48 2 40 0;
+#X connect 50 0 49 1;
+#X connect 51 0 49 1;
 #X restore 239 229 pd sampler;
 #X obj 235 345 *~ 0;
 #X obj 259 319 == 3;
@@ -1895,9 +1903,9 @@ sample;
 #X obj 384 349 >= 1;
 #X floatatom 267 534 5 0 0 0 - - -;
 #X obj 267 220 metro 10;
-#X obj 293 391 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 293 391 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 269 446 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 269 446 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 293 411 sel 1;
 #X obj 270 475 sel 1 0;
@@ -1940,7 +1948,7 @@ sample;
 #X floatatom 1280 207 5 0 0 0 - - -;
 #X floatatom 1279 251 5 0 0 0 - - -;
 #X floatatom 1279 294 5 0 0 0 - - -;
-#N canvas 0 22 450 300 managePlayPress 0;
+#N canvas 1874 216 450 300 managePlayPress 0;
 #X obj 197 19 inlet;
 #X obj 131 148 spigot;
 #X obj 209 148 spigot;
@@ -1974,7 +1982,7 @@ sample;
 #X connect 8 0 5 0;
 #X connect 8 0 6 0;
 #X restore 519 209 pd managePlayPress;
-#N canvas 0 22 450 300 managePlayingSampler 0;
+#N canvas 1882 205 450 300 managePlayingSampler 1;
 #X obj 201 28 inlet;
 #X obj 180 133 s \$0_playsampler_loop;
 #X text 276 99 Easy as it is;
