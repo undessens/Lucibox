@@ -1,4 +1,4 @@
-#N canvas 2350 68 1005 581 10;
+#N canvas 198 115 1005 581 10;
 #X declare -path ../../patches;
 #X obj 7 370 cnv 15 980 142 empty empty empty 330 30 0 45 -21525 -88297
 0;
@@ -9,7 +9,7 @@
 0;
 #X obj 7 107 cnv 15 144 259 empty empty empty 20 12 0 14 -233017 -66577
 0;
-#N canvas 1495 477 729 555 patch 0;
+#N canvas 1537 356 851 605 patch 0;
 #X obj 101 101 cnv 15 138 40 empty empty PATCH 20 12 0 14 -66577 -262144
 0;
 #X obj 306 125 audio/mic;
@@ -62,17 +62,6 @@
 #X obj 41 208 declare -path ../../patches;
 #X obj 325 221 audio/samplerfromloop 1;
 #X obj 41 291 audio/tempo exemple 4;
-#X floatatom 472 53 3 0 0 0 - - -;
-#X obj 467 185 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 497 186 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 527 185 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 559 185 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 472 27 keyup;
-#X obj 461 101 sel 113 115 100 102;
 #X connect 1 0 10 0;
 #X connect 2 0 1 0;
 #X connect 2 1 1 0;
@@ -89,15 +78,6 @@
 #X connect 17 0 3 0;
 #X connect 17 1 11 0;
 #X connect 17 2 13 0;
-#X connect 20 0 17 1;
-#X connect 21 0 17 2;
-#X connect 22 0 17 3;
-#X connect 23 0 17 4;
-#X connect 24 0 19 0;
-#X connect 25 0 20 0;
-#X connect 25 1 21 0;
-#X connect 25 2 22 0;
-#X connect 25 3 23 0;
 #X coords 0 -1 1 1 140 42 2 100 100;
 #X restore 7 139 pd patch;
 #N canvas 1440 128 1070 501 connect 0;
@@ -156,7 +136,7 @@
 0;
 #N canvas 285 163 1038 575 open 0;
 #X obj 103 102 hradio 15 0 0 3 empty empty empty 0 -8 0 10 -262144
--1 -1 1;
+-1 -1 2;
 #X text 462 314 label-color;
 #X text 477 339 label-color;
 #X obj 377 311 t b f;
