@@ -13,7 +13,7 @@
  
 
 #define ANALOGIN 0    // Nombre de potentiometre
-#define DIGITALIN 0   // Nombre de boutons
+#define DIGITALIN 6   // Nombre de boutons
 #define DIGITALOUT 4  // Nombre de leds
 #define ANALOG_THRESH 10 
 
@@ -26,7 +26,7 @@ int analogPin[] = { A0, A1, A2,A3,A4,A5 };
 
 // ------------   BOUTONS  ------------------
 int digitalinValue[DIGITALIN];
-int digitalinPin[] =  { 2,3,4,5,6,7,8 ,9};
+int digitalinPin[] =  { 2,3,5,6,7,8 ,9};
 
 
 // ------------   LEDS  --------------------
@@ -62,8 +62,8 @@ void setup(){
 
   if(!MPR121.begin(MPR121_ADDR)) Serial.println("error setting up MPR121");
   MPR121.setInterruptPin(MPR121_INT);
-  MPR121.setTouchThreshold(40);
-  MPR121.setReleaseThreshold(20);
+  MPR121.setTouchThreshold(320);
+  MPR121.setReleaseThreshold(5);
    
    
 

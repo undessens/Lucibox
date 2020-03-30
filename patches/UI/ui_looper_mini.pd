@@ -130,8 +130,8 @@
 #X connect 27 0 11 0;
 #X coords 0 -1 1 1 60 25 2 100 100;
 #X restore 162 122 pd play;
-#X obj 105 149 hsl 114 20 0 1 0 0 empty \$0_temposlider 0 85 24 0 10
--66577 -262144 -262144 19 1;
+#X obj 105 149 hsl 114 20 0 1 0 0 empty \$0_temposlider 120 85 24 0
+10 -66577 -262144 -262144 18 1;
 #N canvas 402 345 1038 529 open 0;
 #X text 462 314 label-color;
 #X text 477 339 label-color;
@@ -213,7 +213,7 @@
 #X msg -127 392 \; \$3_bgcnv label LOOPER_\$1;
 #X obj 85 457 pack 22 2 2 \$0;
 #X msg 98 397 77;
-#X obj 101 101 cnv 15 120 20 empty \$0_bgcnv LOOPER_1 20 12 0 12 -228856
+#X obj 101 101 cnv 15 120 20 empty \$0_bgcnv LOOPER_8 20 12 0 12 -228856
 -66577 0;
 #X obj 57 312 extra/sv module_selected;
 #X obj 57 338 == \$1;
@@ -293,9 +293,9 @@
 #X obj 520 269 sel 1 0;
 #X obj 55 -105 r \$1_\$2_loop_undo_ui;
 #X msg 85 -42 0;
-#X obj 403 165 del 200;
 #X obj 403 146 bang;
 #X msg 403 184 0;
+#X obj 403 165 del 1500;
 #X connect 0 0 31 0;
 #X connect 1 0 31 1;
 #X connect 2 0 31 2;
@@ -351,7 +351,7 @@
 #X connect 58 0 32 0;
 #X connect 59 0 65 1;
 #X connect 60 0 66 1;
-#X connect 60 0 74 0;
+#X connect 60 0 73 0;
 #X connect 61 0 63 0;
 #X connect 62 0 64 0;
 #X connect 63 0 0 0;
@@ -365,6 +365,6 @@
 #X connect 71 0 72 0;
 #X connect 72 0 22 0;
 #X connect 73 0 75 0;
-#X connect 74 0 73 0;
-#X connect 75 0 66 1;
+#X connect 74 0 66 1;
+#X connect 75 0 74 0;
 #X coords 0 -1 1 1 122 90 2 100 100;
