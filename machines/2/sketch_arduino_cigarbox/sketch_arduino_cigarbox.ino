@@ -14,7 +14,6 @@
 
 //NEOPIXEL
 #define PIN            12
-
 #define NUMPIXELS      12
 #define MAXLUMINOSITY  1
 
@@ -386,6 +385,3 @@ switch(module){
 
 }
 }
-
-
-
