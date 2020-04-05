@@ -23,7 +23,7 @@
 #X obj 515 458 cnv 15 138 23 empty empty BANK 5 12 0 14 -33289 -262144
 0;
 #X obj 574 461 extra/midiLearn \$1_sampler8_bank;
-#X obj 111 181 extra/midilearn samplerloop_play1;
+#X obj 111 181 extra/midiLearn samplerloop_play1;
 #X obj 192 152 cnv 15 80 50 empty empty PLAY_2 5 12 0 14 -33289 -262144
 0;
 #X obj 276 152 cnv 15 80 50 empty empty PLAY_3 5 12 0 14 -33289 -262144
@@ -46,17 +46,17 @@
 0;
 #X obj 528 212 cnv 15 80 50 empty empty PLAY_12 5 12 0 14 -33289 -262144
 0;
-#X obj 194 182 extra/midilearn samplerloop_play2;
-#X obj 279 181 extra/midilearn samplerloop_play3;
-#X obj 362 179 extra/midilearn samplerloop_play4;
-#X obj 447 179 extra/midilearn samplerloop_play5;
-#X obj 528 179 extra/midilearn samplerloop_play6;
-#X obj 110 238 extra/midilearn samplerloop_play7;
-#X obj 197 239 extra/midilearn samplerloop_play8;
-#X obj 284 241 extra/midilearn samplerloop_play9;
-#X obj 364 240 extra/midilearn samplerloop_play10;
-#X obj 447 240 extra/midilearn samplerloop_play11;
-#X obj 533 242 extra/midilearn samplerloop_play12;
+#X obj 194 182 extra/midiLearn samplerloop_play2;
+#X obj 279 181 extra/midiLearn samplerloop_play3;
+#X obj 362 179 extra/midiLearn samplerloop_play4;
+#X obj 447 179 extra/midiLearn samplerloop_play5;
+#X obj 528 179 extra/midiLearn samplerloop_play6;
+#X obj 110 238 extra/midiLearn samplerloop_play7;
+#X obj 197 239 extra/midiLearn samplerloop_play8;
+#X obj 284 241 extra/midiLearn samplerloop_play9;
+#X obj 364 240 extra/midiLearn samplerloop_play10;
+#X obj 447 240 extra/midiLearn samplerloop_play11;
+#X obj 533 242 extra/midiLearn samplerloop_play12;
 #X obj -121 205 extra/sv 1_1_loop_playbutton;
 #X obj -121 229 extra/sv 2_1_loop_playbutton;
 #X obj -124 261 extra/sv 3_1_loop_playbutton;
