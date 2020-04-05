@@ -21,8 +21,8 @@
 #define NUMPIXELS      12
 #define MAXLUMINOSITY  1 
 
-#define ANALOGIN 0    // Nombre de potentiometre
-#define DIGITALIN 6   // Nombre de boutons
+#define ANALOGIN 1    // Nombre de potentiometre
+#define DIGITALIN 1   // Nombre de boutons
 #define DIGITALOUT 4  // Nombre de leds
 #define ANALOG_THRESH 10 
 
