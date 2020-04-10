@@ -33,7 +33,7 @@ int analogPin[] = { A0, A1, A2,A3,A4,A5 };
 
 // ------------   BOUTONS  ------------------
 int digitalinValue[DIGITALIN];
-int digitalinPin[] =  { 2,3,5,6,7,8 ,9};
+int digitalinPin[] =  { 3,5,6,7,8 ,9};
 
 
 // ------------   LEDS  --------------------
