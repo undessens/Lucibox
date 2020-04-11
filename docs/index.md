@@ -1,31 +1,23 @@
 # Lucibox
 
-## Lucibox
+Lucibox est un projet de recherche autour de l'accessibilité de la musique électronique.
 
-### Lucibox
+Il pose la question suivante :
 
+Est-il possible que n'importe qui puisse construire ses propres machines musicales et jouer avec. 
 
+Il soulève alors plusieurs problématiques : 
 
-[page2](page2.html )
+* L'ingénieurie logiciel ou matériel pour créer un frameworks son/intéraction réutilisable. [lien](dev.md)
 
-[page2 en version md](page2.md)
+* La démocratisation du savoir faire numérique. Tuto , atelier, Kit, formation,  a quel point est-il possible d'aller ? [ lien](tuto.md)
 
+* Le design des machines à construire entre utilisation/musicalité/prix .[lien](design.md)
 
+## Trois branches du projet Lucibox
 
-| Super tableau |     | Et par ici voyons voir |     |
-| ------------- | --- | ---------------------- | --- |
-|               |     |                        |     |
-|               |     |                        |     |
-|               |     |                        |     |
+* Atelier découverte à destination d'un public large. On pourrait l'appeler Lucibox Orkestar  [lien](atelier_large.md)
 
-> Il s'en est fallu de peu
+* Ateliers spécialisés pour musicien intervenant, lycée technique, découverte du code
 
-- [ ] Il faut déja faire ça
-
-- [ ] Puis ça
-
-- [ ] Puis ça
-
-```flowchart
-
-```
+* Installation imposante pour l'évenementiel
