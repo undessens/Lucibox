@@ -1,7 +1,5 @@
 # Objectifs
 
-
-
 développer sa créativité, l'envie et le plaisir de construire.
 
 Découvrir la musique sur un format innovant et très accessibles.
@@ -9,8 +7,6 @@ Découvrir la musique sur un format innovant et très accessibles.
 Briser la glace sur la question d'une numérique, électronique .
 
 Découvrir le principe d'un projet open source.
-
-
 
 # Format
 
@@ -20,15 +16,7 @@ Anciennement, 2 à 3h, en casi autonomie.
 
 Ici il serait plus judicieux de dire, 8 machines, chacun en construit une et on joue ensemble.
 
-
-
-
-
-
-
 # Contenu pédagogique
-
-
 
 # Scientifique
 

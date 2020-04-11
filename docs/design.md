@@ -31,8 +31,6 @@ choix des boutons :
 
 * Touche de piano, de pad, démarrage de boucle
 
-
-
 Pour l'ouverture d'une bank, ou l'activation d'un effet, avoir un vrai bouton mécanique évite les fausses érreur. 
 
 Mais un bouton de type pad, on cherche plutot la facilité et le confort du toucher.
@@ -52,6 +50,8 @@ Sans utiliser le mpr121, à l'heure actuelle le nombre de boutons diponible est 
 Ce qui est peu mais acceptable
 
 # Gestion de la latence
+
+Carte son usb par cher [lien](%5Bhttps://www.aliexpress.com/item/32972984249.html?spm=a2g0o.productlist.0.0.169736d0yP4Y2a&algo_pvid=9966d7ae-060d-4cc7-90e6-f7dec51031e7&algo_expid=9966d7ae-060d-4cc7-90e6-f7dec51031e7-27&btsid=0ab6fa8115866311846853772ed0c7&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_%5D(https://www.aliexpress.com/item/32972984249.html?spm=a2g0o.productlist.0.0.169736d0yP4Y2a&algo_pvid=9966d7ae-060d-4cc7-90e6-f7dec51031e7&algo_expid=9966d7ae-060d-4cc7-90e6-f7dec51031e7-27&btsid=0ab6fa8115866311846853772ed0c7&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_)
 
 En gardant le principe le clé usb pas cher, et en utilisant une jack.
 
@@ -110,5 +110,3 @@ La captation peut être réalisé par la petite carte son, par le biais de son e
 * Par un vrai micro xlr , par le biais d'une pré-amp ( cher)
 
 Les micro electret de sont pas cardioide , et c'est leur gros défaut.
-
-
