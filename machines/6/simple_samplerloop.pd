@@ -1,15 +1,15 @@
-#N canvas 76 132 1280 624 10;
+#N canvas 89 78 1280 624 10;
 #X declare -path ../../patches;
 #X obj 7 370 cnv 15 980 142 empty empty empty 330 30 0 45 -21525 -88297
 0;
 #X obj 154 107 cnv 15 834 258 empty empty empty 20 12 0 14 -233017
 -66577 0;
-#X obj 156 403 UI/ui_tempo_small;
+#X obj 183 397 UI/ui_tempo_small;
 #X obj 7 24 cnv 15 980 81 empty empty LUCIBOX 414 36 0 45 -21525 -88297
 0;
 #X obj 7 107 cnv 15 144 259 empty empty empty 20 12 0 14 -233017 -66577
 0;
-#N canvas 344 171 741 574 patch 1;
+#N canvas 1554 133 741 574 patch 0;
 #X obj 101 101 cnv 15 138 40 empty empty PATCH 20 12 0 14 -66577 -262144
 0;
 #X obj 306 125 audio/mic;
@@ -27,7 +27,7 @@
 #X msg 400 277 2;
 #X obj 466 220 loadbang;
 #X obj 104 101 hradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
--1 -1 1;
+-1 -1 0;
 #X obj 104 166 bang;
 #X msg 363 277 43;
 #X obj 101 101 cnv 15 38 15 empty \$0_opencnv open 6 8 0 10 -66577
@@ -450,7 +450,7 @@
 #X coords 0 -1 1 1 140 42 1 43 25;
 #X restore 7 192 pd connect;
 #X obj 213 482 hsl 640 30 0 1 0 0 empty global_tempo_slider empty -2
--8 0 10 -33289 -4032 -1 17573 1;
+-8 0 10 -33289 -4032 -1 18824 1;
 #N canvas 315 246 721 359 volumes 0;
 #X obj 24 -13 cnv 15 650 83 empty empty VOLUMES 330 30 0 45 -21525
 -88297 0;
