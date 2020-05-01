@@ -1,4 +1,4 @@
-#N canvas 2202 160 832 710 10;
+#N canvas 1469 114 832 710 10;
 #X obj 56 572 symbol \$1;
 #X msg 56 599 label \$1;
 #X obj 56 546 makefilename %d;
@@ -355,6 +355,7 @@
 #X obj 639 286 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 665 302 r metronome;
+#X floatatom 651 92 5 0 0 0 - - -;
 #X connect 0 0 1 0;
 #X connect 1 0 6 0;
 #X connect 2 0 0 0;
@@ -389,6 +390,7 @@
 #X connect 27 0 101 0;
 #X connect 27 1 26 0;
 #X connect 28 0 29 0;
+#X connect 28 0 115 0;
 #X connect 29 0 30 0;
 #X connect 30 0 31 0;
 #X connect 31 0 18 0;

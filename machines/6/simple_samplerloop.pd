@@ -1,4 +1,4 @@
-#N canvas 62 96 1280 624 10;
+#N canvas 76 132 1280 624 10;
 #X declare -path ../../patches;
 #X obj 7 370 cnv 15 980 142 empty empty empty 330 30 0 45 -21525 -88297
 0;
@@ -9,7 +9,7 @@
 0;
 #X obj 7 107 cnv 15 144 259 empty empty empty 20 12 0 14 -233017 -66577
 0;
-#N canvas 370 26 753 721 patch 0;
+#N canvas 344 171 741 574 patch 1;
 #X obj 101 101 cnv 15 138 40 empty empty PATCH 20 12 0 14 -66577 -262144
 0;
 #X obj 306 125 audio/mic;
@@ -299,7 +299,7 @@
 #X obj 234 228 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 234 251 sel 1;
-#X obj 129 231 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 129 231 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 79 267 spigot;
 #X obj 23 203 extra/sv song;
@@ -450,7 +450,7 @@
 #X coords 0 -1 1 1 140 42 1 43 25;
 #X restore 7 192 pd connect;
 #X obj 213 482 hsl 640 30 0 1 0 0 empty global_tempo_slider empty -2
--8 0 10 -33289 -4032 -1 43132 1;
+-8 0 10 -33289 -4032 -1 17573 1;
 #N canvas 315 246 721 359 volumes 0;
 #X obj 24 -13 cnv 15 650 83 empty empty VOLUMES 330 30 0 45 -21525
 -88297 0;
