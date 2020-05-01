@@ -3,7 +3,6 @@
 #X obj 152 180 timer;
 #X obj 153 119 sel 0;
 #X obj 187 149 bang;
-#X obj 151 224 > 500;
 #X obj 151 298 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 151 419 outlet;
@@ -23,22 +22,26 @@
 #X obj 458 160 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 444 196 delay 1000;
+#X obj 103 103 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 151 224 > 1000;
 #X connect 0 0 2 0;
-#X connect 0 0 8 0;
-#X connect 0 0 9 1;
-#X connect 1 0 4 0;
+#X connect 0 0 7 0;
+#X connect 0 0 8 1;
+#X connect 0 0 17 0;
+#X connect 1 0 18 0;
 #X connect 2 0 1 1;
 #X connect 2 1 3 0;
 #X connect 3 0 1 0;
-#X connect 4 0 14 0;
-#X connect 5 0 6 0;
-#X connect 8 1 16 0;
-#X connect 9 0 10 0;
-#X connect 10 0 13 0;
-#X connect 10 1 11 0;
-#X connect 11 0 7 0;
-#X connect 14 0 5 0;
-#X connect 14 1 12 0;
-#X connect 16 0 17 0;
-#X connect 17 0 9 0;
-#X connect 17 0 15 0;
+#X connect 4 0 5 0;
+#X connect 7 1 15 0;
+#X connect 8 0 9 0;
+#X connect 9 0 12 0;
+#X connect 9 1 10 0;
+#X connect 10 0 6 0;
+#X connect 13 0 4 0;
+#X connect 13 1 11 0;
+#X connect 15 0 16 0;
+#X connect 16 0 8 0;
+#X connect 16 0 14 0;
+#X connect 18 0 13 0;

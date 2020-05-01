@@ -76,7 +76,7 @@
 #X msg 256 -48 46;
 #X obj 368 -95 loadbang;
 #X obj 105 101 hradio 23 1 0 2 empty empty empty 0 -8 0 10 -262144
--1 -1 1;
+-1 -1 0;
 #X obj 100 100 cnv 15 59 24 empty \$0_playcnv PLAY 20 12 0 15 -1 -66577
 0;
 #X obj 104 106 cnv 13 13 13 empty \$0_playsquare empty 6 9 0 14 -66577
@@ -131,7 +131,7 @@
 #X coords 0 -1 1 1 60 25 2 100 100;
 #X restore 162 122 pd play;
 #X obj 105 149 hsl 114 20 0 1 0 0 empty \$0_temposlider 120 85 24 0
-10 -66577 -262144 -262144 18 1;
+10 -66577 -262144 -262144 0 1;
 #N canvas 402 345 1038 529 open 0;
 #X text 462 314 label-color;
 #X text 477 339 label-color;
@@ -161,7 +161,7 @@
 #X connect 11 0 9 0;
 #X connect 12 0 3 0;
 #X coords 0 -1 1 1 40 17 2 100 100;
-#X restore 106 171 pd open;
+#X restore 102 171 pd open;
 #N canvas 527 215 1038 529 del 0;
 #X text 462 314 label-color;
 #X text 477 339 label-color;
@@ -169,7 +169,7 @@
 #X msg 400 277 2;
 #X obj 551 220 loadbang;
 #X obj 116 101 hradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
--1 -258113 0;
+-1 -258113 1;
 #X obj 104 166 bang;
 #X msg 363 277 43;
 #X obj 101 101 cnv 15 48 15 empty \$0_delcnv delete 8 8 0 8 -66577
@@ -192,7 +192,7 @@
 #X connect 10 0 3 0;
 #X connect 12 0 11 0;
 #X coords 0 -1 1 1 50 17 2 100 100;
-#X restore 161 171 pd del;
+#X restore 170 171 pd del;
 #X floatatom 267 216 3 0 0 0 - - -;
 #X obj 267 240 s \$1_\$2_loop_transpose;
 #X obj 707 245 r \$1_\$2_recloop_deleted_ui;
@@ -213,7 +213,7 @@
 #X msg -127 392 \; \$3_bgcnv label LOOPER_\$1;
 #X obj 85 457 pack 22 2 2 \$0;
 #X msg 98 397 77;
-#X obj 101 101 cnv 15 120 20 empty \$0_bgcnv LOOPER_8 20 12 0 12 -228856
+#X obj 101 101 cnv 15 120 20 empty \$0_bgcnv LOOPER_7 20 12 0 12 -228856
 -66577 0;
 #X obj 57 312 extra/sv module_selected;
 #X obj 57 338 == \$1;
@@ -295,7 +295,11 @@
 #X msg 85 -42 0;
 #X obj 403 146 bang;
 #X msg 403 184 0;
-#X obj 403 165 del 1500;
+#X obj 404 165 del 100;
+#X obj 150 173 tgl 15 0 empty empty empty 17 7 0 10 -99865 -1 -1 0
+1;
+#X obj 51 214 extra/sv \$1_\$2_loop_playsampler;
+#X msg 52 242 set \$1;
 #X connect 0 0 31 0;
 #X connect 1 0 31 1;
 #X connect 2 0 31 2;
@@ -367,4 +371,7 @@
 #X connect 73 0 75 0;
 #X connect 74 0 66 1;
 #X connect 75 0 74 0;
+#X connect 76 0 77 1;
+#X connect 77 0 78 0;
+#X connect 78 0 76 0;
 #X coords 0 -1 1 1 122 90 2 100 100;
