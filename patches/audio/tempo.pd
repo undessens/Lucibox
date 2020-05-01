@@ -274,7 +274,7 @@
 #X msg 1105 751 \; samples_location-\$2 \$1;
 #X obj 654 33 r tempo_fromSong;
 #X floatatom 480 218 5 0 0 0 - - -;
-#N canvas 246 83 446 374 metronome 1;
+#N canvas 246 83 446 374 metronome 0;
 #X obj 80 110 i 0;
 #X obj 85 356 dac~;
 #N canvas 313 577 431 337 clickHigh~ 0;
@@ -352,8 +352,9 @@
 #X connect 14 0 1 1;
 #X connect 14 0 1 0;
 #X restore 638 332 pd metronome;
-#X obj 639 286 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 639 286 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
+#X obj 665 302 r metronome;
 #X connect 0 0 1 0;
 #X connect 1 0 6 0;
 #X connect 2 0 0 0;
@@ -454,4 +455,5 @@
 #X connect 108 0 109 0;
 #X connect 110 0 29 0;
 #X connect 113 0 112 0;
+#X connect 114 0 112 0;
 #X coords 0 710 1 709 1000 60 0;

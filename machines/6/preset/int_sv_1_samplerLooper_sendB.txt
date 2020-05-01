@@ -1,1 +1,1 @@
-../init.d/x11-common
+0 

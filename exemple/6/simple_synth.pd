@@ -1,4 +1,4 @@
-#N canvas 1515 186 1060 513 10;
+#N canvas 2141 134 1060 513 10;
 #X declare -path ../../patches;
 #X obj 7 370 cnv 15 980 120 empty empty empty 330 30 0 45 -21525 -88297
 0;
@@ -9,12 +9,11 @@
 0;
 #X obj 7 107 cnv 15 144 259 empty empty empty 20 12 0 14 -233017 -66577
 0;
-#N canvas 2379 207 683 709 patch 1;
+#N canvas 1597 134 683 709 patch 1;
 #X obj 101 101 cnv 15 138 40 empty empty PATCH 20 12 0 14 -66577 -262144
 0;
 #X obj 321 -3 adc~;
-#X obj 346 473 *~ 1;
-#X obj 274 539 dac~;
+#X obj 270 565 dac~;
 #X obj 38 100 bng 35 250 50 0 empty empty CLOSE 4 20 0 10 -262144 -1
 -1;
 #X msg 38 164 \; pd-patch vis 0;
@@ -51,55 +50,54 @@
 #X connect 12 0 3 0;
 #X coords 0 -1 1 1 40 17 2 100 100;
 #X restore 177 107 pd open;
-#X obj 466 271 s ledrec1;
-#X obj 499 245 s ledplay1;
-#X obj 251 246 *~ 1;
-#X obj 333 219 *~ 1;
-#X obj 584 250 bang;
-#X obj 584 272 s tempoStopIn;
 #X obj 33 269 declare -path ../../patches;
 #X obj 234 155 audio/mic;
-#X obj 36 305 audio/tempo exemple 1;
 #X obj 46 353 extra/osc;
 #X obj 44 392 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 48 327 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 333 196 audio/loop 1 1 2;
 #X floatatom 396 504 0 0 120 0 - - -;
-#X text 371 485 level \, dB;
 #X floatatom 424 504 0 0 100 0 - - -;
-#X text 391 463 liveness \, 0-100;
 #X floatatom 455 506 0 0 120 0 - - -;
 #X floatatom 486 503 0 0 120 0 - - -;
-#X text 465 479 crossover frequency \, Hz.;
 #X obj 368 525 rev2~ 100 90 3000 20;
-#X obj 269 436 *~ 1;
-#X obj 265 298 effect/compressor;
-#X connect 1 0 15 0;
-#X connect 2 0 28 0;
-#X connect 4 0 5 0;
-#X connect 10 0 30 0;
-#X connect 11 0 10 0;
-#X connect 12 0 13 0;
-#X connect 15 0 20 0;
-#X connect 15 1 10 0;
-#X connect 17 0 18 0;
-#X connect 19 0 17 0;
-#X connect 20 0 11 0;
-#X connect 20 3 8 0;
-#X connect 20 4 9 0;
-#X connect 20 5 12 0;
-#X connect 21 0 28 1;
-#X connect 23 0 28 2;
-#X connect 25 0 28 3;
-#X connect 26 0 28 4;
-#X connect 28 0 3 0;
-#X connect 28 1 3 1;
-#X connect 29 0 3 1;
-#X connect 29 0 3 0;
-#X connect 30 0 29 0;
-#X connect 30 0 2 0;
+#X obj 36 305 audio/tempo exemple 6;
+#X obj 402 349 synth/polysine;
+#X obj 307 201 notein;
+#X floatatom 308 227 5 0 0 0 - - -;
+#X floatatom 345 228 5 0 0 0 - - -;
+#X floatatom 382 228 5 0 0 0 - - -;
+#X obj 308 248 pack f f;
+#X obj 308 372 *~ 1;
+#X obj 309 349 synth/polysaw;
+#X obj 311 298 midi/scales;
+#X obj 385 268 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
+-1 -1 4;
+#X connect 1 0 8 0;
+#X connect 3 0 4 0;
+#X connect 9 0 10 0;
+#X connect 11 0 9 0;
+#X connect 12 0 16 1;
+#X connect 13 0 16 2;
+#X connect 14 0 16 3;
+#X connect 15 0 16 4;
+#X connect 16 0 2 0;
+#X connect 16 1 2 1;
+#X connect 18 0 24 0;
+#X connect 19 0 20 0;
+#X connect 19 1 21 0;
+#X connect 19 2 22 0;
+#X connect 20 0 23 0;
+#X connect 21 0 23 1;
+#X connect 23 0 26 0;
+#X connect 24 0 16 0;
+#X connect 24 0 2 0;
+#X connect 24 0 2 1;
+#X connect 25 0 24 0;
+#X connect 26 0 25 0;
+#X connect 26 0 18 0;
+#X connect 27 0 26 1;
 #X coords 0 -1 1 1 140 42 2 100 100;
 #X restore 7 144 pd patch;
 #N canvas 518 153 922 462 connect 0;
@@ -109,7 +107,7 @@
 0;
 #N canvas 402 288 1038 552 open 0;
 #X obj 103 102 hradio 15 0 0 3 empty empty empty 0 -8 0 10 -262144
--1 -1 0;
+-1 -1 1;
 #X text 462 314 label-color;
 #X text 477 339 label-color;
 #X obj 377 311 t b f;
@@ -142,14 +140,13 @@
 #X coords 0 -1 1 1 49 17 2 100 100;
 #X restore 126 47 pd open;
 #X obj 35 95 arduino/arduino;
-#X obj 468 94 connect/connect_recloopsave 1 1;
 #X obj 320 94 connect/connect_mic;
 #X obj 35 154 hardware/midi;
 #X obj 35 211 hardware/keyboard;
 #X coords 0 -1 1 1 140 42 1 43 25;
 #X restore 7 208 pd connect;
 #X obj 232 370 hsl 550 60 0 1 0 0 empty global_tempo_slider empty -2
--8 0 10 -33289 -4032 -1 20622 1;
+-8 0 10 -33289 -4032 -1 0 1;
 #N canvas 674 467 752 275 volumes 0;
 #X obj 25 -13 cnv 15 600 83 empty empty VOLUMES 230 30 0 45 -21525
 -88297 0;
@@ -193,4 +190,3 @@
 -1 -1;
 #X coords 0 -1 1 1 140 42 1 43 25;
 #X restore 7 272 pd volumes;
-#X obj 453 139 UI/ui_looper 1 1;
