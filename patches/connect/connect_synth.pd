@@ -1,0 +1,73 @@
+#N canvas 2 137 1280 627 10;
+#X obj 102 100 cnv 15 510 40 empty empty SYNTH_KEY 20 12 0 14 -162280
+-66577 0;
+#X obj 107 152 cnv 15 80 50 empty empty PLAY_1 5 12 0 14 -33289 -262144
+0;
+#X obj 768 130 extra/sv \$1_module_ask_selection;
+#X obj 831 83 sel 0;
+#X msg 831 106 1;
+#X obj 247 104 cnv 15 138 23 empty empty SELECT 5 12 0 14 -33289 -262144
+0;
+#X obj 309 105 extra/midiLearn \$1_module_ask_selection;
+#X obj 192 152 cnv 15 80 50 empty empty PLAY_2 5 12 0 14 -33289 -262144
+0;
+#X obj 276 152 cnv 15 80 50 empty empty PLAY_3 5 12 0 14 -33289 -262144
+0;
+#X obj 359 152 cnv 15 80 50 empty empty PLAY_4 5 12 0 14 -33289 -262144
+0;
+#X obj 443 152 cnv 15 80 50 empty empty PLAY_5 5 12 0 14 -33289 -262144
+0;
+#X obj 527 152 cnv 15 80 50 empty empty PLAY_6 5 12 0 14 -33289 -262144
+0;
+#X obj 108 212 cnv 15 80 50 empty empty PLAY_7 5 12 0 14 -33289 -262144
+0;
+#X obj 193 212 cnv 15 80 50 empty empty PLAY_8 5 12 0 14 -33289 -262144
+0;
+#X obj 277 212 cnv 15 80 50 empty empty PLAY_9 5 12 0 14 -33289 -262144
+0;
+#X obj 360 212 cnv 15 80 50 empty empty PLAY_10 5 12 0 14 -33289 -262144
+0;
+#X obj 444 212 cnv 15 80 50 empty empty PLAY_11 5 12 0 14 -33289 -262144
+0;
+#X obj 528 212 cnv 15 80 50 empty empty PLAY_12 5 12 0 14 -33289 -262144
+0;
+#X obj 110 181 extra/midiLearn synthnote1;
+#X obj 196 181 extra/midiLearn synthnote2;
+#X obj 281 180 extra/midiLearn synthnote3;
+#X obj 362 180 extra/midiLearn synthnote4;
+#X obj 446 180 extra/midiLearn synthnote5;
+#X obj 531 180 extra/midiLearn synthnote6;
+#X obj 115 237 extra/midiLearn synthnote7;
+#X obj 198 238 extra/midiLearn synthnote8;
+#X obj 281 238 extra/midiLearn synthnote9;
+#X obj 362 236 extra/midiLearn synthnote10;
+#X obj 448 239 extra/midiLearn synthnote11;
+#X obj 540 238 extra/midiLearn synthnote12;
+#X obj -119 175 extra/sv synth_key1;
+#X obj -119 195 extra/sv synth_key2;
+#X obj -120 219 extra/sv synth_key3;
+#X obj -118 245 extra/sv synth_key7;
+#X obj -118 280 extra/sv synth_key8;
+#X obj -118 315 extra/sv synth_key9;
+#X obj 628 170 extra/sv synth_key4;
+#X obj 634 192 extra/sv synth_key5;
+#X obj 633 219 extra/sv synth_key6;
+#X obj 634 302 extra/sv synth_key12;
+#X obj 641 272 extra/sv synth_key11;
+#X obj 640 245 extra/sv synth_key10;
+#X connect 3 0 4 0;
+#X connect 4 0 2 1;
+#X connect 6 0 3 0;
+#X connect 18 0 30 1;
+#X connect 19 0 31 1;
+#X connect 20 0 32 1;
+#X connect 21 0 36 1;
+#X connect 22 0 37 1;
+#X connect 23 0 38 1;
+#X connect 24 0 33 1;
+#X connect 25 0 34 1;
+#X connect 26 0 35 1;
+#X connect 27 0 41 1;
+#X connect 28 0 40 1;
+#X connect 29 0 39 1;
+#X coords 0 -1 1 1 512 211 2 101 99;
