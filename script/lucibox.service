@@ -1,0 +1,13 @@
+[Unit]
+Description= Lucibox
+After=network.target
+Requires=jack.service
+[Service]
+EnvironmentFile=/etc/environment
+Environment=HOME=/root
+Type=simple
+ExecStart=/bin/bash /home/patch/autostart.sh
+Restart=on-abort
+[Install]
+WantedBy=multi-user.target
+
