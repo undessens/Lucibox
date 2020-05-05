@@ -4,7 +4,8 @@ import glob
 import time
 import threading
 import struct
-import socket 
+import socket
+import subprocess 
 from OSC import OSCClient, OSCMessage, OSCServer
 
 class SimpleServer(OSCServer):
@@ -64,7 +65,7 @@ def main():
         
         # OSC CONNECT       
         myip = socket.gethostbyname(socket.gethostname())
-
+	myip = "192.168.1.44"
         print("IP adress is : "+myip)
         try:
             server = SimpleServer((myip, 12344)) 
