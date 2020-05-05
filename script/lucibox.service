@@ -6,7 +6,7 @@ Requires=jack.service
 EnvironmentFile=/etc/environment
 Environment=HOME=/root
 Type=simple
-ExecStart=/bin/bash /home/patch/lucibox/autostart.sh
+ExecStart=/bin/bash /home/patch/lucibox/script/autostart.sh
 Restart=on-abort
 [Install]
 WantedBy=multi-user.target
