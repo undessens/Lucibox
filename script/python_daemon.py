@@ -48,7 +48,7 @@ def forwardPowerOff():
 
 	time.sleep(5)
 	print("========= POWER OFF ======")
-	subprocess.call(["shutdown.sh"])
+	subprocess.call(["/home/patch/lucibox/script/shutdown.sh"])
 
 def closing_app():
     global runningApp
