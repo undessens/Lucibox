@@ -46,10 +46,10 @@ class SimpleServer(OSCServer):
 
 def forwardPowerOff():
 
-	time.sleep(5)
-	print("========= POWER OFF ======")
+    time.sleep(5)
+    print("========= POWER OFF ======")
     os.chdir("/home/patch/lucibox/script/")
-	subprocess.call(["./shutdown.sh"])
+    subprocess.call(["./shutdown.sh"])
 
 def closing_app():
     global runningApp
