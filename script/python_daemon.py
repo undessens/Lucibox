@@ -50,7 +50,7 @@ def forwardPowerOff():
     print("========= POWER OFF ======")
     os.chdir("/home/patch/lucibox/script/")
     subprocess.call(['./shutdown.sh'])
-
+        
 def closing_app():
     global runningApp
     runningApp = False
@@ -58,7 +58,10 @@ def closing_app():
 
 def restart_app():
 
+    print("========= QUIT PUREDATA ======")
+    os.chdir("/home/patch/lucibox/script/")
 	subprocess.call(["quit_pd.sh"])
+    print("========= START PUREDATA======")
 	cmd = ["pd",  "-nogui",  "-jack",  "/home/patch/lucibox/machines/6/simple_samplerloop.pd "]
 	subprocess.call(cmd)
 
