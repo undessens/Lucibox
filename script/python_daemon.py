@@ -60,7 +60,7 @@ def restart_app():
 
     print("========= QUIT PUREDATA ======")
     os.chdir("/home/patch/lucibox/script/")
-	subprocess.call(["quit_pd.sh"])
+	subprocess.call(["./quit_pd.sh"])
     print("========= START PUREDATA======")
 	cmd = ["pd",  "-nogui",  "-jack",  "/home/patch/lucibox/machines/6/simple_samplerloop.pd "]
 	subprocess.call(cmd)
