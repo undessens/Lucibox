@@ -33,10 +33,14 @@ class SimpleServer(OSCServer):
         if(splitAddress[1]=="app"):
             if(splitAddress[2]=="close"):
                 print("closing the app")
-                closing_app()
+                quit_app()
+            if(splitAddress[2]=="start"):
+		print("starting the app")
+		start_app()
             if(splitAddress[2]=="restart"):
                 print("restart the app")
-                restart_app()
+                quit_app()
+		start_app()
         
         ############## RPI itself #############
         if(splitAddress[1]=="rpi"):
@@ -56,23 +60,25 @@ def closing_app():
     runningApp = False
     print("Closing App")
 
-def restart_app():
-
+def quit_app():
     print("========= QUIT PUREDATA ======")
     os.chdir("/home/patch/lucibox/script/")
     subprocess.call(["./quit_pd.sh"])
+    print("======== PUREDATA QUITTED ====")
+
+def start_app():
     print("========= START PUREDATA======")
     cmd = ["pd",  "-nogui",  "-jack",  "/home/patch/lucibox/machines/6/simple_samplerloop_light.pd"]
-    subprocess.call(cmd)
-
+    subprocess.Popen(cmd)
+    print("======== PUREDATA STARTED ====")
 def main():
         
         # OSC CONNECT       
         myip = socket.gethostbyname(socket.gethostname())
-	myip = "192.168.1.44"
+	myip = "127.0.0.1"
         print("IP adress is : "+myip)
         try:
-            server = SimpleServer((myip, 12344)) 
+            server = SimpleServer((myip, 12345)) 
         except:
             print(" ERROR : creating server") 
         print("server created") 
@@ -91,6 +97,9 @@ def main():
         global runningApp
         runningApp = True
 
+        #START ON BOOT
+	start_app()
+	print(" ===== STARTING MAIN LOOP ====" )
         while runningApp:
             # This is the main loop
             # Do something here
