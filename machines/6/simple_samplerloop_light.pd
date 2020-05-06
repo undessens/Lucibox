@@ -395,7 +395,7 @@
 #X connect 32 0 31 0;
 #X coords 0 -1 1 1 140 42 2 100 100;
 #X restore 6 138 pd patch;
-#N canvas 114 162 1070 501 connect 0;
+#N canvas 114 162 1070 501 connect 1;
 #X obj 40 6 cnv 15 996 83 empty empty CONNECT 330 30 0 45 -21525 -88297
 0;
 #X obj 44 26 cnv 15 138 40 empty empty CONNECT 20 12 0 14 -66577 -262144
@@ -440,6 +440,7 @@
 #X obj 37 217 hardware/keyboard;
 #X obj 384 111 connect/connect_samplerloop;
 #X obj 903 114 connect/connect_song;
+#X obj 36 278 hardware/osc_router;
 #X coords 0 -1 1 1 140 42 1 43 25;
 #X restore 6 191 pd connect;
 #N canvas 315 246 721 359 volumes 0;

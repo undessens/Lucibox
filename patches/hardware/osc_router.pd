@@ -1,24 +1,44 @@
-#N canvas 60 148 450 300 10;
-#X obj 112 -46 key;
-#X obj 206 -47 keyup;
-#X obj 112 -24 t b f;
-#X obj 206 -24 t b f;
-#X obj 111 12 pack 4 0 0 254;
-#X obj 205 12 pack 4 0 0 0;
-#X obj 101 101 cnv 15 189 51 empty empty KEYBOARD 80 10 0 14 -174713
--66577 0;
-#X obj 167 53 unpack f f f f;
-#X floatatom 154 134 5 0 0 2 key - -;
-#X obj 220 132 tgl 15 0 empty empty Pressed? 17 7 0 10 -262144 -1 -1
-0 1;
-#X connect 0 0 2 0;
-#X connect 1 0 3 0;
+#N canvas 271 256 450 300 10;
+#X obj 101 101 cnv 15 189 51 empty empty OSC 80 10 0 14 -232948 -66577
+0;
+#X obj 129 21 externals/osc/packOSC;
+#X obj 129 43 externals/udpsend;
+#X msg 262 4 disconnect;
+#X obj 218 103 tgl 15 0 empty empty connected 17 7 0 10 -262144 -1
+-1 1 1;
+#X obj 106 104 tgl 15 0 empty empty connect 17 7 0 10 -262144 -1 -1
+1 1;
+#X obj -12 119 s \$0_osc_connect;
+#X obj 273 -54 r \$0_osc_connect;
+#X obj 273 -27 sel 0 1;
+#X obj 129 -36 receive toOSC;
+#X obj 305 165 externals/udpreceive;
+#X obj 305 192 externals/osc/unpackOSC;
+#X obj 211 132 bng 15 250 50 0 empty empty receive 17 7 0 10 -262144
+-1 -1;
+#X obj 305 217 s fromOSC;
+#X msg 306 141 port 9999;
+#X obj 21 30 s toOSC;
+#X obj 129 -9 externals/prepend send;
+#X msg 270 26 connect 127.0.0.1 9998;
+#X obj 66 80 print;
+#X obj 382 -55 loadbang;
+#X msg 396 -18 1;
+#X connect 1 0 2 0;
 #X connect 2 0 4 0;
-#X connect 2 1 4 1;
-#X connect 3 0 5 0;
-#X connect 3 1 5 1;
-#X connect 4 0 7 0;
-#X connect 5 0 7 0;
-#X connect 7 1 8 0;
-#X connect 7 3 9 0;
+#X connect 3 0 2 0;
+#X connect 5 0 6 0;
+#X connect 7 0 8 0;
+#X connect 8 0 3 0;
+#X connect 8 1 17 0;
+#X connect 9 0 16 0;
+#X connect 10 0 11 0;
+#X connect 10 0 12 0;
+#X connect 11 0 13 0;
+#X connect 14 0 10 0;
+#X connect 16 0 1 0;
+#X connect 17 0 2 0;
+#X connect 19 0 14 0;
+#X connect 19 0 20 0;
+#X connect 20 0 5 0;
 #X coords 0 -1 1 1 191 53 1 100 100;

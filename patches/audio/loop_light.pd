@@ -287,7 +287,7 @@
 #X restore 169 400 pd manageRecording;
 #X obj 821 155 cnv 15 430 260 empty empty Control_panel 20 12 0 14
 -237308 -66577 0;
-#N canvas 14 66 1009 300 init 0;
+#N canvas 14 66 1009 300 init 1;
 #X obj 279 -39 loadbang;
 #X obj 10 46 pack \$0;
 #X obj 391 -21 delay 200;
@@ -309,7 +309,8 @@
 #X obj 641 105 extra/svosc \$1_\$2_is_loop_waitforplay;
 #X obj 420 114 extra/svosc \$1_\$2_loop_recbutton;
 #X obj 420 136 extra/svosc \$1_\$2_loop_playbutton;
-#X obj 424 88 extra/svosc \$1_\$2_is_loop_recorded;
+#X obj 421 62 extra/svosc \$1_\$2_is_loop_recorded;
+#X obj 423 87 extra/svosc \$1_\$2_loop_playsampler;
 #X connect 0 0 2 0;
 #X connect 0 0 3 0;
 #X connect 0 0 6 0;
@@ -1339,12 +1340,12 @@ exist ? \, volume \, reversed ? );
 #X text 371 245 shortcut for starting play;
 #X msg 1177 586 1;
 #X msg 1383 675 0;
-#N canvas 481 165 687 432 rampgenerator 1;
+#N canvas 481 165 687 432 rampgenerator 0;
 #X obj 163 54 inlet;
 #X obj 151 146 sel 1 2 3;
 #X obj 163 78 bang;
 #X obj 163 101 i \$3;
-#N canvas 306 129 1011 568 breakbeat 1;
+#N canvas 306 129 1011 568 breakbeat 0;
 #X obj 12 -401 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 227 -420 r \$0_loop_size;
