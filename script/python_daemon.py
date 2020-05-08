@@ -38,11 +38,11 @@ class SimpleServer(OSCServer):
                 quit_app()
             if(splitAddress[2]=="start"):
                 print("starting the app")
-                start_app(machine)
+                start_app()
             if(splitAddress[2]=="restart"):
                 print("restart the app")
                 quit_app()
-                start_app(machine)
+                start_app()
         
         ############## RPI itself #############
         if(splitAddress[1]=="rpi"):
@@ -69,6 +69,7 @@ def quit_app():
     print("======== PUREDATA QUITTED ====")
 
 def start_app():
+    global machine
     print("========= START PUREDATA======")
     cmd = ["pd",  "-nogui",  "-jack",  "/home/patch/lucibox/machines/"+str(machine)+"/nogui.pd"]
     subprocess.Popen(cmd)
