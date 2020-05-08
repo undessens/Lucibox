@@ -8,7 +8,7 @@
 #X obj 7 24 cnv 15 980 81 empty empty LUCIBOX 414 36 0 45 -21525 -88297
 0;
 #X obj 213 482 hsl 640 30 0 1 0 0 empty global_tempo_slider empty -2
--8 0 10 -33289 -4032 -1 33547 1;
+-8 0 10 -33289 -4032 -1 3195 1;
 #X obj 190 246 UI/ui_looper_mini 1 1;
 #X obj 315 246 UI/ui_looper_mini 2 1;
 #X obj 441 246 UI/ui_looper_mini 3 1;
@@ -21,5 +21,5 @@
 #X obj 566 148 UI/ui_looper_mini 10 1;
 #X obj 691 148 UI/ui_looper_mini 11 1;
 #X obj 816 148 UI/ui_looper_mini 12 1;
-#X obj 5 107 simple_samplerloop_light;
 #X obj 15 486 declare -path ../../patches;
+#X obj 5 107 nogui;

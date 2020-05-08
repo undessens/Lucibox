@@ -8,6 +8,15 @@ import socket
 import subprocess 
 from OSC import OSCClient, OSCMessage, OSCServer
 
+#################################################
+# This is Lucibox daemon
+# Always running 
+# start & stop puredata patches, start & stop openstagecontrol session
+# turn off rpi, 
+#
+#
+#################################################
+
 class SimpleServer(OSCServer):
     def __init__(self,t):
         OSCServer.__init__(self,t)
@@ -21,14 +30,6 @@ class SimpleServer(OSCServer):
         splitAddress = oscAddress.split("/")
         print(splitAddress)
         
-        ############## Lucibox Message #############
-
-        if(splitAddress[1]=="truc"):
-            if(splitAddress[2]=="chose"):
-                print("chose")
-            if(splitAddress[2]=="bidulle"):
-                print("bidulle")
-
         ############## APP itself #############
         if(splitAddress[1]=="app"):
             if(splitAddress[2]=="close"):
@@ -68,14 +69,19 @@ def quit_app():
 
 def start_app():
     print("========= START PUREDATA======")
-    cmd = ["pd",  "-nogui",  "-jack",  "/home/patch/lucibox/machines/6/simple_samplerloop_light.pd"]
+    cmd = ["pd",  "-nogui",  "-jack",  "/home/patch/lucibox/machines/"+str(machine)+"/nogui.pd"]
     subprocess.Popen(cmd)
     print("======== PUREDATA STARTED ====")
+    print("========= START OPEN STAGE CONTROL ======")
+    cmd = ["node",  "/home/patch/open-stage-control/app",  "-l",  "/home/patch/lucibox/machines/"+str(machine)+"osc.json", "-s", "127.0.0.1:9999", "-o", "9998"]
+    subprocess.Popen(cmd)
+    print("========= OPEN STAGE CONTROL STARTED ======")
+
 def main():
         
         # OSC CONNECT       
         myip = socket.gethostbyname(socket.gethostname())
-	myip = "127.0.0.1"
+        myip = "127.0.0.1"
         print("IP adress is : "+myip)
         try:
             server = SimpleServer((myip, 12345)) 
@@ -98,8 +104,10 @@ def main():
         runningApp = True
 
         #START ON BOOT
-	start_app()
-	print(" ===== STARTING MAIN LOOP ====" )
+        global machine
+        machine = 6
+        start_app()
+        print(" ===== STARTING MAIN LOOP ====" )
         while runningApp:
             # This is the main loop
             # Do something here
