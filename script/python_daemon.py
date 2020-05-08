@@ -42,6 +42,7 @@ class SimpleServer(OSCServer):
             if(splitAddress[2]=="restart"):
                 print("restart the app")
                 quit_app()
+                time.sleep(2)
                 start_app()
         
         ############## RPI itself #############
