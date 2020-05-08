@@ -73,7 +73,7 @@ def start_app():
     subprocess.Popen(cmd)
     print("======== PUREDATA STARTED ====")
     print("========= START OPEN STAGE CONTROL ======")
-    cmd = ["node",  "/home/patch/open-stage-control/app",  "-l",  "/home/patch/lucibox/machines/"+str(machine)+"osc.json", "-s", "127.0.0.1:9999", "-o", "9998"]
+    cmd = ["node",  "/home/patch/open-stage-control/app",  "-l",  "/home/patch/lucibox/machines/"+str(machine)+"/osc.json", "-s", "127.0.0.1:9999", "-o", "9998"]
     subprocess.Popen(cmd)
     print("========= OPEN STAGE CONTROL STARTED ======")
 
