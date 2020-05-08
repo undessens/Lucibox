@@ -25,6 +25,7 @@ class SimpleServer(OSCServer):
 
     
     def handleMsg(self,oscAddress, tags, data, client_address):
+        global machine
         print("OSC message received on : "+oscAddress)
 
         splitAddress = oscAddress.split("/")
@@ -36,12 +37,12 @@ class SimpleServer(OSCServer):
                 print("closing the app")
                 quit_app()
             if(splitAddress[2]=="start"):
-		print("starting the app")
-		start_app()
+                print("starting the app")
+                start_app(machine)
             if(splitAddress[2]=="restart"):
                 print("restart the app")
                 quit_app()
-		start_app()
+                start_app(machine)
         
         ############## RPI itself #############
         if(splitAddress[1]=="rpi"):
