@@ -5,7 +5,7 @@
 #X obj 129 43 externals/udpsend;
 #X msg 262 4 disconnect;
 #X obj 218 103 tgl 15 0 empty empty connected 17 7 0 10 -262144 -1
--1 0 1;
+-1 1 1;
 #X obj 106 104 tgl 15 0 empty empty connect 17 7 0 10 -262144 -1 -1
 1 1;
 #X obj -12 119 s \$0_osc_connect;
@@ -16,7 +16,7 @@
 #X obj 305 192 externals/osc/unpackOSC;
 #X obj 211 132 bng 15 250 50 0 empty empty receive 17 7 0 10 -262144
 -1 -1;
-#X obj 305 217 s fromOSC;
+#X obj 484 252 s fromOSC;
 #X msg 306 141 port 9999;
 #X obj 129 -9 externals/prepend send;
 #X msg 270 26 connect 127.0.0.1 9998;
@@ -32,9 +32,7 @@
 #X obj 78 -60 delay 200;
 #X obj 78 -83 loadbang;
 #X msg -34 27 connect 127.0.0.1 12345;
-#X obj -167 -103 receive toOSC;
 #X obj -131 153 s toOSC;
-#X obj -167 -70 externals/osc/routeOSC /python;
 #X msg -156 106 /python/app/close 1;
 #X obj 135 243 sel 0;
 #X obj 134 276 delay 2000;
@@ -45,10 +43,13 @@
 #X msg -162 274 1;
 #X obj -32 -103 r \$0_osc_connect_python;
 #X obj -162 294 s \$0_osc_connect_python;
+#X obj -167 -103 receive toPython;
+#X obj 307 226 externals/osc/routeOSC /python;
+#X obj 307 254 s toPython;
 #X connect 1 0 2 0;
 #X connect 2 0 4 0;
 #X connect 3 0 2 0;
-#X connect 4 0 33 0;
+#X connect 4 0 31 0;
 #X connect 5 0 6 0;
 #X connect 7 0 8 0;
 #X connect 8 0 3 0;
@@ -56,7 +57,7 @@
 #X connect 9 0 15 0;
 #X connect 10 0 11 0;
 #X connect 10 0 12 0;
-#X connect 11 0 13 0;
+#X connect 11 0 41 0;
 #X connect 14 0 10 0;
 #X connect 15 0 1 0;
 #X connect 16 0 2 0;
@@ -65,6 +66,7 @@
 #X connect 18 0 17 0;
 #X connect 19 0 18 0;
 #X connect 20 0 21 0;
+#X connect 21 0 35 0;
 #X connect 22 0 21 0;
 #X connect 23 0 22 0;
 #X connect 23 1 28 0;
@@ -73,14 +75,15 @@
 #X connect 26 0 25 0;
 #X connect 27 0 26 0;
 #X connect 28 0 21 0;
-#X connect 29 0 31 0;
-#X connect 31 0 24 0;
-#X connect 32 0 30 0;
+#X connect 30 0 29 0;
+#X connect 31 0 32 0;
+#X connect 32 0 33 0;
 #X connect 33 0 34 0;
-#X connect 34 0 35 0;
 #X connect 35 0 36 0;
-#X connect 37 0 38 0;
-#X connect 38 0 39 0;
-#X connect 39 0 41 0;
-#X connect 40 0 23 0;
+#X connect 36 0 37 0;
+#X connect 37 0 39 0;
+#X connect 38 0 23 0;
+#X connect 40 0 24 0;
+#X connect 41 0 42 0;
+#X connect 41 1 13 0;
 #X coords 0 -1 1 1 191 53 1 100 100;
