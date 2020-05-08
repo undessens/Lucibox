@@ -1470,7 +1470,7 @@
             "default": "",
             "linkId": "",
             "script": "",
-            "address": "/button_14",
+            "address": "/python/app/restart",
             "preArgs": "",
             "typeTags": "",
             "decimals": 2,
