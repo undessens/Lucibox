@@ -13,9 +13,22 @@ from OSC import OSCClient, OSCMessage, OSCServer
 # Always running 
 # start & stop puredata patches, start & stop openstagecontrol session
 # turn off rpi, 
-#
-#
 #################################################
+
+################################################
+#  MESSAGE from open stage control go directly to python :
+# /app /rpi manage app itself and raspberry pi
+# others message are forward to puredata
+# Pure Data messages go directly to openstagectrol.
+################################################
+
+################################################
+#           PORTS
+# Puredata in = 12344
+# Python in =  12354
+# Node in = 9999
+################################################
+
 
 class SimpleServer(OSCServer):
     def __init__(self,t):
@@ -26,6 +39,7 @@ class SimpleServer(OSCServer):
     
     def handleMsg(self,oscAddress, tags, data, client_address):
         global machine
+        global client
         print("OSC message received on : "+oscAddress)
 
         splitAddress = oscAddress.split("/")
@@ -44,12 +58,19 @@ class SimpleServer(OSCServer):
                 quit_app()
                 time.sleep(2)
                 start_app()
-        
         ############## RPI itself #############
-        if(splitAddress[1]=="rpi"):
+        elif(splitAddress[1]=="rpi"):
             if(splitAddress[2]=="shutdown"):
                 print("Turning off the rpi")
                 forwardPowerOff();
+        ############# OTHERS MESSAGES  ####
+        ############ FORWARD TO OPENSTAGECONTROL ###
+        else :
+            oscmsg = OSC.OSCMessage()
+            oscmsg.setAddress(oscAddress)
+            oscmsg.append(data)
+            client.send(oscmsg)
+
 
 def forwardPowerOff():
 
@@ -57,6 +78,18 @@ def forwardPowerOff():
     print("========= POWER OFF ======")
     os.chdir("/home/patch/lucibox/script/")
     subprocess.call(['./shutdown.sh'])
+
+def get_ip():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    try:
+        # doesn't even have to be reachable
+        s.connect(('10.255.255.255', 1))
+        IP = s.getsockname()[0]
+    except:
+        IP = '127.0.0.1'
+    finally:
+        s.close()
+    return IP
         
 def closing_app():
     global runningApp
@@ -71,23 +104,25 @@ def quit_app():
 
 def start_app():
     global machine
-    print("========= START PUREDATA======")
-    cmd = ["pd",  "-nogui",  "-jack",  "/home/patch/lucibox/machines/"+str(machine)+"/nogui.pd"]
-    subprocess.Popen(cmd)
-    print("======== PUREDATA STARTED ====")
-    print("========= START OPEN STAGE CONTROL ======")
-    cmd = ["node",  "/home/patch/open-stage-control/app",  "-l",  "/home/patch/lucibox/machines/"+str(machine)+"/osc.json", "-s", "127.0.0.1:9999", "-o", "9998"]
-    subprocess.Popen(cmd)
-    print("========= OPEN STAGE CONTROL STARTED ======")
+    
+    if sys.platform.startswith('linux') or sys.platform.startswith('cygwin'):
+        print("========= START PUREDATA======")
+        cmd = ["pd",  "-nogui",  "-jack",  "/home/patch/lucibox/machines/"+str(machine)+"/nogui.pd"]
+        subprocess.Popen(cmd)
+        print("======== PUREDATA STARTED ====")
+        print("========= START OPEN STAGE CONTROL ======")
+        cmd = ["node",  "/home/patch/open-stage-control/app",  "-l",  "/home/patch/lucibox/machines/"+str(machine)+"/osc.json", "-s", "127.0.0.1:9999", "-o", "9998"]
+        subprocess.Popen(cmd)
+        print("========= OPEN STAGE CONTROL STARTED ======")
 
 def main():
         
-        # OSC CONNECT       
+        # OSC SERVER      
         myip = socket.gethostbyname(socket.gethostname())
         myip = "127.0.0.1"
         print("IP adress is : "+myip)
         try:
-            server = SimpleServer((myip, 12345)) 
+            server = SimpleServer((myip, 12354)) 
         except:
             print(" ERROR : creating server") 
         print("server created") 
@@ -98,18 +133,25 @@ def main():
         try:
             st.start()
         except:
-            print(" ERROR : startin thread")
+            print(" ERROR : starting thread")
 
-        print(" OSC server is running")  
+        print(" OSC server is running") 
+
+        # OSC CLIENT
+        global client
+        client = OSCClient()
+        client.connect( ('127.0.0.1', 9998))
+
+        #START ON BOOT
+        global machine
+        machine = 6
+        start_app() 
 
         # MAIN LOOP 
         global runningApp
         runningApp = True
 
-        #START ON BOOT
-        global machine
-        machine = 6
-        start_app()
+        
         print(" ===== STARTING MAIN LOOP ====" )
         while runningApp:
             # This is the main loop

@@ -1,0 +1,49 @@
+#N canvas 523 54 1210 676 10;
+#X declare -path ../../patches;
+#X obj 7 370 cnv 15 980 142 empty empty empty 330 30 0 45 -21525 -88297
+0;
+#X obj 154 107 cnv 15 834 258 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X obj 148 437 UI/ui_tempo_small;
+#X obj 7 24 cnv 15 980 81 empty empty LUCIBOX 414 36 0 45 -21525 -88297
+0;
+#X obj 213 482 hsl 640 30 0 1 0 0 empty global_tempo_slider empty -2
+-8 0 10 -33289 -4032 -1 0 1;
+#X obj 158 115 UI/ui_looper_complete 1 1;
+#X obj 228 115 UI/ui_looper_complete 2 1;
+#X obj 296 115 UI/ui_looper_complete 3 1;
+#X obj 365 115 UI/ui_looper_complete 4 1;
+#X obj 434 115 UI/ui_looper_complete 5 1;
+#X obj 503 115 UI/ui_looper_complete 6 1;
+#X obj 574 115 UI/ui_looper_complete 7 1;
+#X obj 643 115 UI/ui_looper_complete 8 1;
+#X obj 712 115 UI/ui_looper_complete 9 1;
+#X obj 783 115 UI/ui_looper_complete 10 1;
+#X obj 852 115 UI/ui_looper_complete 11 1;
+#X obj 920 115 UI/ui_looper_complete 12 1;
+#X obj 15 486 declare -path ../../patches;
+#X obj 5 107 nogui;
+#X obj 328 382 tgl 15 0 empty empty global_play 17 7 0 10 -262144 -1
+-262144 0 1;
+#X obj 178 380 tgl 15 0 empty empty global_rec 17 7 0 10 -262144 -1
+-262144 0 1;
+#X obj 137 413 extra/sv global_rec;
+#X obj 312 413 extra/sv global_play;
+#X obj 468 388 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 9600 1;
+#X obj 445 416 extra/sv global_volume;
+#X obj 615 389 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
+-1 -1 4;
+#X obj 863 388 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
+-1 -1 5;
+#X obj 608 415 extra/sv global_breakbeat_slice;
+#X obj 802 414 extra/sv global_breakbeat_start;
+#X obj 1058 387 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
+#X obj 1013 414 extra/sv global_breakbeat_inverse;
+#X connect 19 0 22 1;
+#X connect 20 0 21 1;
+#X connect 23 0 24 1;
+#X connect 25 0 27 1;
+#X connect 26 0 28 1;
+#X connect 29 0 30 1;

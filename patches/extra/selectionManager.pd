@@ -1,10 +1,10 @@
-#N canvas 84 219 612 417 10;
+#N canvas 84 219 701 444 10;
 #X obj 33 96 extra/sv module_selected;
 #X obj 35 29 loadbang;
 #X obj 239 256 extra/sv module_selected;
 #X obj 232 33 extra/sv 1_module_ask_selection;
 #X obj 257 170 t f b f;
-#X msg 212 100 1;
+#X msg 233 54 1;
 #X msg 272 81 2;
 #X msg 302 104 3;
 #X msg 346 125 4;
@@ -26,6 +26,30 @@
 -1;
 #X obj 94 157 r loadsong;
 #X obj 121 187 delay 400;
+#X obj 434 35 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 474 60 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 502 83 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 552 104 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 457 10 extra/sv 5_module_ask_selection;
+#X obj 497 35 extra/sv 6_module_ask_selection;
+#X msg 458 31 5;
+#X msg 497 58 6;
+#X obj 527 59 extra/sv 7_module_ask_selection;
+#X obj 571 82 extra/sv 8_module_ask_selection;
+#X msg 571 102 8;
+#X msg 527 81 7;
+#X obj 692 6 extra/sv 9_module_ask_selection;
+#X obj 726 25 extra/sv 10_module_ask_selection;
+#X obj 761 42 extra/sv 11_module_ask_selection;
+#X obj 795 66 extra/sv 12_module_ask_selection;
+#X msg 696 25 9;
+#X msg 726 48 10;
+#X msg 761 65 11;
+#X msg 795 87 12;
 #X connect 0 0 16 0;
 #X connect 1 0 17 0;
 #X connect 3 0 9 0;
@@ -46,3 +70,23 @@
 #X connect 20 0 19 0;
 #X connect 20 0 21 0;
 #X connect 21 0 18 0;
+#X connect 26 0 22 0;
+#X connect 26 0 28 0;
+#X connect 27 0 29 0;
+#X connect 27 0 23 0;
+#X connect 28 0 4 0;
+#X connect 29 0 4 0;
+#X connect 30 0 33 0;
+#X connect 30 0 24 0;
+#X connect 31 0 32 0;
+#X connect 31 0 25 0;
+#X connect 32 0 4 0;
+#X connect 33 0 4 0;
+#X connect 34 0 38 0;
+#X connect 35 0 39 0;
+#X connect 36 0 40 0;
+#X connect 37 0 41 0;
+#X connect 38 0 4 0;
+#X connect 39 0 4 0;
+#X connect 40 0 4 0;
+#X connect 41 0 4 0;
