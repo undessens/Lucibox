@@ -18,7 +18,7 @@
 #X msg 508 117 \; \$4_playcnv color \$1 \$2 \$3;
 #X msg 419 -31 16;
 #X obj 119 165 bang;
-#X obj 122 201 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 122 201 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 416 -122 inlet;
 #X connect 0 0 14 0;
@@ -91,7 +91,7 @@
 #X msg 133 474 \; \$1_cnv label \$2;
 #X obj 101 101 cnv 15 210 38 empty empty SONG 88 17 0 20 -33289 -262144
 0;
-#X obj 127 107 cnv 15 30 22 empty \$0_cnv 1 4 10 0 22 -262144 -1 0
+#X obj 127 107 cnv 15 30 22 empty \$0_cnv 2 4 10 0 22 -262144 -1 0
 ;
 #N canvas 275 123 591 498 load 0;
 #X obj 207 271 t b f;
@@ -236,41 +236,46 @@
 #X connect 20 1 2 0;
 #X coords 0 -1 1 1 212 40 2 100 100;
 #X restore 677 101 pd bank;
-#N canvas 247 345 854 398 bank 1;
-#X obj 109 173 i 0;
-#X obj 109 241 makefilename %d;
-#X obj 109 267 symbol \$1;
-#X obj 110 335 pack \$0 s;
-#X obj 109 302 t b s;
+#N canvas 1949 282 854 434 bank 1;
+#X obj 383 119 makefilename %d;
+#X obj 383 145 symbol \$1;
+#X obj 384 213 pack \$0 s;
+#X obj 383 180 t b s;
 #X msg 154 58 set \$1;
-#X msg 110 372 \; \$1_tempocnv label \$2;
-#X obj -2 239 s tempo_fromUI;
-#X obj 106 108 nbx 5 23 80 160 0 0 empty empty empty 0 -8 0 10 -262144
--1 -1 144 256;
+#X msg 384 250 \; \$1_tempocnv label \$2;
+#X obj 8 196 s tempo_fromUI;
+#X obj 104 107 nbx 5 23 80 160 0 0 empty empty empty 0 -8 0 10 -262144
+-1 -1 111 256;
 #X obj 101 101 cnv 15 140 38 empty empty TEMPO 70 17 0 20 -33289 -262144
 0;
-#X obj 109 109 cnv 15 52 22 empty \$0_tempocnv 144 4 10 0 22 -262144
+#X obj 110 108 cnv 15 52 22 empty \$0_tempocnv 109 4 10 0 22 -262144
 -1 0;
 #X obj 42 17 loadbang;
 #X msg 37 48 100;
 #X obj 381 43 extra/sv tempo;
-#X msg 150 148 110;
+#X floatatom 423 77 5 0 0 0 - - -;
+#X obj 106 150 i 0;
+#X floatatom 142 172 5 0 0 0 - - -;
+#X floatatom 410 96 5 0 0 0 - - -;
+#X obj 382 75 i 0;
 #X connect 0 0 1 0;
-#X connect 0 0 7 0;
-#X connect 1 0 2 0;
-#X connect 2 0 4 0;
-#X connect 3 0 6 0;
-#X connect 4 0 3 0;
-#X connect 4 1 3 1;
-#X connect 8 0 0 0;
-#X connect 11 0 12 0;
-#X connect 12 0 8 0;
-#X connect 13 0 5 0;
-#X connect 13 0 1 0;
-#X connect 14 0 0 0;
+#X connect 1 0 3 0;
+#X connect 2 0 5 0;
+#X connect 3 0 2 0;
+#X connect 3 1 2 1;
+#X connect 7 0 14 0;
+#X connect 10 0 11 0;
+#X connect 11 0 7 0;
+#X connect 12 0 4 0;
+#X connect 12 0 13 0;
+#X connect 12 0 17 0;
+#X connect 14 0 15 0;
+#X connect 14 0 6 0;
+#X connect 17 0 0 0;
+#X connect 17 0 16 0;
 #X coords 0 -1 1 1 142 40 2 100 100;
 #X restore 224 101 pd bank;
-#X obj 183 101 tgl 40 0 empty empty empty 17 7 0 10 -128992 -1 -1 0
+#X obj 183 101 tgl 40 0 empty empty empty 17 7 0 10 -128992 -1 -1 1
 1;
 #X obj 182 165 s metronome;
 #N canvas 551 167 834 469 transpose 0;
@@ -281,10 +286,10 @@
 #X obj 109 302 t b s;
 #X msg 107 50 set \$1;
 #X obj 104 107 nbx 5 23 -80 80 0 0 empty empty empty 0 -8 0 10 -262144
--1 -1 -24 256;
+-1 -1 0 256;
 #X obj 101 101 cnv 15 140 38 empty empty PITCH 70 17 0 20 -33289 -262144
 0;
-#X obj 112 107 cnv 15 52 22 empty \$0_pitchcnv -24 4 10 0 22 -262144
+#X obj 112 107 cnv 15 52 22 empty \$0_pitchcnv 0 4 10 0 22 -262144
 -1 0;
 #X obj 42 17 loadbang;
 #X msg 150 148 110;

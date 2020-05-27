@@ -354,7 +354,7 @@
 #X connect 33 0 32 1;
 #X restore 17 126 pd init;
 #X obj 1041 278 hsl 170 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 0 1;
+-1 -1 9593 1;
 #X obj 142 293 sel 0;
 #N canvas 441 169 776 489 save 0;
 #X obj -565 234 soundfiler;
@@ -429,7 +429,7 @@
 #X restore 8 288 pd save;
 #X obj 8 256 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#N canvas 47 99 670 562 open 0;
+#N canvas 2038 345 670 562 open 0;
 #X obj 144 249 soundfiler;
 #X obj 176 328 / 44.1;
 #X floatatom 176 358 10 0 0 0 - - -;
@@ -504,7 +504,7 @@ exist ? \, volume \, reversed ? );
 #X obj 480 165 soundfiler;
 #X obj 512 293 / 44.1;
 #X floatatom 512 317 10 0 0 0 - - -;
-#N canvas 337 105 509 628 tempoCalculation 0;
+#N canvas 2249 297 509 628 tempoCalculation 0;
 #X obj 135 61 s \$0_timer;
 #X floatatom 69 134 5 0 0 0 - - -;
 #X obj 42 505 /;
@@ -526,6 +526,9 @@ exist ? \, volume \, reversed ? );
 #X obj 61 604 s \$0_begin;
 #X obj 41 646 outlet;
 #X obj 135 24 / 1;
+#X floatatom 203 584 5 0 0 0 - - -;
+#X obj 203 608 extra/period_to_tempo;
+#X floatatom 203 630 5 0 0 0 - - -;
 #X connect 1 0 3 0;
 #X connect 2 0 16 0;
 #X connect 3 0 5 0;
@@ -546,7 +549,10 @@ exist ? \, volume \, reversed ? );
 #X connect 15 0 20 0;
 #X connect 16 0 19 0;
 #X connect 16 2 17 0;
+#X connect 16 2 21 0;
 #X connect 20 0 0 0;
+#X connect 21 0 22 0;
+#X connect 22 0 23 0;
 #X restore 512 339 pd tempoCalculation;
 #X text 156 22 Be sure there is a loop saved with this looper;
 #X obj 480 196 sel 0;
@@ -736,7 +742,7 @@ exist ? \, volume \, reversed ? );
 #X obj 400 37 bang;
 #X obj 393 160 bng 40 1000 500 0 empty empty empty 17 7 0 10 -4034
 -1 -1;
-#X obj 323 125 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 323 125 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 276 108 extra/sv \$1_\$2_is_loop_recorded;
 #X obj 273 160 bng 40 1000 500 0 empty empty empty 17 7 0 10 -258113
@@ -864,7 +870,7 @@ exist ? \, volume \, reversed ? );
 #X obj 64 18 r tempo_click_bang;
 #X obj 200 18 inlet;
 #X obj 64 100 spigot;
-#X obj 118 63 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 118 63 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 64 308 outlet;
 #X obj 334 81 extra/sv \$1_\$2_is_loop_waitforplay;
@@ -1083,7 +1089,7 @@ exist ? \, volume \, reversed ? );
 -66577 0;
 #N canvas 74 50 761 687 ledoutrec 0;
 #X msg 102 285 1;
-#X obj 102 447 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 102 447 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 102 474 sel 1;
 #X msg 102 377 bang;
@@ -1249,7 +1255,7 @@ exist ? \, volume \, reversed ? );
 #X obj 1146 775 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
 0 1;
 #X obj 1249 778 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-0 1;
+1 1;
 #X obj 869 714 pack 0 \$0;
 #X obj 869 674 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
@@ -1387,7 +1393,7 @@ exist ? \, volume \, reversed ? );
 #X msg 1395 584 1;
 #X msg 1601 673 0;
 #X obj 1040 716 s \$0_index_save;
-#N canvas 2091 382 958 566 rampgenerator 1;
+#N canvas 2091 382 958 566 rampgenerator 0;
 #X obj 163 54 inlet;
 #X obj 151 146 sel 1 2 3;
 #X obj 163 78 bang;
@@ -1492,7 +1498,7 @@ exist ? \, volume \, reversed ? );
 #X connect 47 0 4 0;
 #X connect 49 0 41 0;
 #X restore 51 227 pd classic;
-#N canvas 2138 424 1011 568 breakbeat 1;
+#N canvas 2138 424 1011 568 breakbeat 0;
 #X obj 12 -401 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 227 -420 r \$0_loop_size;

@@ -2,7 +2,7 @@
 #X declare -path ../../patches;
 #X obj 4 101 cnv 15 144 259 empty empty empty 20 12 0 14 -233017 -66577
 0;
-#N canvas 786 102 1050 755 patch 1;
+#N canvas 786 102 1050 755 patch 0;
 #X obj 101 101 cnv 15 138 40 empty empty PATCH 20 12 0 14 -66577 -262144
 0;
 #X obj 306 125 audio/mic;
@@ -413,7 +413,7 @@
 #X connect 12 0 11 0;
 #X restore 354 215 pd 12loop;
 #X obj 469 294 effect/reverb2;
-#X obj 27 500 extra/selectionManager;
+#X obj 17 643 extra/multiple_selection_manager;
 #X connect 1 1 9 0;
 #X connect 2 0 1 0;
 #X connect 2 1 1 0;
@@ -503,7 +503,7 @@
 0;
 #N canvas 285 163 1038 575 open 0;
 #X obj 103 102 hradio 15 0 0 3 empty empty empty 0 -8 0 10 -262144
--1 -1 2;
+-1 -1 1;
 #X text 462 314 label-color;
 #X text 477 339 label-color;
 #X obj 377 311 t b f;
