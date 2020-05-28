@@ -1,15 +1,15 @@
-#N canvas 207 139 1005 581 10;
+#N canvas 558 159 1005 581 10;
 #X declare -path ../../patches;
 #X obj 7 370 cnv 15 980 70 empty empty empty 330 30 0 45 -21525 -88297
 0;
 #X obj 154 107 cnv 15 834 258 empty empty empty 20 12 0 14 -233017
 -66577 0;
-#X obj 220 389 UI/ui_tempo_small;
+#X obj 123 391 UI/ui_tempo_small;
 #X obj 7 24 cnv 15 980 81 empty empty LUCIBOX 414 36 0 45 -21525 -88297
 0;
 #X obj 7 107 cnv 15 144 259 empty empty empty 20 12 0 14 -233017 -66577
 0;
-#N canvas 0 97 1280 627 patch 0;
+#N canvas 345 304 1280 627 patch 0;
 #X obj 101 101 cnv 15 138 40 empty empty PATCH 20 12 0 14 -66577 -262144
 0;
 #X obj 235 155 audio/mic;
@@ -27,7 +27,7 @@
 #X msg 400 277 2;
 #X obj 466 220 loadbang;
 #X obj 104 101 hradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
--1 -1 1;
+-1 -1 0;
 #X obj 104 166 bang;
 #X msg 363 277 43;
 #X obj 101 101 cnv 15 38 15 empty \$0_opencnv open 6 8 0 10 -66577
@@ -64,17 +64,17 @@
 #X obj 605 827 r to13;
 #N canvas 358 163 694 530 ledmodule1 0;
 #X obj 267 243 spigot;
-#X obj 291 221 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 291 221 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 457 247 spigot;
 #X obj 472 219 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X floatatom 266 159 5 -1 11 0 - - -, f 5;
+#X floatatom 266 159 5 -1 11 0 - - -;
 #X obj 266 115 i 0;
 #X obj 266 137 moses 13;
 #X obj 266 91 * 12;
 #X obj 266 68 r global_tempo_slider;
-#X floatatom 457 165 5 -1 11 0 - - -, f 5;
+#X floatatom 457 165 5 -1 11 0 - - -;
 #X obj 457 88 i 0;
 #X obj 457 142 moses 13;
 #X obj 457 63 * 12;
@@ -92,7 +92,7 @@
 #X obj -96 214 metro 1000;
 #X obj -93 283 i 0;
 #X obj -56 284 + 1;
-#X floatatom -93 315 5 0 0 0 - - -, f 5;
+#X floatatom -93 315 5 0 0 0 - - -;
 #X msg -72 255 0;
 #X obj -111 61 t b b b;
 #X obj -43 33 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
@@ -116,7 +116,7 @@
 #X obj -10 350 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 73 146 hradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144 -1
--1 0;
+-1 1;
 #X obj 43 227 s to14;
 #X obj -95 435 spigot;
 #X obj -15 385 extra/sv 1_1_is_loop_playing;
@@ -270,7 +270,7 @@
 #X obj 154 266 s to13;
 #X obj 339 102 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X floatatom 112 210 5 0 0 0 - - -, f 5;
+#X floatatom 112 210 5 0 0 0 - - -;
 #X obj 260 126 change;
 #X obj 153 239 - 1;
 #X text -2 34 Exit song mode without move;
@@ -278,7 +278,7 @@
 #X obj 24 54 loadbang;
 #X obj 3 54 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X floatatom 23 161 5 0 0 0 - - -, f 5;
+#X floatatom 23 161 5 0 0 0 - - -;
 #X obj 23 139 i 0;
 #X obj 78 141 + 1;
 #X obj 12 83 metro 1000;
@@ -317,9 +317,8 @@
 #X restore 698 694 pd song_mode;
 #X obj 758 760 i 0;
 #X obj 767 729 bang;
-#X obj 334 208 audio/loop 1 1 1;
 #X obj 42 233 audio/tempo_link machines 5;
-#X floatatom 167 651 5 0 0 0 - - -, f 5;
+#X floatatom 167 651 5 0 0 0 - - -;
 #X obj 167 629 r #abl_link_num_peers;
 #X obj 128 672 i 0;
 #X obj 128 714 sel 0;
@@ -328,6 +327,7 @@
 1;
 #X msg 140 580 1;
 #X msg 187 750 1;
+#X obj 334 208 audio/loop 1 1 1 0 1 1 0;
 #X connect 1 1 23 0;
 #X connect 1 1 12 0;
 #X connect 1 1 25 0;
@@ -351,7 +351,7 @@
 #X connect 21 0 7 2;
 #X connect 22 0 7 11;
 #X connect 23 0 3 0;
-#X connect 24 0 53 0;
+#X connect 24 0 62 0;
 #X connect 26 0 23 0;
 #X connect 27 0 23 0;
 #X connect 28 0 9 0;
@@ -370,28 +370,28 @@
 #X connect 41 1 45 0;
 #X connect 41 1 46 0;
 #X connect 42 0 41 0;
-#X connect 42 0 60 0;
+#X connect 42 0 59 0;
 #X connect 43 0 44 0;
 #X connect 45 0 43 0;
-#X connect 45 1 61 0;
-#X connect 45 1 57 0;
+#X connect 45 1 60 0;
+#X connect 45 1 56 0;
 #X connect 50 0 7 13;
 #X connect 50 1 52 0;
 #X connect 51 0 7 13;
 #X connect 52 0 51 0;
-#X connect 53 0 27 0;
-#X connect 53 1 29 0;
-#X connect 53 2 33 0;
-#X connect 53 3 14 0;
-#X connect 53 4 15 0;
-#X connect 55 0 57 1;
-#X connect 56 0 55 0;
+#X connect 54 0 56 1;
+#X connect 55 0 54 0;
+#X connect 56 0 57 0;
 #X connect 57 0 58 0;
-#X connect 58 0 59 0;
-#X connect 58 1 62 0;
-#X connect 59 0 49 1;
-#X connect 61 0 48 0;
-#X connect 62 0 49 1;
+#X connect 57 1 61 0;
+#X connect 58 0 49 1;
+#X connect 60 0 48 0;
+#X connect 61 0 49 1;
+#X connect 62 0 27 0;
+#X connect 62 1 29 0;
+#X connect 62 2 33 0;
+#X connect 62 3 14 0;
+#X connect 62 4 15 0;
 #X coords 0 -1 1 1 140 42 2 100 100;
 #X restore 7 139 pd patch;
 #N canvas 2 204 1280 627 connect 0;

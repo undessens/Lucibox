@@ -1,11 +1,11 @@
-#N canvas 828 255 656 357 10;
+#N canvas 828 255 815 332 10;
 #X declare -path ../../patches;
 #X obj 5 87 cnv 15 680 230 empty empty empty 20 12 0 14 -233017 -66577
 0;
 #X obj 7 263 UI/ui_tempo_small;
 #X obj 5 3 cnv 15 680 81 empty empty LUCIBOX 20 36 0 45 -21525 -88297
 0;
-#N canvas 1974 322 858 536 patch 1;
+#N canvas 74 356 906 551 patch 1;
 #X obj 101 101 cnv 15 138 40 empty empty PATCH 20 12 0 14 -66577 -262144
 0;
 #X obj 250 -2 audio/mic;
@@ -320,10 +320,10 @@ stop;
 #X obj 744 817 sel 0;
 #X text 796 822 Reload led after quitting song_mode;
 #X obj 21 309 audio/tempo_link machines 1;
-#X obj 334 318 audio/loop 1 1 1;
-#X obj 561 314 audio/loop 2 1 1;
-#X obj 765 314 audio/loop 3 1 1;
-#X obj 992 310 audio/loop 4 1 1;
+#X obj 334 318 audio/loop 1 1 1 0 1 1 0;
+#X obj 561 314 audio/loop 2 1 1 0 1 1 0;
+#X obj 765 314 audio/loop 3 1 1 0 1 1 0;
+#X obj 992 310 audio/loop 4 1 1 0 1 1 0;
 #X connect 1 1 37 0;
 #X connect 1 2 8 0;
 #X connect 1 3 19 0;
