@@ -1,7 +1,7 @@
 #N canvas 523 440 1111 310 10;
 #X obj 1027 -5 inlet~;
 #X obj 692 225 outlet~;
-#X obj 1054 226 outlet~;
+#X obj 919 226 outlet~;
 #X obj 1414 226 outlet~;
 #X obj -22 53 audio/loop 1 1 \$3 \$4 \$5 \$6 \$7;
 #X obj 164 54 audio/loop 2 1 \$3 \$4 \$5 \$6 \$7;

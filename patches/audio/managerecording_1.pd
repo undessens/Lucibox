@@ -1,4 +1,4 @@
-#N canvas 68 255 813 611 10;
+#N canvas 436 178 813 611 10;
 #X obj 401 7 inlet;
 #X obj 404 128 bng 40 1000 500 0 empty empty empty 17 7 0 10 -4034
 -1 -1;
@@ -72,8 +72,8 @@
 #X obj -22 444 s \$1_\$2_realstart_first;
 #X obj 165 455 s \$1_\$2_realstart_first_with_tempo;
 #X obj 635 473 s \$1_\$2_realstart_overdub;
-#X obj 614 344 r \$1_\$2_loop_start;
 #X obj 382 368 s \$1_\$2_loop_play;
+#X obj 587 342 r \$1_\$2_loop_startbang;
 #X connect 0 0 8 0;
 #X connect 1 0 32 2;
 #X connect 2 0 9 0;
@@ -99,7 +99,7 @@
 #X connect 20 1 49 0;
 #X connect 21 0 25 0;
 #X connect 21 1 26 0;
-#X connect 21 1 60 0;
+#X connect 21 1 59 0;
 #X connect 22 0 24 0;
 #X connect 23 0 24 1;
 #X connect 24 0 23 0;
@@ -130,4 +130,4 @@
 #X connect 51 1 55 0;
 #X connect 53 0 52 1;
 #X connect 55 0 58 0;
-#X connect 59 0 39 0;
+#X connect 60 0 39 0;
