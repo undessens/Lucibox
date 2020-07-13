@@ -1,0 +1,110 @@
+#N canvas 345 23 1088 612 10;
+#X declare -path ../../patches;
+#X obj 7 370 cnv 15 750 142 empty empty empty 330 30 0 45 -21525 -88297
+0;
+#X obj 156 108 cnv 15 600 258 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X obj 77 372 UI/ui_tempo_small;
+#X obj 7 24 cnv 15 750 81 empty empty LUCIBOX 414 36 0 45 -21525 -88297
+0;
+#X obj 87 470 hsl 640 30 0 1 0 0 empty global_tempo_slider empty -2
+-8 0 10 -33289 -4032 -1 0 1;
+#X obj 177 116 UI/ui_looper_complete 1 1;
+#X obj 247 115 UI/ui_looper_complete 2 1;
+#X obj 315 115 UI/ui_looper_complete 3 1;
+#X obj 385 115 UI/ui_looper_complete 4 1;
+#X obj 453 115 UI/ui_looper_complete 5 1;
+#X obj 522 115 UI/ui_looper_complete 6 1;
+#X obj 593 115 UI/ui_looper_complete 7 1;
+#X obj 662 115 UI/ui_looper_complete 8 1;
+#X obj 12 515 declare -path ../../patches;
+#X obj 6 106 nogui;
+#X obj 76 419 UI/ui_tempo_extra;
+#X obj 782 78 hsl 128 15 0 15 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 672 1;
+#X obj 779 126 s toOSC;
+#X obj 781 209 hsl 128 15 0 12 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 778 257 s toOSC;
+#X obj 781 334 hsl 128 15 0 11 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 778 382 s toOSC;
+#X msg 778 360 /main/num_triangle f \$1;
+#X obj 805 523 hsl 128 15 -600 600 0 0 empty empty empty -2 -8 0 10
+-262144 -1 -1 12700 1;
+#X obj 802 571 s toOSC;
+#X msg 802 549 /main/X i \$1;
+#X obj 887 456 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 915 523 hsl 128 15 -600 600 0 0 empty empty empty -2 -8 0 10
+-262144 -1 -1 3694 1;
+#X obj 912 571 s toOSC;
+#X msg 912 549 /main/Y i \$1;
+#X obj 779 38 extra/midiLearn video_line_width;
+#X obj 778 146 extra/midiLearn video_rotation_speed;
+#X obj 778 286 extra/midiLearn video_num_triangle;
+#X obj 778 313 / 10;
+#X obj 860 415 extra/midiLearn video_random_pos;
+#X obj 860 437 sel 0;
+#X obj 780 186 / 30;
+#X msg 779 104 /main/rotation_speed f \$1;
+#X msg 778 235 /main/line_width f \$1;
+#X obj 953 313 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 935 208 r tempo_quantif_bang;
+#X obj 805 485 random 1500;
+#X obj 885 482 random 1500;
+#X obj 805 505 - 300;
+#X obj 885 502 - 300;
+#X obj 779 59 / 160;
+#X obj 968 35 r mic_volume_vumetre;
+#X floatatom 968 56 5 0 0 0 - - -;
+#X obj 968 104 > -18;
+#X obj 968 126 change;
+#X obj 970 150 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 970 177 sel 1;
+#X floatatom 1009 54 5 0 0 0 - - -;
+#X obj 980 281 spigot;
+#X obj 925 283 spigot;
+#X obj 961 254 == 0;
+#X obj 1017 232 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X connect 16 0 37 0;
+#X connect 18 0 38 0;
+#X connect 20 0 22 0;
+#X connect 22 0 21 0;
+#X connect 23 0 25 0;
+#X connect 25 0 24 0;
+#X connect 26 0 41 0;
+#X connect 26 0 42 0;
+#X connect 27 0 29 0;
+#X connect 29 0 28 0;
+#X connect 30 0 45 0;
+#X connect 31 0 36 0;
+#X connect 32 0 33 0;
+#X connect 33 0 20 0;
+#X connect 34 0 35 0;
+#X connect 35 1 26 0;
+#X connect 36 0 18 0;
+#X connect 37 0 17 0;
+#X connect 38 0 19 0;
+#X connect 39 0 26 0;
+#X connect 40 0 54 0;
+#X connect 41 0 43 0;
+#X connect 42 0 44 0;
+#X connect 43 0 23 0;
+#X connect 44 0 27 0;
+#X connect 45 0 16 0;
+#X connect 46 0 47 0;
+#X connect 47 0 48 0;
+#X connect 48 0 49 0;
+#X connect 49 0 50 0;
+#X connect 50 0 51 0;
+#X connect 51 0 53 0;
+#X connect 52 0 48 1;
+#X connect 53 0 39 0;
+#X connect 54 0 39 0;
+#X connect 55 0 54 1;
+#X connect 56 0 53 1;
+#X connect 56 0 55 0;

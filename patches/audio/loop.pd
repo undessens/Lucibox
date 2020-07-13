@@ -1,4 +1,4 @@
-#N canvas 242 32 1198 900 10;
+#N canvas 176 23 1198 817 10;
 #X declare -path ../;
 #X obj -179 33 cnv 15 1200 70 empty empty FROM::INLET 20 12 0 14 -204217
 -66577 0;
@@ -49,7 +49,7 @@
 #X coords 0 -1 1.2e+06 1 200 30 1 0 0;
 #X restore 1039 365 graph;
 #X obj 1049 240 hsl 170 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 11683 1;
+-1 -1 6247 1;
 #X obj 142 293 sel 0;
 #X text 579 247 clear_with_longpress;
 #X obj 184 591 t b b a;
@@ -514,7 +514,7 @@
 #X obj 1082 773 outlet;
 #X obj 1176 773 outlet;
 #N canvas 316 155 881 687 ledoutplay 0;
-#X obj 251 433 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 251 433 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 251 460 sel 1;
 #X msg 227 363 bang;
@@ -709,7 +709,7 @@
 #X text 371 245 shortcut for starting play;
 #X msg 1683 634 1;
 #X msg 1394 682 0;
-#N canvas 1152 485 641 356 slider_ui 0;
+#N canvas 693 311 641 356 slider_ui 0;
 #X obj 31 53 inlet~;
 #X obj 241 250 snapshot~;
 #X obj 262 187 loadbang;
@@ -734,7 +734,7 @@
 #X obj 30 151 *~ 1;
 #X obj 55 83 extra/sv \$1_\$2_is_loop_playing;
 #X obj 248 52 r \$1_\$2_timer;
-#X obj 267 220 metro 20;
+#X obj 267 220 metro 100;
 #X connect 0 0 19 0;
 #X connect 1 0 14 0;
 #X connect 1 0 13 1;
@@ -1146,21 +1146,21 @@ exist ? \, volume \, reversed ? );
 #X obj 31 169 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj -177 168 declare -path ../;
-#N canvas 831 417 763 409 manage_global 0;
+#N canvas 324 216 913 459 manage_global 0;
 #X obj 47 132 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
--1 0;
+-1 3;
 #X obj 68 38 extra/sv module_selected;
 #X obj 35 88 spigot;
 #X obj 35 18 extra/sv global_breakbeat_slice;
 #X obj 194 140 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
--1 -1 4;
+-1 -1 5;
 #X text 204 107 set the start of reading;
 #X obj 286 81 spigot;
 #X obj 286 11 extra/sv global_breakbeat_start;
-#X obj 507 84 spigot;
+#X obj 509 81 spigot;
 #X obj 507 14 extra/sv global_rec;
 #X obj 446 160 extra/sv \$1_\$2_loop_recbutton;
-#X obj 72 275 spigot;
+#X obj 73 251 spigot;
 #X obj 72 205 extra/sv global_play;
 #X obj 13 301 extra/sv \$1_\$2_loop_playbutton;
 #X obj 278 275 spigot;
@@ -1170,7 +1170,7 @@ exist ? \, volume \, reversed ? );
 #X obj 489 280 spigot;
 #X obj 489 210 extra/sv global_breakbeat_inverse;
 #X obj 489 303 sel 0;
-#X obj 68 61 extra/compute_selection \$1;
+#X obj 68 59 extra/compute_selection \$1;
 #X obj 665 292 extra/sv \$1_\$2_loop_mute;
 #X obj 711 267 spigot;
 #X obj 714 210 extra/sv global_mute;
@@ -1178,6 +1178,14 @@ exist ? \, volume \, reversed ? );
 #X obj 219 301 extra/sv \$1_\$2_loop_volume;
 #X obj 195 164 extra/sv \$1_\$2_loop_start;
 #X obj 517 347 extra/sv \$1_\$2_loop_inverse;
+#X obj 49 396 spigot;
+#X floatatom 161 422 5 0 0 0 - - -;
+#X obj 49 326 extra/sv global_sendA;
+#X obj -10 422 extra/sv \$1_\$2_loop_sendA;
+#X obj 269 395 spigot;
+#X floatatom 381 421 5 0 0 0 - - -;
+#X obj 269 325 extra/sv global_sendB;
+#X obj 210 421 extra/sv \$1_\$2_loop_sendB;
 #X connect 0 0 25 1;
 #X connect 1 0 21 0;
 #X connect 2 0 0 0;
@@ -1202,8 +1210,16 @@ exist ? \, volume \, reversed ? );
 #X connect 21 0 14 1;
 #X connect 21 0 18 1;
 #X connect 21 0 23 1;
+#X connect 21 0 29 1;
+#X connect 21 0 33 1;
 #X connect 23 0 22 1;
 #X connect 24 0 23 0;
+#X connect 29 0 30 0;
+#X connect 29 0 32 1;
+#X connect 31 0 29 0;
+#X connect 33 0 34 0;
+#X connect 33 0 36 1;
+#X connect 35 0 33 0;
 #X restore -107 148 pd manage_global;
 #X text -163 237 \$1 : index of the column;
 #X text -164 261 \$2 : index of the raw;

@@ -76,7 +76,7 @@
 #X obj 368 -95 loadbang;
 #X obj 105 101 hradio 23 1 0 2 empty empty empty 0 -8 0 10 -262144
 -1 -1 1;
-#X obj 100 100 cnv 15 59 24 empty \$0_playcnv PLAY 20 12 0 15 -1 -66577
+#X obj 100 100 cnv 15 59 24 empty \$0_playcnv PLAY 20 12 0 15 -1 -24198
 0;
 #X obj 104 106 cnv 13 13 13 empty \$0_playsquare empty 6 9 0 14 -66577
 -262144 0;
@@ -129,8 +129,8 @@
 #X connect 27 0 11 0;
 #X coords 0 -1 1 1 60 25 2 100 100;
 #X restore 102 46 pd play;
-#X obj 104 72 hsl 55 20 0 1 0 0 empty \$0_temposlider 80 30 24 0 10
--262144 -262144 -262144 0 1;
+#X obj 104 72 hsl 55 20 0 1 0 0 empty \$0_temposlider 0 30 24 0 10
+-66577 -262144 -262144 0 1;
 #N canvas 402 345 1038 529 open 0;
 #X text 462 314 label-color;
 #X text 477 339 label-color;
@@ -303,11 +303,11 @@
 -1 0;
 #X msg 205 120 set \$1;
 #X obj 102 195 vsl 18 50 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 2300 1;
+-1 -1 3200 1;
 #X obj 145 195 vsl 18 50 0 127 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
 #X obj 124 195 vsl 18 50 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 4900 1;
+-1 -1 1600 1;
 #X msg -72 213 set \$1;
 #X msg -72 248 set \$1;
 #X msg 167 211 set \$1;

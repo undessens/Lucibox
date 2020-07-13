@@ -2,7 +2,7 @@
 #X declare -path ../../patches;
 #X obj 4 101 cnv 15 144 259 empty empty empty 20 12 0 14 -233017 -66577
 0;
-#N canvas 2177 265 648 707 patch 0;
+#N canvas 190 112 648 707 patch 0;
 #X obj 101 101 cnv 15 138 40 empty empty PATCH 20 12 0 14 -66577 -262144
 0;
 #X obj 306 125 audio/mic;
@@ -20,7 +20,7 @@
 #X msg 400 277 2;
 #X obj 466 220 loadbang;
 #X obj 104 101 hradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
--1 -1 1;
+-1 -1 0;
 #X obj 104 166 bang;
 #X msg 363 277 43;
 #X obj 101 101 cnv 15 38 15 empty \$0_opencnv open 6 8 0 10 -66577
@@ -383,7 +383,7 @@
 #X connect 25 2 10 0;
 #X coords 0 -1 1 1 140 42 2 100 100;
 #X restore 6 138 pd patch;
-#N canvas 114 162 1070 501 connect 0;
+#N canvas 284 300 1248 405 connect 0;
 #X obj 40 6 cnv 15 996 83 empty empty CONNECT 330 30 0 45 -21525 -88297
 0;
 #X obj 44 26 cnv 15 138 40 empty empty CONNECT 20 12 0 14 -66577 -262144
@@ -428,6 +428,10 @@
 #X obj 37 217 hardware/keyboard;
 #X obj 384 111 connect/connect_samplerloop;
 #X obj 903 114 connect/connect_song;
+#X obj 384 328 connect/connect_12looper;
+#X obj 195 329 connect/connect_global_breakbeat;
+#X obj 900 327 connect/connect_global_recplay;
+#X obj 3 328 connect/connect_global_extra;
 #X coords 0 -1 1 1 140 42 1 43 25;
 #X restore 6 191 pd connect;
 #N canvas 1104 541 721 359 volumes 0;
