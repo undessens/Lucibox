@@ -1432,7 +1432,7 @@
             "default": "",
             "linkId": "",
             "script": "",
-            "address": "/button_14",
+            "address": "/python/rpi/shutdown",
             "preArgs": "",
             "typeTags": "",
             "decimals": 2,
