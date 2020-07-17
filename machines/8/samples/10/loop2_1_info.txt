@@ -1,0 +1,3 @@
+duration 32;
+tempo 477;
+exist 1;

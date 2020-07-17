@@ -1,0 +1,133 @@
+#N canvas 436 178 813 611 10;
+#X obj 401 7 inlet;
+#X obj 404 128 bng 40 1000 500 0 empty empty empty 17 7 0 10 -4034
+-1 -1;
+#X obj 326 93 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 279 76 extra/sv \$1_\$2_is_loop_recorded;
+#X obj 276 128 bng 40 1000 500 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#X text 255 127 NO;
+#X text 449 128 YES;
+#X obj 114 210 extra/sv tempo_isplaying;
+#X obj 401 50 bang;
+#X obj 326 111 sel 0 1;
+#X obj 214 263 bng 40 1000 500 0 empty empty empty 17 7 0 10 -4034
+-1 -1;
+#X obj 86 263 bng 40 1000 500 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#X text 62 262 NO;
+#X text 255 266 YES;
+#X obj 153 246 sel 0 1;
+#X obj -40 317 extra/sv \$1_\$2_is_loop_recording;
+#X obj 37 342 sel 0 1;
+#X msg -35 406 1;
+#X msg 21 407 0;
+#X text 79 405 start loop auto;
+#X obj 200 317 extra/sv \$1_\$2_is_loop_recording;
+#X obj 345 342 sel 0 1;
+#X obj 200 343 r tempo_quantif_bang;
+#X msg 258 396 -1;
+#X obj 200 396 i -1;
+#X msg 297 363 1;
+#X msg 337 363 0;
+#X obj -38 474 bng 40 1000 500 0 empty empty 1 17 7 0 10 -258113 -1
+-1;
+#X obj 12 474 bng 40 1000 500 0 empty empty 0 17 7 0 10 -4034 -1 -1
+;
+#X obj 200 474 bng 40 1000 500 0 empty empty 1 17 7 0 10 -258113 -1
+-1;
+#X obj 250 474 bng 40 1000 500 0 empty empty 0 17 7 0 10 -4034 -1 -1
+;
+#X obj 210 432 sel 1 0;
+#X obj 490 215 extra/sv \$1_\$2_is_loop_playing;
+#X obj 625 258 bng 40 1000 500 0 empty empty empty 17 7 0 10 -4034
+-1 -1;
+#X obj 497 258 bng 40 1000 500 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#X text 473 257 NO;
+#X text 666 261 YES;
+#X obj 564 241 sel 0 1;
+#X msg 667 380 -1;
+#X obj 622 381 i -1;
+#X obj 620 317 extra/sv \$1_\$2_is_loop_recording;
+#X obj 735 342 sel 0 1;
+#X msg 711 364 1;
+#X msg 750 364 0;
+#X obj 625 420 sel 1 0;
+#X obj 613 524 bng 40 1000 500 0 empty empty 1 17 7 0 10 -258113 -1
+-1;
+#X obj 663 524 bng 40 1000 500 0 empty empty 0 17 7 0 10 -4034 -1 -1
+;
+#X obj 69 385 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 280 427 extra/sv \$1_\$2_is_loop_waitforrec;
+#X msg 345 406 1;
+#X obj 167 434 sel -1;
+#X obj 580 420 sel -1;
+#X obj 735 436 extra/sv \$1_\$2_is_loop_waitforrec;
+#X msg 798 401 1;
+#X text 786 367 Squeeze the wait for rec process;
+#X obj 635 442 t f b;
+#X obj -22 444 s \$1_\$2_realstart_first;
+#X obj 165 455 s \$1_\$2_realstart_first_with_tempo;
+#X obj 635 473 s \$1_\$2_realstart_overdub;
+#X obj 382 368 s \$1_\$2_loop_play;
+#X obj 587 342 r \$1_\$2_loop_startbang;
+#X connect 0 0 8 0;
+#X connect 1 0 32 2;
+#X connect 2 0 9 0;
+#X connect 3 1 2 0;
+#X connect 4 0 7 2;
+#X connect 7 1 14 0;
+#X connect 8 0 3 2;
+#X connect 9 0 4 0;
+#X connect 9 1 1 0;
+#X connect 10 0 20 2;
+#X connect 11 0 15 2;
+#X connect 14 0 11 0;
+#X connect 14 1 10 0;
+#X connect 15 1 16 0;
+#X connect 16 0 17 0;
+#X connect 16 1 18 0;
+#X connect 16 1 47 0;
+#X connect 17 0 27 0;
+#X connect 17 0 56 0;
+#X connect 18 0 28 0;
+#X connect 18 0 56 0;
+#X connect 20 1 21 0;
+#X connect 20 1 49 0;
+#X connect 21 0 25 0;
+#X connect 21 1 26 0;
+#X connect 21 1 59 0;
+#X connect 22 0 24 0;
+#X connect 23 0 24 1;
+#X connect 24 0 23 0;
+#X connect 24 0 31 0;
+#X connect 24 0 50 0;
+#X connect 25 0 24 1;
+#X connect 26 0 24 1;
+#X connect 31 0 29 0;
+#X connect 31 1 30 0;
+#X connect 32 1 37 0;
+#X connect 33 0 40 2;
+#X connect 37 0 34 0;
+#X connect 37 1 33 0;
+#X connect 38 0 39 1;
+#X connect 39 0 38 0;
+#X connect 39 0 44 0;
+#X connect 39 0 51 0;
+#X connect 40 1 41 0;
+#X connect 40 1 53 0;
+#X connect 41 0 42 0;
+#X connect 41 1 43 0;
+#X connect 42 0 39 1;
+#X connect 43 0 39 1;
+#X connect 44 0 45 0;
+#X connect 44 1 46 0;
+#X connect 49 0 48 1;
+#X connect 50 1 57 0;
+#X connect 51 1 55 0;
+#X connect 53 0 52 1;
+#X connect 55 0 58 0;
+#X connect 60 0 39 0;

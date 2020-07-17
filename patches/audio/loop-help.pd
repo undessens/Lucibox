@@ -1,0 +1,18 @@
+#N canvas 0 23 450 300 12;
+#X text 180 51 \$1 : index of the column;
+#X text 179 75 \$2 : index of the raw;
+#X text 178 96 \$3 : index of rampgenerator;
+#X text 209 110 1 . Line;
+#X text 277 110 2 Breakbeat;
+#X text 177 131 \$4 : timecompression;
+#X text 220 145 0 . No;
+#X text 268 147 1 . Yes;
+#X text 180 171 \$5 : manage the Recording;
+#X text 179 212 \$6 : manage the Playing;
+#X text 217 188 1 . Classic;
+#X text 301 189 2 No Overdub;
+#X text 181 233 \$7 : sampler;
+#X text 219 249 0 . No;
+#X text 266 250 1 . Yes;
+#X text 319 250 2 Toogle;
+#X text 180 13 ***** PARAMETERS ******;

@@ -1,0 +1,71 @@
+#N canvas 533 552 1156 387 10;
+#X obj 111 248 tgl 40 0 empty empty empty 17 7 0 10 -128992 -1 -1 0
+1;
+#X obj 110 312 s metronome;
+#N canvas 551 167 834 469 transpose 0;
+#X obj 109 173 i 0;
+#X obj 109 241 makefilename %d;
+#X obj 109 267 symbol \$1;
+#X obj 110 335 pack \$0 s;
+#X obj 109 302 t b s;
+#X msg 107 50 set \$1;
+#X obj 104 107 nbx 5 23 -80 80 0 0 empty empty empty 0 -8 0 10 -262144
+-1 -1 0 256;
+#X obj 101 101 cnv 15 140 38 empty empty PITCH 70 17 0 20 -33289 -262144
+0;
+#X obj 112 107 cnv 15 52 22 empty \$0_pitchcnv 0 4 10 0 22 -262144
+-1 0;
+#X obj 42 17 loadbang;
+#X msg 150 148 110;
+#X msg 110 372 \; \$1_pitchcnv label \$2;
+#X obj -50 239 extra/sv global_transpose;
+#X obj 345 45 extra/sv global_transpose;
+#X msg 37 48 0;
+#X connect 0 0 1 0;
+#X connect 0 0 12 1;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 3 0 11 0;
+#X connect 4 0 3 0;
+#X connect 4 1 3 1;
+#X connect 5 0 6 0;
+#X connect 6 0 0 0;
+#X connect 9 0 14 0;
+#X connect 10 0 0 0;
+#X connect 13 0 5 0;
+#X connect 13 0 1 0;
+#X connect 14 0 6 0;
+#X coords 0 -1 1 1 142 40 1 100 100;
+#X restore 607 101 pd transpose;
+#X floatatom 103 61 5 0 0 0 - - -;
+#X obj 103 39 r #abl_link_num_peers;
+#N canvas 575 176 854 434 bank 1;
+#X obj 127 202 makefilename %d;
+#X obj 127 228 symbol \$1;
+#X obj 128 296 pack \$0 s;
+#X obj 127 263 t b s;
+#X obj 101 101 cnv 15 140 38 empty empty LINK 70 17 0 20 -33289 -262144
+0;
+#X obj 150 107 cnv 15 15 23 empty \$0_linkcnv 1 2 12 0 22 -262144 -1
+0;
+#X obj 124 165 i 0;
+#X floatatom 126 184 5 0 0 0 - - -;
+#X obj 42 17 inlet;
+#X msg 128 333 \; \$1_linkcnv label \$2;
+#X obj 113 106 tgl 25 0 empty empty empty 17 7 0 10 -228856 -1 -1 0
+1;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 9 0;
+#X connect 3 0 2 0;
+#X connect 3 1 2 1;
+#X connect 6 0 7 0;
+#X connect 7 0 0 0;
+#X connect 8 0 6 0;
+#X connect 8 0 10 0;
+#X coords 0 -1 1 1 142 40 2 100 100;
+#X restore 101 101 pd bank;
+#X connect 0 0 1 0;
+#X connect 3 0 5 0;
+#X connect 4 0 3 0;
+#X coords 0 -1 1 1 650 42 1 100 100;

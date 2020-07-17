@@ -1,0 +1,29 @@
+#N canvas 422 167 641 427 10;
+#X obj 101 101 cnv 15 145 30 empty empty global_extra 20 12 0 14 -233017
+-66577 0;
+#X obj 101 140 cnv 15 145 30 empty empty mute 5 12 0 14 -33289 -262144
+0;
+#X obj 101 180 cnv 15 145 30 empty empty reset 5 12 0 14 -33289 -262144
+0;
+#X obj 101 215 cnv 15 145 30 empty empty volume 5 12 0 14 -33289 -262144
+0;
+#X obj 160 150 extra/midiLearn global_mute;
+#X obj 161 183 extra/midiLearn global_effect_reset;
+#X obj 163 217 extra/midiLearn global_volume;
+#X obj 489 340 i 0;
+#X obj 19 352 extra/sv global_mute;
+#X obj 249 281 sel 0;
+#X obj 249 310 bang;
+#X obj 249 339 s global_effect_reset;
+#X obj 63 285 sel 0;
+#X obj 63 314 bang;
+#X obj 446 370 extra/sv global_volume;
+#X connect 4 0 12 0;
+#X connect 5 0 9 0;
+#X connect 6 0 7 0;
+#X connect 7 0 14 1;
+#X connect 9 1 10 0;
+#X connect 10 0 11 0;
+#X connect 12 1 13 0;
+#X connect 13 0 8 0;
+#X coords 0 -1 1 1 146 160 2 100 100;

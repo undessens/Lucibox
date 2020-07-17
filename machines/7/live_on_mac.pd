@@ -1,0 +1,57 @@
+#N canvas 655 29 1210 676 10;
+#X declare -path ../../patches;
+#X obj 7 370 cnv 15 980 142 empty empty empty 330 30 0 45 -21525 -88297
+0;
+#X obj 154 107 cnv 15 834 258 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X obj 148 437 UI/ui_tempo_small;
+#X obj 7 24 cnv 15 980 81 empty empty LUCIBOX 414 36 0 45 -21525 -88297
+0;
+#X obj 213 482 hsl 640 30 0 1 0 0 empty global_tempo_slider empty -2
+-8 0 10 -33289 -4032 -1 0 1;
+#X obj 158 116 UI/ui_looper_complete 1 1;
+#X obj 228 115 UI/ui_looper_complete 2 1;
+#X obj 296 115 UI/ui_looper_complete 3 1;
+#X obj 366 115 UI/ui_looper_complete 4 1;
+#X obj 434 115 UI/ui_looper_complete 5 1;
+#X obj 503 115 UI/ui_looper_complete 6 1;
+#X obj 574 115 UI/ui_looper_complete 7 1;
+#X obj 643 115 UI/ui_looper_complete 8 1;
+#X obj 712 115 UI/ui_looper_complete 9 1;
+#X obj 783 115 UI/ui_looper_complete 10 1;
+#X obj 852 115 UI/ui_looper_complete 11 1;
+#X obj 920 115 UI/ui_looper_complete 12 1;
+#X obj 15 486 declare -path ../../patches;
+#X obj 5 107 nogui;
+#X obj 254 617 extra/sv global_play;
+#X obj 392 541 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 394 564 extra/sv global_volume;
+#X obj 557 542 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
+-1 -1 4;
+#X obj 752 542 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
+-1 -1 3;
+#X obj 557 563 extra/sv global_breakbeat_slice;
+#X obj 751 562 extra/sv global_breakbeat_start;
+#X obj 952 539 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 951 561 extra/sv global_breakbeat_inverse;
+#X obj 161 542 extra/simul_shortpress;
+#X obj 289 541 extra/simul_shortpress;
+#X obj 927 603 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 926 622 extra/sv global_mute;
+#X obj 713 629 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1002 120 bng 40 250 50 0 empty empty RESET 6 12 0 10 -4034 -1
+-1;
+#X obj 1002 174 s global_effect_reset;
+#X obj 109 618 extra/sv global_recraw;
+#X connect 20 0 21 1;
+#X connect 22 0 24 1;
+#X connect 23 0 25 1;
+#X connect 26 0 27 1;
+#X connect 28 0 35 1;
+#X connect 29 0 19 1;
+#X connect 30 0 31 1;
+#X connect 33 0 34 0;

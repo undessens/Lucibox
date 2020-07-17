@@ -1,0 +1,26 @@
+#N canvas 865 315 641 427 10;
+#X obj 101 101 cnv 15 145 30 empty empty global_send 5 12 0 14 -233017
+-66577 0;
+#X obj 101 180 cnv 15 145 30 empty empty send_A 5 12 0 14 -33289 -262144
+0;
+#X obj 101 220 cnv 15 145 30 empty empty send_B 5 12 0 14 -33289 -262144
+0;
+#X obj 124 302 * 8;
+#X obj 124 332 i 0;
+#X obj 295 304 * 8;
+#X obj 295 334 i 0;
+#X obj 124 273 / 127;
+#X obj 295 274 / 127;
+#X obj 170 183 extra/midiLearn global_senda;
+#X obj 170 225 extra/midiLearn global_sendb;
+#X obj 92 361 extra/sv global_sendA;
+#X obj 236 365 extra/sv global_sendB;
+#X connect 3 0 4 0;
+#X connect 4 0 11 1;
+#X connect 5 0 6 0;
+#X connect 6 0 12 1;
+#X connect 7 0 3 0;
+#X connect 8 0 5 0;
+#X connect 9 0 4 0;
+#X connect 10 0 6 0;
+#X coords 0 -1 1 1 147 160 2 100 100;

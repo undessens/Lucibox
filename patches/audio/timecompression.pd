@@ -1,4 +1,4 @@
-#N canvas 1682 232 768 522 12;
+#N canvas 2091 396 768 522 12;
 #X obj 23 352 outlet~;
 #X obj 15 -117 inlet~;
 #X obj 93 79 t f b;
@@ -11,9 +11,9 @@
 #X msg 168 146 64;
 #X msg 194 147 0;
 #X floatatom 604 146 10 0 0 0 - - -;
-#X obj 515 37 / 1000;
-#X obj 515 68 pow -1;
-#X obj 515 94 * 60;
+#X obj 472 25 / 1000;
+#X obj 472 56 pow -1;
+#X obj 472 82 * 60;
 #X floatatom 378 133 10 0 0 0 - - -;
 #X obj 473 166 t b f;
 #X obj 603 103 extra/sv tempo;
@@ -67,6 +67,8 @@
 #X connect 11 0 16 0;
 #X connect 12 0 13 0;
 #X connect 13 0 14 0;
+#X connect 14 0 15 0;
+#X connect 14 0 18 0;
 #X connect 15 0 23 0;
 #X connect 16 0 21 0;
 #X connect 16 1 21 1;
@@ -106,7 +108,6 @@
 #X connect 47 0 17 1;
 #X connect 48 0 20 0;
 #X connect 49 0 50 0;
-#X connect 50 0 18 0;
-#X connect 50 0 15 0;
+#X connect 50 0 12 0;
 #X connect 51 0 40 0;
 #X connect 51 1 40 1;
