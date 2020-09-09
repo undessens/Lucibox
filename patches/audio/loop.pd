@@ -1,4 +1,4 @@
-#N canvas 176 23 1198 817 10;
+#N canvas 0 23 1389 931 10;
 #X declare -path ../;
 #X obj -179 33 cnv 15 1200 70 empty empty FROM::INLET 20 12 0 14 -204217
 -66577 0;
@@ -49,7 +49,7 @@
 #X coords 0 -1 1.2e+06 1 200 30 1 0 0;
 #X restore 1039 365 graph;
 #X obj 1049 240 hsl 170 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 6247 1;
+-1 -1 0 1;
 #X obj 142 293 sel 0;
 #X text 579 247 clear_with_longpress;
 #X obj 184 591 t b b a;
@@ -122,7 +122,7 @@
 #X obj 400 37 bang;
 #X obj 393 160 bng 40 1000 500 0 empty empty empty 17 7 0 10 -4034
 -1 -1;
-#X obj 323 125 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 323 125 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 276 108 extra/sv \$1_\$2_is_loop_recorded;
 #X obj 273 160 bng 40 1000 500 0 empty empty empty 17 7 0 10 -258113
@@ -249,7 +249,7 @@
 #X obj 64 18 r tempo_click_bang;
 #X obj 200 18 inlet;
 #X obj 64 100 spigot;
-#X obj 118 63 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 118 63 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 64 308 outlet;
 #X obj 334 81 extra/sv \$1_\$2_is_loop_waitforplay;
@@ -379,13 +379,12 @@
 #X connect 36 0 23 0;
 #X connect 36 0 33 0;
 #X restore -178 707 pd config;
-#N canvas 1242 136 641 356 config 0;
+#N canvas 743 144 641 356 config 0;
 #X floatatom 114 353 5 0 0 0 - - -;
 #X floatatom 296 334 10 0 0 0 - - -;
 #X obj 212 99 inlet;
 #X obj 237 117 inlet;
-#X obj 88 471 s \$0_loop_tempo;
-#X text 99 489 non \, la fausse valeur;
+#X obj 88 391 s \$0_loop_tempo;
 #X msg 344 241 1;
 #X msg 383 224 0;
 #X obj 290 270 extra/sv \$1_\$2_is_loop_recording;
@@ -397,44 +396,37 @@
 #X obj 64 168 r tempo_click_bang;
 #X obj 114 324 i 0;
 #X obj 7 353 extra/sv tempo;
-#X floatatom 37 475 5 0 0 0 - - -;
 #X obj 61 326 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 88 396 / 60;
-#X obj 88 422 pow -1;
-#X obj 88 446 * 1000;
 #X msg 144 199 1;
 #X obj 246 191 t b b b;
 #X obj 206 301 timer;
 #X obj 155 370 s \$1_\$2_loop_size;
 #X obj 206 333 s \$1_\$2_timer;
-#X connect 0 0 24 0;
-#X connect 2 0 6 0;
-#X connect 2 0 21 0;
-#X connect 2 0 23 0;
-#X connect 3 0 22 0;
-#X connect 3 0 23 1;
-#X connect 6 0 8 1;
-#X connect 7 0 8 1;
-#X connect 9 0 10 0;
-#X connect 9 0 12 0;
-#X connect 10 0 9 1;
-#X connect 11 0 9 0;
-#X connect 12 0 14 1;
-#X connect 13 0 11 0;
-#X connect 14 0 0 0;
-#X connect 15 1 18 0;
-#X connect 17 0 15 2;
-#X connect 18 0 19 0;
-#X connect 19 0 20 0;
-#X connect 20 0 4 0;
-#X connect 20 0 16 0;
-#X connect 21 0 9 1;
-#X connect 22 0 14 0;
-#X connect 22 0 17 0;
-#X connect 22 1 7 0;
-#X connect 23 0 1 0;
-#X connect 23 0 25 0;
+#X text -38 378 not tempo but period;
+#X connect 0 0 19 0;
+#X connect 2 0 5 0;
+#X connect 2 0 16 0;
+#X connect 2 0 18 0;
+#X connect 3 0 17 0;
+#X connect 3 0 18 1;
+#X connect 5 0 7 1;
+#X connect 6 0 7 1;
+#X connect 8 0 9 0;
+#X connect 8 0 11 0;
+#X connect 9 0 8 1;
+#X connect 10 0 8 0;
+#X connect 11 0 13 1;
+#X connect 12 0 10 0;
+#X connect 13 0 0 0;
+#X connect 14 1 4 0;
+#X connect 15 0 14 2;
+#X connect 16 0 8 1;
+#X connect 17 0 13 0;
+#X connect 17 0 15 0;
+#X connect 17 1 6 0;
+#X connect 18 0 1 0;
+#X connect 18 0 20 0;
 #X restore 109 707 pd config;
 #X obj 1719 664 s \$0_playstop_loop;
 #X msg 1719 631 0;
@@ -514,7 +506,7 @@
 #X obj 1082 773 outlet;
 #X obj 1176 773 outlet;
 #N canvas 316 155 881 687 ledoutplay 0;
-#X obj 251 433 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 251 433 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 251 460 sel 1;
 #X msg 227 363 bang;
@@ -622,7 +614,7 @@
 #X obj 1146 775 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
 0 1;
 #X obj 1249 778 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-1 1;
+0 1;
 #X obj 678 640 r \$0_arrayindexplay;
 #X obj 514 772 r \$0_arrayindexrec;
 #X msg 395 684 start;
@@ -785,10 +777,10 @@
 #X obj 174 184 line~;
 #X obj 173 222 line~;
 #X obj 103 238 *~;
-#X msg 315 200 0 1;
-#X obj 379 200 1 1;
+#X msg 346 198 0 1;
 #X obj 424 155 extra/sv \$1_\$2_loop_mute;
 #X obj 423 174 sel 1 0;
+#X msg 443 211 1 1;
 #X connect 0 0 7 0;
 #X connect 2 0 4 0;
 #X connect 3 0 7 1;
@@ -807,11 +799,11 @@
 #X connect 14 0 15 1;
 #X connect 15 0 1 0;
 #X connect 16 0 14 0;
-#X connect 17 0 14 0;
-#X connect 18 0 19 0;
-#X connect 19 0 16 0;
-#X connect 19 1 17 0;
-#X connect 19 2 17 0;
+#X connect 17 0 18 0;
+#X connect 18 0 16 0;
+#X connect 18 1 19 0;
+#X connect 18 2 19 0;
+#X connect 19 0 14 0;
 #X restore 661 693 pd release_sound;
 #X obj 766 693 r \$0_loop_tempo;
 #X obj -185 111 cnv 15 280 350 empty empty LOOP 20 12 0 9 -212539 -66577
@@ -864,7 +856,7 @@
 #X obj 225 262 i 0;
 #X msg 225 286 add duration \$1;
 #X obj 112 262 i 0;
-#X obj 150 228 r \$0_loop_tempo;
+#X obj 212 157 r \$0_loop_tempo;
 #X msg 116 283 add tempo \$1;
 #X obj -48 185 i \$0;
 #X obj -130 252 symbol;
@@ -877,6 +869,8 @@
 #X obj -345 133 r \$0_index_save;
 #X obj -438 124 r \$1_\$2_timer;
 #X obj 263 228 r \$1_\$2_loop_size;
+#X obj 212 184 * 100;
+#X text 321 162 save tempo *100 to increase accurency;
 #X connect 1 0 8 2;
 #X connect 2 0 1 0;
 #X connect 3 0 1 0;
@@ -900,7 +894,7 @@
 #X connect 18 0 19 0;
 #X connect 19 0 6 0;
 #X connect 20 0 22 0;
-#X connect 21 0 20 1;
+#X connect 21 0 33 0;
 #X connect 22 0 6 0;
 #X connect 23 0 12 0;
 #X connect 24 0 14 3;
@@ -912,10 +906,11 @@
 #X connect 30 0 28 6;
 #X connect 31 0 16 0;
 #X connect 32 0 18 1;
+#X connect 33 0 20 1;
 #X restore -61 189 pd save;
 #X obj -61 168 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#N canvas 854 329 670 562 open 0;
+#N canvas 598 202 836 561 open 0;
 #X obj 144 249 soundfiler;
 #X obj 176 328 / 44.1;
 #X floatatom 176 358 10 0 0 0 - - -;
@@ -952,13 +947,15 @@ exist ? \, volume \, reversed ? );
 #X obj 237 78 s get_samples_location;
 #X msg 196 185 read \$4/\$3/loop\$1_\$2_info.txt;
 #X obj 190 267 route exist tempo duration;
-#X obj 249 313 s \$0_loop_tempo;
+#X obj 294 363 s \$0_loop_tempo;
 #X obj 70 381 s \$1_\$2_loop_clear;
 #X obj 237 57 i \$0;
 #X obj 398 137 symbol;
 #X obj 398 116 r samples_location-\$0;
 #X floatatom 215 329 5 0 0 0 - - -;
 #X obj 310 291 s \$1_\$2_loop_size;
+#X obj 294 341 / 100;
+#X obj 294 320 f 0;
 #X connect 0 0 5 0;
 #X connect 0 0 11 0;
 #X connect 1 0 12 2;
@@ -979,12 +976,14 @@ exist ? \, volume \, reversed ? );
 #X connect 14 0 2 0;
 #X connect 15 0 8 0;
 #X connect 15 0 9 1;
-#X connect 15 1 16 0;
 #X connect 15 1 21 0;
+#X connect 15 1 24 0;
 #X connect 15 2 22 0;
 #X connect 18 0 13 0;
 #X connect 19 0 12 3;
 #X connect 20 0 19 0;
+#X connect 23 0 16 0;
+#X connect 24 0 23 0;
 #X restore 141 42 pd checkinfofile;
 #X obj 176 302 f 0;
 #X obj 480 165 soundfiler;

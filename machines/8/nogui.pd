@@ -1,13 +1,14 @@
-#N canvas 65 35 1280 624 10;
+ƒar#N canvas 65 35 1280 624 10;
 #X declare -path ../../patches;
+#X declare -lib ceammc;
 #X obj 4 101 cnv 15 144 259 empty empty empty 20 12 0 14 -233017 -66577
 0;
-#N canvas 221 87 1151 709 patch 1;
+#N canvas 585 53 1151 709 patch 0;
 #X obj 101 101 cnv 15 138 40 empty empty PATCH 20 12 0 14 -66577 -262144
 0;
 #X obj 328 55 adc~;
 #X obj 402 331 *~ 1;
-#X obj 330 396 dac~;
+#X obj 395 393 dac~;
 #X obj 38 100 bng 35 250 50 0 empty empty CLOSE 4 20 0 10 -262144 -1
 -1;
 #X msg 38 164 \; pd-patch vis 0;
@@ -19,7 +20,7 @@
 #X msg 400 277 2;
 #X obj 466 220 loadbang;
 #X obj 104 101 hradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
--1 -1 0;
+-1 -1 1;
 #X obj 104 166 bang;
 #X msg 363 277 43;
 #X obj 101 101 cnv 15 38 15 empty \$0_opencnv open 6 8 0 10 -66577
@@ -45,9 +46,9 @@
 #X coords 0 -1 1 1 40 17 2 100 100;
 #X restore 177 107 pd open;
 #X obj 324 178 *~ 1;
-#X obj 570 294 effect/delay;
-#X obj 82 228 loadbang;
-#X msg 82 269 127;
+#X obj 572 277 effect/delay;
+#X obj 82 268 loadbang;
+#X msg 82 309 127;
 #X obj 41 208 declare -path ../../patches;
 #X floatatom 257 413 5 0 0 0 - - -;
 #N canvas 8 90 1141 556 playWithLed------------------------------ 0
@@ -276,9 +277,8 @@
 #X obj 49 391 bang;
 #X obj 55 442 s tempoGoIn;
 #X obj 53 418 delay 300;
-#X obj 469 294 effect/reverb2;
+#X obj 451 282 effect/reverb2;
 #X obj 17 643 extra/multiple_selection_manager;
-#X obj 378 234 audio/8loop 0 0 2 0 1 1 0;
 #N canvas 786 198 692 514 play_led_nanoKontrol 0;
 #X obj 63 76 extra/sv 1_1_is_loop_playing;
 #X obj 81 97 extra/sv 2_1_is_loop_playing;
@@ -348,7 +348,7 @@
 #X connect 34 0 33 0;
 #X connect 34 1 12 0;
 #X connect 34 2 13 0;
-#X restore 696 569 pd play_led_nanoKontrol;
+#X restore 692 543 pd play_led_nanoKontrol;
 #N canvas 408 299 864 508 select_led_nanoKontrol 0;
 #X obj 117 237 extra/sv module_selected;
 #X obj 117 354 & 2;
@@ -446,7 +446,7 @@
 #X connect 38 0 26 0;
 #X connect 39 0 27 0;
 #X connect 40 0 28 0;
-#X restore 710 607 pd select_led_nanoKontrol;
+#X restore 692 563 pd select_led_nanoKontrol;
 #N canvas 381 150 537 404 global_with_no_selection 0;
 #X obj 327 87 extra/sv module_selected;
 #X obj 102 90 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
@@ -479,18 +479,21 @@
 ;
 #X obj 306 125 audio/input_lgml;
 #X obj 357 176 *~ 1;
-#X obj 41 291 audio/tempo_link machines 8;
-#X connect 1 0 32 0;
-#X connect 1 1 32 0;
-#X connect 2 0 3 1;
+#X obj 41 331 audio/tempo_link machines 8;
+#X obj 445 330 *~ 1;
+#X obj 40 228 declare -lib ceammc;
+#X obj 378 234 audio/8loop 0 0 2 2 1 1 0;
+#X connect 1 0 31 0;
+#X connect 1 1 31 0;
 #X connect 2 0 3 0;
 #X connect 4 0 5 0;
-#X connect 8 0 24 0;
 #X connect 8 0 3 0;
 #X connect 8 0 3 1;
+#X connect 8 0 36 0;
 #X connect 9 0 2 0;
+#X connect 9 0 34 0;
 #X connect 10 0 11 0;
-#X connect 11 0 34 1;
+#X connect 11 0 33 1;
 #X connect 13 0 6 2;
 #X connect 14 1 6 2;
 #X connect 14 2 6 3;
@@ -509,16 +512,19 @@
 #X connect 19 0 21 0;
 #X connect 21 0 20 0;
 #X connect 22 0 2 0;
-#X connect 24 0 2 0;
-#X connect 24 1 22 0;
-#X connect 24 2 9 0;
-#X connect 29 0 28 1;
-#X connect 30 0 29 0;
-#X connect 32 1 8 0;
-#X connect 32 2 22 0;
-#X connect 32 3 9 0;
-#X connect 32 5 33 0;
-#X connect 33 0 24 0;
+#X connect 22 1 34 0;
+#X connect 28 0 27 1;
+#X connect 29 0 28 0;
+#X connect 31 1 8 0;
+#X connect 31 2 22 0;
+#X connect 31 3 9 0;
+#X connect 31 5 32 0;
+#X connect 32 0 36 0;
+#X connect 34 0 3 1;
+#X connect 36 0 2 0;
+#X connect 36 0 34 0;
+#X connect 36 1 22 0;
+#X connect 36 2 9 0;
 #X coords 0 -1 1 1 140 42 2 100 100;
 #X restore 6 138 pd patch;
 #N canvas 173 173 1141 592 connect 0;
@@ -528,7 +534,7 @@
 0;
 #N canvas 402 288 1038 552 open 0;
 #X obj 103 102 hradio 15 0 0 3 empty empty empty 0 -8 0 10 -262144
--1 -1 1;
+-1 -1 2;
 #X text 462 314 label-color;
 #X text 477 339 label-color;
 #X obj 377 311 t b f;
@@ -644,8 +650,8 @@
 #X connect 10 0 4 0;
 #X coords 0 -1 1 1 49 17 2 100 100;
 #X restore 127 47 pd open;
-#X obj 535 80 UI/delay;
-#X obj 384 78 UI/reverb;
+#X obj 535 80 ui/delay;
+#X obj 384 78 ui/reverb;
 #X obj 209 0 bng 55 250 50 0 save_all empty SAVE 10 25 0 15 -258113
 -1 -1;
 #X coords 0 -1 1 1 140 42 1 43 25;

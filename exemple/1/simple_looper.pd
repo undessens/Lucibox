@@ -1,4 +1,4 @@
-#N canvas 800 46 1060 513 10;
+#N canvas 638 130 1060 513 10;
 #X declare -path ../../patches;
 #X obj 7 370 cnv 15 980 120 empty empty empty 330 30 0 45 -21525 -88297
 0;
@@ -9,7 +9,7 @@
 0;
 #X obj 7 107 cnv 15 144 259 empty empty empty 20 12 0 14 -233017 -66577
 0;
-#N canvas 123 105 780 738 patch 1;
+#N canvas 123 105 780 738 patch 0;
 #X obj 101 101 cnv 15 138 40 empty empty PATCH 20 12 0 14 -66577 -262144
 0;
 #X obj 321 -3 adc~;
@@ -58,7 +58,6 @@
 #X obj 584 272 s tempoStopIn;
 #X obj 33 269 declare -path ../../patches;
 #X obj 234 155 audio/mic;
-#X obj 36 305 audio/tempo exemple 1;
 #X obj 46 353 extra/osc;
 #X obj 44 392 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
@@ -91,26 +90,28 @@
 #X text 656 208 1 . Yes;
 #X text 572 68 0 . No;
 #X text 709 208 2 Toogle;
-#X obj 333 196 audio/loop 1 1 1 0 1 1 0;
+#X obj 36 305 audio/tempo_link exemple 1;
+#X obj 333 196 audio/loop_stretch 1 1 3 0 1 1 0;
+#X obj 420 104 samplerate~;
 #X connect 1 0 14 0;
 #X connect 3 0 4 0;
+#X connect 9 0 26 0;
 #X connect 9 0 27 0;
-#X connect 9 0 28 0;
 #X connect 10 0 9 0;
 #X connect 11 0 12 0;
 #X connect 14 0 46 0;
 #X connect 14 1 9 0;
-#X connect 16 0 17 0;
-#X connect 18 0 16 0;
-#X connect 19 0 26 1;
-#X connect 21 0 26 2;
-#X connect 23 0 26 3;
-#X connect 24 0 26 4;
+#X connect 15 0 16 0;
+#X connect 17 0 15 0;
+#X connect 18 0 25 1;
+#X connect 20 0 25 2;
+#X connect 22 0 25 3;
+#X connect 23 0 25 4;
+#X connect 25 0 2 0;
+#X connect 25 1 2 1;
+#X connect 26 0 2 1;
 #X connect 26 0 2 0;
-#X connect 26 1 2 1;
-#X connect 27 0 2 1;
-#X connect 27 0 2 0;
-#X connect 28 0 26 0;
+#X connect 27 0 25 0;
 #X connect 46 0 10 0;
 #X connect 46 3 7 0;
 #X connect 46 4 8 0;
@@ -124,7 +125,7 @@
 0;
 #N canvas 402 288 1038 552 open 0;
 #X obj 103 102 hradio 15 0 0 3 empty empty empty 0 -8 0 10 -262144
--1 -1 0;
+-1 -1 1;
 #X text 462 314 label-color;
 #X text 477 339 label-color;
 #X obj 377 311 t b f;
@@ -174,7 +175,7 @@
 0;
 #N canvas 285 163 1038 575 open 0;
 #X obj 103 102 hradio 15 0 0 3 empty empty empty 0 -8 0 10 -262144
--1 -1 1;
+-1 -1 2;
 #X text 462 314 label-color;
 #X text 477 339 label-color;
 #X obj 377 311 t b f;

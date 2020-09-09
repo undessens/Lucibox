@@ -405,6 +405,8 @@
 -1 -1;
 #X obj 460 88 f 0;
 #X text 462 59 Tempo is here;
+#X obj 307 179 cnv 15 600 150 empty empty DEPRECATED 20 12 0 14 -258113
+-66577 0;
 #X connect 0 0 1 0;
 #X connect 1 0 6 0;
 #X connect 2 0 0 0;

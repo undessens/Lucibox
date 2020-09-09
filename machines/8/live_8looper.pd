@@ -1,14 +1,14 @@
-#N canvas 345 23 1088 612 10;
+#N canvas 766 27 1088 612 10;
 #X declare -path ../../patches;
 #X obj 7 370 cnv 15 750 142 empty empty empty 330 30 0 45 -21525 -88297
 0;
 #X obj 156 108 cnv 15 600 258 empty empty empty 20 12 0 14 -233017
 -66577 0;
-#X obj 77 372 UI/ui_tempo_small;
+#X obj 72 369 UI/ui_tempo_small;
 #X obj 7 24 cnv 15 750 81 empty empty LUCIBOX 414 36 0 45 -21525 -88297
 0;
 #X obj 87 470 hsl 640 30 0 1 0 0 empty global_tempo_slider empty -2
--8 0 10 -33289 -4032 -1 0 1;
+-8 0 10 -33289 -4032 -1 27310 1;
 #X obj 177 116 UI/ui_looper_complete 1 1;
 #X obj 247 115 UI/ui_looper_complete 2 1;
 #X obj 315 115 UI/ui_looper_complete 3 1;
@@ -21,7 +21,7 @@
 #X obj 6 106 nogui;
 #X obj 76 419 UI/ui_tempo_extra;
 #X obj 782 78 hsl 128 15 0 15 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 672 1;
+-1 -1 0 1;
 #X obj 779 126 s toOSC;
 #X obj 781 209 hsl 128 15 0 12 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 0 1;
@@ -31,13 +31,13 @@
 #X obj 778 382 s toOSC;
 #X msg 778 360 /main/num_triangle f \$1;
 #X obj 805 523 hsl 128 15 -600 600 0 0 empty empty empty -2 -8 0 10
--262144 -1 -1 12700 1;
+-262144 -1 -1 0 1;
 #X obj 802 571 s toOSC;
 #X msg 802 549 /main/X i \$1;
 #X obj 887 456 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 915 523 hsl 128 15 -600 600 0 0 empty empty empty -2 -8 0 10
--262144 -1 -1 3694 1;
+-262144 -1 -1 0 1;
 #X obj 912 571 s toOSC;
 #X msg 912 549 /main/Y i \$1;
 #X obj 779 38 extra/midiLearn video_line_width;

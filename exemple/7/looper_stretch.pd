@@ -1,0 +1,211 @@
+#N canvas 641 56 1060 513 10;
+#X declare -path ../../patches;
+#X obj 7 370 cnv 15 980 120 empty empty empty 330 30 0 45 -21525 -88297
+0;
+#X obj 154 107 cnv 15 834 258 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X obj 175 439 UI/ui_tempo_small;
+#X obj 7 24 cnv 15 980 81 empty empty LUCIBOX 414 36 0 45 -21525 -88297
+0;
+#X obj 7 107 cnv 15 144 259 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#N canvas 493 50 994 730 patch 0;
+#X obj 101 101 cnv 15 138 40 empty empty PATCH 20 12 0 14 -66577 -262144
+0;
+#X obj 321 -3 adc~;
+#X obj 274 539 dac~;
+#X obj 38 100 bng 35 250 50 0 empty empty CLOSE 4 20 0 10 -262144 -1
+-1;
+#X msg 38 164 \; pd-patch vis 0;
+#X obj 282 613 arduino/arduino_out;
+#N canvas 447 412 1038 529 open 0;
+#X text 462 314 label-color;
+#X text 477 339 label-color;
+#X obj 377 311 t b f;
+#X msg 400 277 2;
+#X obj 466 220 loadbang;
+#X obj 104 101 hradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
+-1 -1 1;
+#X obj 104 166 bang;
+#X msg 363 277 43;
+#X obj 101 101 cnv 15 38 15 empty \$0_opencnv open 6 8 0 10 -66577
+-262144 0;
+#X msg 405 398 \; \$4_opencnv color \$1 \$2 \$3;
+#X obj 363 197 bang;
+#X obj 404 365 pack 43 0 0 \$0;
+#X obj 400 220 delay 200;
+#X msg 101 247 \; pd-patch vis 1;
+#X msg 614 289 \; pd-patch vis 0;
+#X connect 2 1 11 0;
+#X connect 3 0 2 0;
+#X connect 4 0 3 0;
+#X connect 4 0 14 0;
+#X connect 5 0 6 0;
+#X connect 6 0 10 0;
+#X connect 6 0 13 0;
+#X connect 7 0 2 0;
+#X connect 10 0 7 0;
+#X connect 10 0 12 0;
+#X connect 11 0 9 0;
+#X connect 12 0 3 0;
+#X coords 0 -1 1 1 40 17 2 100 100;
+#X restore 177 107 pd open;
+#X obj 466 271 s ledrec1;
+#X obj 499 245 s ledplay1;
+#X obj 251 246 *~ 1;
+#X obj 333 219 *~ 1;
+#X obj 584 250 bang;
+#X obj 584 272 s tempoStopIn;
+#X obj 33 269 declare -path ../../patches;
+#X obj 234 155 audio/mic;
+#X obj 46 353 extra/osc;
+#X obj 44 392 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 48 327 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 396 504 0 0 120 0 - - -;
+#X text 371 485 level \, dB;
+#X floatatom 424 504 0 0 100 0 - - -;
+#X text 391 463 liveness \, 0-100;
+#X floatatom 455 506 0 0 120 0 - - -;
+#X floatatom 486 503 0 0 120 0 - - -;
+#X text 465 479 crossover frequency \, Hz.;
+#X obj 368 525 rev2~ 100 90 3000 20;
+#X obj 269 436 *~ 1;
+#X obj 346 473 *~ 0;
+#X text 570 9 \$1 : index of the column;
+#X text 569 33 \$2 : index of the raw;
+#X text 568 54 \$3 : index of rampgenerator;
+#X text 612 68 1 . Line;
+#X text 667 68 2 Breakbeat;
+#X text 567 89 \$4 : timecompression;
+#X text 610 103 0 . No;
+#X text 658 105 1 . Yes;
+#X text 570 129 \$5 : manage the Recording;
+#X text 569 170 \$6 : manage the Playing;
+#X text 607 146 1 . Classic;
+#X text 685 146 2 No Overdub;
+#X text 571 191 \$7 : sampler;
+#X text 609 207 0 . No;
+#X text 656 208 1 . Yes;
+#X text 572 68 0 . No;
+#X text 709 208 2 Toogle;
+#X obj 333 196 audio/loop_stretch 1 1 3 0 1 1 0;
+#X obj 36 305 audio/tempo_link exemple 1;
+#X connect 1 0 14 0;
+#X connect 3 0 4 0;
+#X connect 9 0 26 0;
+#X connect 9 0 27 0;
+#X connect 10 0 9 0;
+#X connect 11 0 12 0;
+#X connect 14 0 45 0;
+#X connect 14 1 9 0;
+#X connect 15 0 16 0;
+#X connect 17 0 15 0;
+#X connect 18 0 25 1;
+#X connect 20 0 25 2;
+#X connect 22 0 25 3;
+#X connect 23 0 25 4;
+#X connect 25 0 2 0;
+#X connect 25 1 2 1;
+#X connect 26 0 2 1;
+#X connect 26 0 2 0;
+#X connect 27 0 25 0;
+#X connect 45 0 10 0;
+#X connect 45 3 7 0;
+#X connect 45 4 8 0;
+#X connect 45 5 11 0;
+#X coords 0 -1 1 1 140 42 2 100 100;
+#X restore 7 144 pd patch;
+#N canvas 518 153 922 462 connect 0;
+#X obj 39 6 cnv 15 650 83 empty empty CONNECT 250 30 0 45 -21525 -88297
+0;
+#X obj 43 26 cnv 15 138 40 empty empty CONNECT 20 12 0 14 -66577 -262144
+0;
+#N canvas 402 288 1038 552 open 0;
+#X obj 103 102 hradio 15 0 0 3 empty empty empty 0 -8 0 10 -262144
+-1 -1 2;
+#X text 462 314 label-color;
+#X text 477 339 label-color;
+#X obj 377 311 t b f;
+#X msg 400 277 2;
+#X obj 466 220 loadbang;
+#X obj 104 166 bang;
+#X msg 363 277 43;
+#X obj 363 197 bang;
+#X obj 404 365 pack 43 0 0 \$0;
+#X obj 400 220 delay 200;
+#X msg 104 202 \; pd-connect vis 1;
+#X msg 405 398 \; \$4_connectcnv color \$1 \$2 \$3;
+#X obj 101 101 cnv 15 47 15 empty \$0_connectcnv open 14 6 0 10 -66577
+-262144 0;
+#X obj 594 296 bang;
+#X msg 594 332 \; pd-connect vis 0;
+#X connect 0 0 6 0;
+#X connect 3 1 9 0;
+#X connect 4 0 3 0;
+#X connect 5 0 4 0;
+#X connect 5 0 14 0;
+#X connect 6 0 8 0;
+#X connect 6 0 11 0;
+#X connect 7 0 3 0;
+#X connect 8 0 7 0;
+#X connect 8 0 10 0;
+#X connect 9 0 12 0;
+#X connect 10 0 4 0;
+#X connect 14 0 15 0;
+#X coords 0 -1 1 1 49 17 2 100 100;
+#X restore 126 47 pd open;
+#X obj 35 95 arduino/arduino;
+#X obj 468 94 connect/connect_recloopsave 1 1;
+#X obj 320 94 connect/connect_mic;
+#X obj 35 154 hardware/midi;
+#X obj 35 211 hardware/keyboard;
+#X coords 0 -1 1 1 140 42 1 43 25;
+#X restore 7 208 pd connect;
+#X obj 232 370 hsl 550 60 0 1 0 0 empty global_tempo_slider empty -2
+-8 0 10 -33289 -4032 -1 8482 1;
+#N canvas 183 186 749 373 volumes 0;
+#X obj 25 -13 cnv 15 600 83 empty empty VOLUMES 230 30 0 45 -21525
+-88297 0;
+#X obj 181 81 volumes/volume_mic;
+#X obj 44 26 cnv 15 138 40 empty empty VOLUMES 20 12 0 14 -66577 -262144
+0;
+#N canvas 285 163 1038 575 open 0;
+#X obj 103 102 hradio 15 0 0 3 empty empty empty 0 -8 0 10 -262144
+-1 -1 1;
+#X text 462 314 label-color;
+#X text 477 339 label-color;
+#X obj 377 311 t b f;
+#X msg 400 277 2;
+#X obj 466 220 loadbang;
+#X obj 104 166 bang;
+#X msg 363 277 43;
+#X obj 363 197 bang;
+#X obj 404 365 pack 43 0 0 \$0;
+#X obj 400 220 delay 200;
+#X obj 101 101 cnv 15 47 15 empty \$0_volumescnv open 14 6 0 10 -66577
+-262144 0;
+#X msg 104 202 \; pd-volumes vis 1;
+#X msg 405 398 \; \$4_volumescnv color \$1 \$2 \$3;
+#X msg 552 270 \; pd-volumes vis 0;
+#X connect 0 0 6 0;
+#X connect 3 1 9 0;
+#X connect 4 0 3 0;
+#X connect 5 0 4 0;
+#X connect 5 0 14 0;
+#X connect 6 0 8 0;
+#X connect 6 0 12 0;
+#X connect 7 0 3 0;
+#X connect 8 0 7 0;
+#X connect 8 0 10 0;
+#X connect 9 0 13 0;
+#X connect 10 0 4 0;
+#X coords 0 -1 1 1 49 17 2 100 100;
+#X restore 127 47 pd open;
+#X obj 513 2 bng 55 250 50 0 save_all empty SAVE 10 25 0 15 -258113
+-1 -1;
+#X obj 343 84 volumes/volume_loop 1 1;
+#X coords 0 -1 1 1 140 42 1 43 25;
+#X restore 7 272 pd volumes;
+#X obj 453 139 UI/ui_looper 1 1;
